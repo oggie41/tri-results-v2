@@ -1,11 +1,73 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Tri Results";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Testing auto-deployment to Azure App Service after GitHub commit.</p>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>@ViewData["Title"]</h1>
+
+<div class="event">
+    <div class="subHeadingSmall">
+        <a href="https://connect.garmin.com/modern/activity/7226965095" target="_blank">York Sprint Triathlon, 1st Aug 2021</a>
+    </div>
+    @*<table class="bordered">
+        <thead>
+            <tr>
+                <th class="col0"></th>
+                <th class="col1">Swim<br />(400m Pool)</th>
+                <th class="col2">T1</th>
+                <th class="col3">Bike<br />(17km)</th>
+                <th class="col4">T2</th>
+                <th class="col5">Run<br />(5km)</th>
+                <th class="col6">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="row-title">Time</td>
+                <td>07:32*</td>
+                <td>01:23</td>
+                <td>36:04</td>
+                <td>00:52</td>
+                <td>22:18</td>
+                <td>01:08:09</td>
+            </tr>
+            <tr>
+                <td class="row-title">Pace/Speed</td>
+                <td>-</td>
+                <td>-</td>
+                <td>17.5 mph</td>
+                <td>-</td>
+                <td>6:54 min/mi</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="row-title">Position</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>47/335</td>
+            </tr>
+            <tr>
+                <td class="row-title">Performance</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>87%</td>
+            </tr>
+        </tbody>
+    </table>*@
+    @*<div class="weather">Conditions: 18°C, Cloudy, 9mph wind</div>
+    <div class="notes-displayed">
+        *Swim time includes run to transition. 400m swim was 07:25.
+    </div>
+    <div class="notes">
+        Notes: Nice pool. Was pleased with the swim considering I've only swam twice in the last year! Kept it relaxed, breathing felt good. Had to swap lanes every 4 laps, so not ideal for a quick time.<br />
+        Bike course was really tight and technical (6 laps of the uni-campus). Wasn't the kind of course I'm used to so found it challenging, but good fun.<br />
+        Run was 4 laps round the cycle track. Felt OK, but think capable of going a bit quicker. Enjoyed the race, would do it again.
+    </div>*@
 </div>
