@@ -30,6 +30,10 @@ html {
     font-size: 14px;
 }
 
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -79,6 +83,52 @@ body {
     font-size: 1.1rem;
 }
 
+.accordion-button:focus {
+     box-shadow: none;
+}
+
+.accordion-body {
+    padding: 0; 
+}
+
+.accordion-item .accordion-button {
+    font-weight: bold;
+}
+
+.accordion-button {
+    padding: 1rem 1rem;
+}
+
+.figure-caption {
+    font-size: .95em;
+}
+
 /* Custom
 -------------------------------------------------- */
+.tri-race-detail {
+    margin: 0 0 .6rem 0;
+}
 
+.tri-race-footer {
+    margin: 0 0 1rem 0;
+}
+
+/* Loading spinner
+-------------------------------------------------- */
+.tri-loading-overlay {
+    position: fixed;
+    display: none;
+    z-index: 1031;
+    height: 2em;
+    width: 2em;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.tri-loading-spinner {
+    width: 4rem;
+    height: 4rem;
+}

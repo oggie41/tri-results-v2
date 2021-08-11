@@ -1,60 +1,67 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - Tri Results</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/tri-results.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/tri-results.min.css" asp-append-version="true"/>
 
     <script src="https://kit.fontawesome.com/da48e6d6b6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom box-shadow py-3 mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="images/general/tri-symbols-white.png" alt="Tri Results" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Index"><i class="fas fa-clipboard-list"></i> Tri Results</a>
-                        </li>
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Privacy"><i class="fas fa-swimmer"></i> Swim</a>
-                        </li>
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Privacy"><i class="fas fa-biking"></i> Bike</a>
-                        </li>
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Privacy"><i class="fas fa-running"></i> Run</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Privacy"><i class="far fa-calendar-alt"></i> Race Diary</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
+<partial name="_Loading"/>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom box-shadow py-2 mb-3">
         <div class="container">
-            &copy; @DateTime.Now.Year - David Ogle
+            <a class="navbar-brand" asp-area="" asp-page="/Index">
+                <picture>
+                    <source srcset="/images/general/tri-symbols-white_220.png" media="(max-width: 767px)"/>
+                    <source srcset="/images/general/tri-symbols-white_280.png" media="(min-width: 768px)"/>
+                    <img src="/images/general/tri-symbols-white_280.png" alt="Tri Results"/>
+                </picture>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Index"><i class="fas fa-clipboard-list"></i> Tri Results</a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Swim"><i class="fas fa-swimmer"></i> Swim</a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Bike"><i class="fas fa-biking"></i> Bike</a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Run"><i class="fas fa-running"></i> Run</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-page="/RaceDiary"><i class="far fa-calendar-alt"></i> Race Diary</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </footer>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; @DateTime.Now.Year - David Ogle
+    </div>
+</footer>
 
-    @await RenderSectionAsync("Scripts", required: false)
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

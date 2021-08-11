@@ -12,14 +12,28 @@ namespace TriResultsV2.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        public bool DisplayNotes { get; set; } = false;
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync(string displayNotes = null)
         {
+            try
+            {
+                if (!string.IsNullOrEmpty(displayNotes))
+                {
+                    DisplayNotes = bool.Parse(displayNotes);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+            }
 
+            return Page();
         }
     }
 }
