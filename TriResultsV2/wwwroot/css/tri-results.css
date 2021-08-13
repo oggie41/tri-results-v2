@@ -82,6 +82,16 @@ body {
 .figure-caption {
   font-size: .95em; }
 
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: .3rem;
+    padding-left: .3rem; } }
+
+@media (min-width: 992px) {
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem; } }
+
 /* Custom
 -------------------------------------------------- */
 .tri-race-detail {
