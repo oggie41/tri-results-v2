@@ -113,6 +113,17 @@ body {
     margin: 0 0 1rem 0;
 }
 
+.tri-logo {
+    width: 220px;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .tri-logo {
+        width: 280px;
+    }
+}
+
 /* Loading spinner
 -------------------------------------------------- */
 .tri-loading-overlay {
