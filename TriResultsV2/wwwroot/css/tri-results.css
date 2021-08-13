@@ -94,7 +94,7 @@ body {
   width: 220px;
   height: auto; }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .tri-logo {
     width: 280px; } }
 
