@@ -80,7 +80,7 @@ body {
   padding: 1rem 1rem; }
 
 .figure-caption {
-  font-size: .95em; }
+  font-size: .92em; }
 
 @media (min-width: 768px) {
   .navbar-expand-md .navbar-nav .nav-link {
@@ -94,7 +94,7 @@ body {
 
 @media (max-width: 575px) {
   .table th, .table td {
-    padding: .3em !important; } }
+    padding: .2em !important; } }
 
 /* Custom
 -------------------------------------------------- */
