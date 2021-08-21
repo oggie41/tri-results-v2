@@ -92,6 +92,10 @@ body {
     padding-right: .5rem;
     padding-left: .5rem; } }
 
+@media (max-width: 575px) {
+  .table th, .table td {
+    padding: .3em !important; } }
+
 /* Custom
 -------------------------------------------------- */
 .tri-race-detail {

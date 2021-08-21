@@ -117,6 +117,12 @@ body {
     }
 }
 
+@media (max-width: 575px) {
+    .table th, .table td {
+        padding: .3em !important;
+    }
+}
+
 /* Custom
 -------------------------------------------------- */
 .tri-race-detail {
