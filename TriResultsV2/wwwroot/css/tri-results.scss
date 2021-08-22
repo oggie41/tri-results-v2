@@ -79,10 +79,6 @@ body {
 
 /* Bootstrap overrides
 -------------------------------------------------- */
-.navbar-nav .nav-link {
-    font-size: 1.1rem;
-}
-
 .accordion-button:focus {
      box-shadow: none;
 }
@@ -100,13 +96,18 @@ body {
 }
 
 .figure-caption {
-    font-size: .92em;
+    font-size: .94em;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    font-size: 1.2rem;
 }
 
 @media (min-width: 768px) {
     .navbar-expand-md .navbar-nav .nav-link {
         padding-right: .3rem;
         padding-left: .3rem;
+        font-size: 1.1rem;
     }
 }
 
