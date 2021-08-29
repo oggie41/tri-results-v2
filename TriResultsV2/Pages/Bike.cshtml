@@ -8,62 +8,13 @@
 <div class="col-xl-10">
     <div id="div-bike-pbs" class="mt-2 mb-2">
         <h3><i class="fas fa-medal"></i> Personal Records</h3>
-        <div class="">
-            <div class="table-responsive mt-3 mb-1">
-                <table class="table table-hover table-striped table-bordered align-top">
-                    <thead class="table-primary align-top">
-                        <tr>
-                            <th scope="col" class="col-1">
-                                <div class="d-block d-sm-none">Dist.</div>
-                                <div class="d-none d-sm-block">Distance</div>
-                            </th>
-                            <th scope="col" class="col-2">Date</th>
-                            <th scope="col" class="col-5">Race</th>
-                            <th scope="col" class="col-2">Time</th>
-                            <th scope="col" class="col-2">Speed</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>10mi</td>
-                            <td>08/05/18</td>
-                            <td>
-                                <a href="https://connect.garmin.com/modern/activity/2684332277" target="_blank">Cuckney 10 Mile TT</a>
-                            </td>
-                            <td>27:00</td>
-                            <td>22.2 mph</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <partial name="_EventResultsTable" model="Model.BikePersonalBests" />
     </div>
-
-    <div id="div-bike-results" class="mt-2 mb-4">
+    <div id="div-bike-results" class="mt-2 mb-2">
         <h3><i class="fas fa-clipboard-list"></i> Bike Results</h3>
         <div class="accordion accordion-flush">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#div-10mi-tts">
-                        10 Mile TTs
-                    </button>
-                </h2>
-                <div id="div-10mi-tts" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#div-25mi-tts">
-                        25 Mile TTs
-                    </button>
-                </h2>
-                <div id="div-25mi-tts" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                    </div>
-                </div>
-            </div>
+            <partial name="_EventResultsAccordionItem" model="Model.BikeResults10MiAccordionItem" />
+            <partial name="_EventResultsAccordionItem" model="Model.BikeResults25MiAccordionItem" />
         </div>
     </div>
 </div>

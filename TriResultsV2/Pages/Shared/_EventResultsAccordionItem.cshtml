@@ -1,0 +1,25 @@
+﻿@using TriResultsV2.Models
+@model EventsResultsAccordionItem
+
+@{
+    string headerButtonCss = "accordion-button collapsed";
+    string bodyContainerCss = "accordion-collapse collapse";
+
+    if (Model.Expanded)
+    {
+        headerButtonCss = "accordion-button";
+        bodyContainerCss = "accordion-collapse collapse show";
+    }
+}
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#@Model.ContentId">
+            @Model.HeaderText
+        </button>
+    </h2>
+    <div id="@Model.ContentId" class="@bodyContainerCss">
+        <div class="accordion-body">
+            <partial name="_EventResultsTable" model="Model.EventResults" />
+        </div>
+    </div>
+</div>

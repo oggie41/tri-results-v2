@@ -5,4 +5,16 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<h3><i class="fas fa-user-cog"></i> In Development...</h3>
+<div class="col-xl-10">
+    <div id="div-swim-pbs" class="mt-2 mb-2">
+        <h3><i class="fas fa-medal"></i> Personal Records</h3>
+        <partial name="_EventResultsTable" model="Model.SwimPersonalBests" />
+    </div>
+    <div id="div-swim-results" class="mt-2 mb-2">
+        <h3><i class="fas fa-clipboard-list"></i> Swim Results</h3>
+        <div class="accordion accordion-flush">
+            <partial name="_EventResultsAccordionItem" model="Model.SwimResults200MetreAccordionItem" />
+            <partial name="_EventResultsAccordionItem" model="Model.SwimResults400MetreAccordionItem" />
+        </div>
+    </div>
+</div>

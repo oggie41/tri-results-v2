@@ -1,0 +1,79 @@
+﻿@using TriResultsV2.Models
+@using TriResultsV2.Helpers
+@model IEnumerable<EventResult>
+
+<div class="table-responsive mt-3 mb-1">
+    <table class="table table-hover table-striped table-bordered align-top">
+        <thead class="table-primary align-top">
+            <tr>
+                <th scope="col" class="col-1">
+                    <div class="d-block d-sm-none">Dist.</div>
+                    <div class="d-none d-sm-block">Distance</div>
+                </th>
+                <th scope="col" class="col-2">Date</th>
+                <th scope="col" class="col-5">Race</th>
+                <th scope="col" class="col-2">Time</th>
+                <th scope="col" class="col-2">
+                    @{
+                        string colHeader = "Pace";
+
+                        if (Model != null)
+                        {
+                            if (Model.Any())
+                            {
+                                var firstResult = Model.FirstOrDefault();
+
+                                if (firstResult != null)
+                                {
+                                    if (firstResult.Sport == SportType.Bike)
+                                    {
+                                        colHeader = "Speed";
+                                    }
+
+                                    if (string.IsNullOrEmpty(firstResult.AvgPaceSpeed))
+                                    {
+                                        colHeader = "Position";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    @colHeader
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model)
+            {
+                <tr>
+                    <td>@result.Distance</td>
+                    <td>@result.EventDate.ToString("dd/MM/yy")</td>
+                    <td>
+                        @if (result.GarminId.HasValue)
+                        {
+                            <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@result.EventName</a>
+                        }
+                        else
+                        {
+                            @result.EventName
+                        }
+                    </td>
+                    <td>@EventHelper.GetTotalTimeFormatted(result.TotalTime)</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(result.AvgPaceSpeed))
+                        {
+                            @result.AvgPaceSpeed
+                        }
+                        else
+                        {
+                            @if (!string.IsNullOrEmpty(result.Position))
+                            {
+                                @result.Position
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
