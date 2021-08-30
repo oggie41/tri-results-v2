@@ -25,5 +25,7 @@ namespace TriResultsV2.Models
         public string AvgPaceSpeed { get; set; }
 
         public string Position { get; set; }
+
+        public bool PersonalBest { get; set; } = false;
     }
 }

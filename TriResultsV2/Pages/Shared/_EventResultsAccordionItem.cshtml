@@ -1,7 +1,13 @@
 ﻿@using TriResultsV2.Models
-@model EventsResultsAccordionItem
+@model EventResultsAccordionItemVM
 
 @{
+    var eventResultsTable = new EventResultsTableVM()
+    {
+        PersonalRecordsTable = Model.PersonalRecordsItem,
+        EventResults = Model.EventResults
+    };
+
     string headerButtonCss = "accordion-button collapsed";
     string bodyContainerCss = "accordion-collapse collapse";
 
@@ -19,7 +25,7 @@
     </h2>
     <div id="@Model.ContentId" class="@bodyContainerCss">
         <div class="accordion-body">
-            <partial name="_EventResultsTable" model="Model.EventResults" />
+            <partial name="_EventResultsTable" model="@eventResultsTable" />
         </div>
     </div>
 </div>

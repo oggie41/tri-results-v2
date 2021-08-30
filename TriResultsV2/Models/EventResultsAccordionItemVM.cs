@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TriResultsV2.Models
 {
-    public class EventsResultsAccordionItem
+    public class EventResultsAccordionItemVM
     {
         public string ContentId { get; set; }
         
@@ -13,6 +13,8 @@ namespace TriResultsV2.Models
 
         public bool Expanded { get; set; } = false;
 
-        public List<EventResult> EventResults { get; set; } = new List<EventResult>();
+        public bool PersonalRecordsItem { get; set; } = false;
+
+        public IEnumerable<EventResult> EventResults { get; set; }
     }
 }

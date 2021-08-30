@@ -1,6 +1,6 @@
 ﻿@using TriResultsV2.Models
 @using TriResultsV2.Helpers
-@model IEnumerable<EventResult>
+@model EventResultsTableVM
 
 <div class="table-responsive mt-3 mb-1">
     <table class="table table-hover table-striped table-bordered align-top">
@@ -17,11 +17,11 @@
                     @{
                         string colHeader = "Pace";
 
-                        if (Model != null)
+                        if (Model.EventResults != null)
                         {
-                            if (Model.Any())
+                            if (Model.EventResults.Any())
                             {
-                                var firstResult = Model.FirstOrDefault();
+                                var firstResult = Model.EventResults.FirstOrDefault();
 
                                 if (firstResult != null)
                                 {
@@ -43,36 +43,45 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var result in Model)
+            @if (Model.EventResults != null)
             {
-                <tr>
-                    <td>@result.Distance</td>
-                    <td>@result.EventDate.ToString("dd/MM/yy")</td>
-                    <td>
-                        @if (result.GarminId.HasValue)
-                        {
-                            <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@result.EventName</a>
-                        }
-                        else
-                        {
-                            @result.EventName
-                        }
-                    </td>
-                    <td>@EventHelper.GetTotalTimeFormatted(result.TotalTime)</td>
-                    <td>
-                        @if (!string.IsNullOrEmpty(result.AvgPaceSpeed))
-                        {
-                            @result.AvgPaceSpeed
-                        }
-                        else
-                        {
-                            @if (!string.IsNullOrEmpty(result.Position))
+                foreach (var result in Model.EventResults)
+                {
+                    string eventName = result.EventName;
+
+                    if (!Model.PersonalRecordsTable && result.PersonalBest)
+                    {
+                        eventName = $"{eventName} (PB)";
+                    }
+                    <tr>
+                        <td>@result.Distance</td>
+                        <td>@result.EventDate.ToString("dd/MM/yy")</td>
+                        <td>
+                            @if (result.GarminId.HasValue)
                             {
-                                @result.Position
+                                <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@Html.Raw(eventName)</a>
                             }
-                        }
-                    </td>
-                </tr>
+                            else
+                            {
+                                @Html.Raw(eventName)
+                            }
+                        </td>
+                        <td>@EventHelper.GetTotalTimeFormatted(result.TotalTime)</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(result.AvgPaceSpeed))
+                            {
+                                @result.AvgPaceSpeed
+                            }
+                            else
+                            {
+                                @if (!string.IsNullOrEmpty(result.Position))
+                                {
+                                    @result.Position
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
             }
         </tbody>
     </table>

@@ -24,6 +24,23 @@ namespace TriResultsV2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            bool localData = bool.Parse(Configuration["Data.Local"]);
+
+            if (localData)
+            {
+                // Add local services.
+                services.AddTransient<Services.Interfaces.ISwimService, Services.Local.LocalSwimService>();
+                services.AddTransient<Services.Interfaces.IBikeService, Services.Local.LocalBikeService>();
+                services.AddTransient<Services.Interfaces.IRunService, Services.Local.LocalRunService>();
+            }
+            else
+            {
+                // Add SQL services.
+                services.AddTransient<Services.Interfaces.ISwimService, Services.Sql.SqlSwimService>();
+                services.AddTransient<Services.Interfaces.IBikeService, Services.Sql.SqlBikeService>();
+                services.AddTransient<Services.Interfaces.IRunService, Services.Sql.SqlRunService>();
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,79 +5,65 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using TriResultsV2.Helpers;
 using TriResultsV2.Models;
+using TriResultsV2.Services.Interfaces;
 
 namespace TriResultsV2.Pages
 {
     public class SwimModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        protected ILogger<SwimModel> Logger { get; private set; }
+        protected ISwimService SwimService { get; private set; }
 
-        public List<EventResult> SwimPersonalBests { get; private set; } = new List<EventResult>();
+        public EventResultsTableVM PersonalRecordsTable { get; private set; } = new EventResultsTableVM();
 
-        public EventsResultsAccordionItem SwimResults200MetreAccordionItem { get; private set; } = new EventsResultsAccordionItem();
-        public EventsResultsAccordionItem SwimResults400MetreAccordionItem { get; private set; } = new EventsResultsAccordionItem();
+        public EventResultsAccordionItemVM SwimResults200MetreAccordionItem { get; private set; } = new EventResultsAccordionItemVM();
+        public EventResultsAccordionItemVM SwimResults400MetreAccordionItem { get; private set; } = new EventResultsAccordionItemVM();
+
+        public SwimModel(ILogger<SwimModel> logger, ISwimService swimService)
+        {
+            Logger = logger;
+            SwimService = swimService;
+        }
 
         public async Task<IActionResult> OnGetAsync()
         {
             try
             {
-                SwimPersonalBests = new List<EventResult>();
+                var swimPersonalRecords = new List<EventResult>();
 
-                #region 200 Metre TT Results
-                var swimResults200MetreTT = new List<EventResult>();
+                // 200 Metre TT Results.
+                var swimResults200MetreTT = await SwimService.Get200MetreTTResultsAsync();
+                swimPersonalRecords.AddRange(swimResults200MetreTT.Where(res => res.PersonalBest));
 
-                var swimResult3221940710_1 = new EventResult
-                {
-                    Id = 3221940710,
-                    GarminId = 3221940710,
-                    Sport = SportType.Swim,
-                    Distance = EventHelper.Distance200Metres,
-                    EventDate = new DateTime(2018, 12, 12),
-                    EventName = "Westfield 200m TT",
-                    TotalTime = new TimeSpan(0, 3, 18),
-                    AvgPaceSpeed = "25.0 sec/25m"
-                };
-                swimResults200MetreTT.Add(swimResult3221940710_1);
-                SwimPersonalBests.Add(swimResult3221940710_1);
-
-                SwimResults200MetreAccordionItem = new EventsResultsAccordionItem
+                SwimResults200MetreAccordionItem = new EventResultsAccordionItemVM
                 {
                     ContentId = "div-200m-tts",
                     HeaderText = "200m TTs",
                     EventResults = swimResults200MetreTT
                 };
-                #endregion
 
-                #region 400 Metre TT Results
-                var swimResults400MetreTT = new List<EventResult>();
+                // 400 Metre TT Results.
+                var swimResults400MetreTT = await SwimService.Get400MetreTTResultsAsync();
+                swimPersonalRecords.AddRange(swimResults400MetreTT.Where(res => res.PersonalBest));
 
-                var swimResult3221940710_2 = new EventResult
-                {
-                    Id = 3221940710,
-                    GarminId = 3221940710,
-                    Sport = SportType.Swim,
-                    Distance = EventHelper.Distance400Metres,
-                    EventDate = new DateTime(2018, 12, 12),
-                    EventName = "Westfield 400m TT",
-                    TotalTime = new TimeSpan(0, 6, 52),
-                    AvgPaceSpeed = "26.0 sec/25m"
-                };
-                swimResults400MetreTT.Add(swimResult3221940710_2);
-                SwimPersonalBests.Add(swimResult3221940710_2);
-
-                SwimResults400MetreAccordionItem = new EventsResultsAccordionItem
+                SwimResults400MetreAccordionItem = new EventResultsAccordionItemVM
                 {
                     ContentId = "div-400m-tts",
                     HeaderText = "400m TTs",
                     EventResults = swimResults400MetreTT
                 };
-                #endregion
+
+                // Personal Records.
+                PersonalRecordsTable = new EventResultsTableVM()
+                {
+                    PersonalRecordsTable = true,
+                    EventResults = swimPersonalRecords
+                };
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                Logger.LogError(ex.Message);
             }
 
             return Page();

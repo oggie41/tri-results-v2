@@ -39,7 +39,7 @@ namespace TriResultsV2.Helpers
 
             if (totalTime.Hours > 0)
             {
-                totalTimeFormatted = $"{totalTime.Hours:D2}:{totalTime.Minutes:D2}:{totalTime.Seconds:D2}";
+                totalTimeFormatted = $"{totalTime.Hours}:{totalTime.Minutes:D2}:{totalTime.Seconds:D2}";
             }
             else
             {
