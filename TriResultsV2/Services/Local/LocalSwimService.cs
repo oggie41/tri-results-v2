@@ -23,9 +23,9 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2018, 12, 12),
                 EventName = "Westfield 200m TT",
                 TotalTime = new TimeSpan(0, 3, 18),
-                AvgPaceSpeed = "25.0 sec/25m",
                 PersonalBest = true
             };
+            swimResult3221940710.AvgPaceSpeed = SwimHelper.Get25MetreSwimPace(200, swimResult3221940710.TotalTime);
             eventResults.Add(swimResult3221940710);
 
             return eventResults;
@@ -44,9 +44,9 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2018, 12, 12),
                 EventName = "Westfield 400m TT",
                 TotalTime = new TimeSpan(0, 6, 52),
-                AvgPaceSpeed = "26.0 sec/25m",
                 PersonalBest = true
             };
+            swimResult3221940710.AvgPaceSpeed = SwimHelper.Get25MetreSwimPace(400, swimResult3221940710.TotalTime);
             eventResults.Add(swimResult3221940710);
 
             return eventResults;
