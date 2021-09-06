@@ -113,6 +113,18 @@ body {
   .tri-logo {
     width: 280px; } }
 
+/*.tri-brand-background {
+    background: url(../images/background/background.png);
+    background-size: 100%;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-color: #2b285f;
+}
+
+.tri-background-fixed {
+    background-attachment: fixed;
+}
+*/
 /* Loading spinner
 -------------------------------------------------- */
 .tri-loading-overlay {
