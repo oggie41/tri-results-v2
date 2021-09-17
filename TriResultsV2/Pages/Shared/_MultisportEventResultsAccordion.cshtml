@@ -1,0 +1,137 @@
+﻿@using TriResultsV2.Models
+@using TriResultsV2.Helpers
+@model MultisportEventResultsAccordionVM
+
+<div class="accordion accordion-flush">
+    @if (Model.MultisportEventResults != null)
+    {
+        foreach (var result in Model.MultisportEventResults)
+        {
+            string headerButtonCss = "accordion-button collapsed";
+            string bodyContainerCss = "accordion-collapse collapse";
+
+            if (result.Expanded)
+            {
+                headerButtonCss = "accordion-button";
+                bodyContainerCss = "accordion-collapse collapse show";
+            }
+
+            string discipline1Sport = "Swim";
+            string discipline2Sport = "Bike";
+            string discipline3Sport = "Run";
+
+            if (result.Sport == SportType.Duathlon)
+            {
+                discipline1Sport = "Run";
+            }
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#div-race-@result.Id">
+                        @result.EventName, @result.EventDate.ToString("dd/MM/yy") (@EventHelper.GetFormattedTime(result.TotalTime))
+                    </button>
+                </h2>
+                <div id="div-race-@result.Id" class="@bodyContainerCss">
+                    <div class="accordion-body">
+                        <div class="table-responsive mt-3 mb-1">
+                            <table class="table table-hover table-striped table-bordered align-top">
+                                <thead class="table-primary align-top">
+                                <tr>
+                                    <th scope="col" class="col col-lg-2"></th>
+                                    <th scope="col" class="col col-lg-2">
+                                        <div>@discipline1Sport</div>
+                                        <div class="figure-caption">@result.Discipline1Distance</div>
+                                    </th>
+                                    <th scope="col" class="col col-lg-1">T1</th>
+                                    <th scope="col" class="col col-lg-2">
+                                        <div>@discipline2Sport</div>
+                                        <div class="figure-caption">@result.Discipline2Distance</div>
+                                    </th>
+                                    <th scope="col" class="col col-lg-1">T2</th>
+                                    <th scope="col" class="col col-lg-2">
+                                        <div>@discipline3Sport</div>
+                                        <div class="figure-caption">@result.Discipline3Distance</div>
+                                    </th>
+                                    <th scope="col" class="col col-lg-2">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <i class="fas fa-stopwatch d-inline-block"></i>
+                                        <div class="d-none d-lg-inline-block">Time</div>
+                                    </th>
+                                    <td>@EventHelper.GetFormattedTime(result.Discipline1Time)</td>
+                                    <td>@EventHelper.GetFormattedTime(result.T1Time)</td>
+                                    <td>@EventHelper.GetFormattedTime(result.Discipline2Time)</td>
+                                    <td>@EventHelper.GetFormattedTime(result.T2Time)</td>
+                                    <td>@EventHelper.GetFormattedTime(result.Discipline3Time)</td>
+                                    <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <div class="d-none d-lg-inline-block">Pace/Speed</div>
+                                    </th>
+                                    <td>@result.Discipline1PaceSpeed</td>
+                                    <td>-</td>
+                                    <td>@result.Discipline2PaceSpeed</td>
+                                    <td>-</td>
+                                    <td>@result.Discipline3PaceSpeed</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        <div class="d-none d-lg-inline-block">Position</div>
+                                    </th>
+                                    <td>@EventHelper.GetFormattedPosition(result.Discipline1Position)</td>
+                                    <td>@EventHelper.GetFormattedPosition(result.T1Position)</td>
+                                    <td>@EventHelper.GetFormattedPosition(result.Discipline2Position)</td>
+                                    <td>@EventHelper.GetFormattedPosition(result.T2Position)</td>
+                                    <td>@EventHelper.GetFormattedPosition(result.Discipline3Position)</td>
+                                    <td>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <i class="fas fa-percent"></i>
+                                        <div class="d-none d-lg-inline-block">Performance</div>
+                                    </th>
+                                    <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline1Position)</td>
+                                    <td>@EventHelper.GetPerformance(result.TotalParticipants, result.T1Position)</td>
+                                    <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline2Position)</td>
+                                    <td>@EventHelper.GetPerformance(result.TotalParticipants, result.T2Position)</td>
+                                    <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline3Position)</td>
+                                    <td>@EventHelper.GetPerformance(result.TotalParticipants, result.OverallPosition)</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        @if (result.EventFigures.Any())
+                        {
+                            <div class="tri-race-detail figure-caption">
+                                @foreach (var figure in result.EventFigures)
+                                {
+                                    <div><i class="fas fa-info-circle"></i> @figure</div>
+                                }
+                            </div>
+                        }
+                        @if (result.GarminId.HasValue)
+                        {
+                            <div class="tri-race-detail">
+                                <i class="fas fa-link"></i> <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">View on Garmin</a>
+                            </div>
+                        }
+                        <div class="tri-race-detail"><i class="@EventHelper.GetWeatherIconClass(result.Weather)"></i> @result.WeatherNotes</div>
+                        @if (Model.DisplayNotes)
+                        {
+                            <div class="tri-race-detail">
+                                <i class="fas fa-edit"></i> @Html.Raw(result.EventNotes)
+                            </div>
+                        }
+                        <div class="tri-race-footer"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

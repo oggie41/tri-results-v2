@@ -8,6 +8,8 @@ namespace TriResultsV2.Models
 {
     public class MultisportEventResult : EventResult
     {
+        public bool Expanded { get; set; } = false;
+
         public string Discipline1Distance { get; set; }
         
         public string Discipline2Distance { get; set; }
@@ -30,10 +32,22 @@ namespace TriResultsV2.Models
 
         public string Discipline3PaceSpeed { get; set; }
 
+        public int? Discipline1Position { get; set; }
+
+        public int? T1Position { get; set; }
+
+        public int? Discipline2Position { get; set; }
+
+        public int? T2Position { get; set; }
+
+        public int? Discipline3Position { get; set; }
+        
         public WeatherType Weather { get; set; }
 
         public string WeatherNotes { get; set; }
 
         public string EventNotes { get; set; }
+
+        public List<string> EventFigures { get; set; } = new List<string>();
     }
 }

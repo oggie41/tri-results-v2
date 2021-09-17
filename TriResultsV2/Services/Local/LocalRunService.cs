@@ -177,7 +177,8 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2021, 6, 27),
                 EventName = "Round Sheffield Run 2021",
                 TotalTime = new TimeSpan(1, 23, 49),
-                Position = "126th (2161)"
+                TotalParticipants = 2161,
+                OverallPosition = 126
             };
             eventResults.Add(runResult7028862720);
 

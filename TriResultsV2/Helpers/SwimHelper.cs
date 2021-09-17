@@ -11,7 +11,7 @@ namespace TriResultsV2.Helpers
         {
             int numberOf25MetreLaps = distanceInMetres / 25;
             double secondsPer25MetreLap = swimTime.TotalSeconds / numberOf25MetreLaps;
-            string swimPace = $"{Math.Round(secondsPer25MetreLap, 2)} sec/25m";
+            string swimPace = $"{Math.Round(secondsPer25MetreLap, 1)} sec/25m";
             return swimPace;
         }
     }

@@ -33,6 +33,8 @@ namespace TriResultsV2
                 services.AddTransient<Services.Interfaces.ISwimService, Services.Local.LocalSwimService>();
                 services.AddTransient<Services.Interfaces.IBikeService, Services.Local.LocalBikeService>();
                 services.AddTransient<Services.Interfaces.IRunService, Services.Local.LocalRunService>();
+                services.AddTransient<Services.Interfaces.ITriathlonService, Services.Local.LocalTriathlonService>();
+                services.AddTransient<Services.Interfaces.IDuathlonService, Services.Local.LocalDuathlonService>();
             }
             else
             {
@@ -40,6 +42,8 @@ namespace TriResultsV2
                 services.AddTransient<Services.Interfaces.ISwimService, Services.Sql.SqlSwimService>();
                 services.AddTransient<Services.Interfaces.IBikeService, Services.Sql.SqlBikeService>();
                 services.AddTransient<Services.Interfaces.IRunService, Services.Sql.SqlRunService>();
+                services.AddTransient<Services.Interfaces.ITriathlonService, Services.Sql.SqlTriathlonService>();
+                services.AddTransient<Services.Interfaces.IDuathlonService, Services.Sql.SqlDuathlonService>();
             }
         }
 
