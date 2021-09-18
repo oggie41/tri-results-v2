@@ -14,6 +14,19 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
+            var runResult7508938026 = new EventResult
+            {
+                Id = 7508938026,
+                GarminId = 7508938026,
+                Sport = SportType.Run,
+                Distance = EventHelper.Distance5Kilometres,
+                EventDate = new DateTime(2021, 9, 18),
+                EventName = "Rother Valley Parkrun",
+                TotalTime = new TimeSpan(0, 19, 14),
+                AvgPaceSpeed = "6:08 min/mi"
+            };
+            eventResults.Add(runResult7508938026);
+
             var runResult6659244437 = new EventResult
             {
                 Id = 6659244437,
