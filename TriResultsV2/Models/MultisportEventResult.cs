@@ -36,9 +36,7 @@ namespace TriResultsV2.Models
 
         public TimeSpan Discipline3Time { get; set; }
 
-        public int? CompareWithEventId { get; set; }
-
-        public string Discipline1PaceSpeed { get; set; }
+        public long? CompareWithEventId { get; set; }
 
         public TimeSpan? Discipline1AvgRunPaceMinMi { get; set; }
 

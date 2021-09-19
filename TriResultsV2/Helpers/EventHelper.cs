@@ -101,6 +101,36 @@ namespace TriResultsV2.Helpers
             return totalTimeFormatted;
         }
 
+        public static string GetImprovementHtml(TimeSpan time, TimeSpan timeToCompare)
+        {
+            string improvementSign = string.Empty;
+            string improvementCssClass = string.Empty;
+            double improvementInSeconds = time.TotalSeconds - timeToCompare.TotalSeconds;
+            double improvementInSecondsAsPositive = improvementInSeconds;
+
+            if (improvementInSeconds < 0)
+            {
+                improvementSign = "-";
+                improvementCssClass = "text-success";
+                improvementInSecondsAsPositive = improvementInSeconds * - 1;
+            }
+            else if (improvementInSeconds > 0)
+            {
+                improvementSign = "+";
+                improvementCssClass = "text-danger";
+            }
+
+            var improvementTimeSpan = TimeSpan.FromSeconds(improvementInSecondsAsPositive);
+            string improvementFormatted = $"<span class=\"{improvementCssClass}\">{improvementSign}{improvementTimeSpan.Minutes:D2}:{improvementTimeSpan.Seconds:D2}</span>";
+
+            if (improvementInSeconds == 0)
+            {
+                improvementFormatted = "-";
+            }
+
+            return improvementFormatted;
+        }
+
         private static string GetOrdinalSuffix(int number)
         {
             string numberStr = number.ToString();
