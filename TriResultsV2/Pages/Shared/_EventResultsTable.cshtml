@@ -63,12 +63,14 @@
                     }
 
                     string eventName = result.EventName;
+                    string rowCssClass = string.Empty;
 
                     if (!Model.PersonalRecordsTable && result.PersonalBest)
                     {
                         eventName = $"{eventName} (PB)";
+                        rowCssClass = "fw-bold";
                     }
-                    <tr>
+                    <tr class="@rowCssClass">
                         <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
                         <td>@result.EventDate.ToString("dd/MM/yy")</td>
                         <td>
