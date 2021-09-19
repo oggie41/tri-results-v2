@@ -58,7 +58,9 @@ namespace TriResultsV2.Models
         
         public WeatherType Weather { get; set; }
 
-        public string WeatherNotes { get; set; }
+        public int TemperatureDegreesCelsius { get; set; }
+
+        public int WindMph { get; set; }
 
         public string EventNotes { get; set; }
 

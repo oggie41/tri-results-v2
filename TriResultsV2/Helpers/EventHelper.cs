@@ -160,5 +160,11 @@ namespace TriResultsV2.Helpers
 
             return weatherIconClass;
         }
+
+        public static string GetFormattedWeatherNotes(WeatherType weather, int temperatureDegreesCelsius, int windMph)
+        {
+            string weatherNotes = $"{temperatureDegreesCelsius}°C, {weather}, {windMph}mph wind";
+            return weatherNotes;
+        }
     }
 }

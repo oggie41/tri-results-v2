@@ -157,7 +157,7 @@
                                 <i class="fas fa-link"></i> <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">View on Garmin</a>
                             </div>
                         }
-                        <div class="tri-race-detail"><i class="@EventHelper.GetWeatherIconClass(result.Weather)"></i> @result.WeatherNotes</div>
+                        <div class="tri-race-detail"><i class="@EventHelper.GetWeatherIconClass(result.Weather)"></i> @EventHelper.GetFormattedWeatherNotes(result.Weather, result.TemperatureDegreesCelsius, result.WindMph)</div>
                         @if (Model.DisplayNotes)
                         {
                             <div class="tri-race-detail">

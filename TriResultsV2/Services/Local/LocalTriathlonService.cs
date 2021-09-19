@@ -45,7 +45,8 @@ namespace TriResultsV2.Services.Local
                 Discipline3Position = 23,
                 OverallPosition = 22,
                 Weather = WeatherType.SunnyCloudy,
-                WeatherNotes = "18°C, Sunny/Cloudy, 5mph wind",
+                TemperatureDegreesCelsius = 18,
+                WindMph = 5,
                 EventNotes = "Great conditions. Swim went pretty well considering the lack of swim training.<br/>" +
                              "Good bike course, plenty of opportunity to get on the tri bars. Need to up the bike training really though, especially TT specific riding, didn't feel strong enough at times.<br/>" +
                              "Run was 2 laps around the local area. Felt pretty good and finished strongly. With more bike training should be able to perform better on the run as will feel fresher.<br/>" +
@@ -80,7 +81,8 @@ namespace TriResultsV2.Services.Local
                 TotalParticipants = 335,
                 OverallPosition = 47,
                 Weather = WeatherType.Cloudy,
-                WeatherNotes = "18°C, Cloudy, 9mph wind",
+                TemperatureDegreesCelsius = 18,
+                WindMph = 9,
                 EventNotes = "Nice pool. Pleased with the swim considering I've only swam twice in the last year! Kept it relaxed, breathing felt good. We had to swap lanes every 4 laps, so not ideal for a quick time.<br/>" +
                              "Bike course was really tight and technical (6 laps of the uni-campus). Wasn't the kind of course I'm used to so found it challenging, but good fun :)<br/>" +
                              "Run was 4 laps round the cycle track. Felt OK, but think capable of going a bit quicker. Enjoyed the race, would do it again.",
