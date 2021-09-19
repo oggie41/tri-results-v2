@@ -19,11 +19,12 @@ namespace TriResultsV2.Services.Local
                 Id = 2684332277,
                 GarminId = 2684332277,
                 Sport = SportType.Bike,
-                Distance = EventHelper.Distance10Miles,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2018, 5, 8),
                 EventName = "Cuckney 10 Mile TT",
                 TotalTime = new TimeSpan(0, 27, 00),
-                AvgPaceSpeed = "22.2 mph",
+                AvgBikeSpeedMph = 22.2,
                 PersonalBest = true
             };
             eventResults.Add(bikeResult2684332277);
@@ -40,11 +41,12 @@ namespace TriResultsV2.Services.Local
                 Id = 3448107371,
                 GarminId = 3448107371,
                 Sport = SportType.Bike,
-                Distance = EventHelper.Distance25Miles,
+                Distance = 25,
+                DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2019, 3, 9),
                 EventName = "Sheffrec CC 2-Up 25 Mile TT",
                 TotalTime = new TimeSpan(1, 17, 40),
-                AvgPaceSpeed = "19.3 mph"
+                AvgBikeSpeedMph = 19.3
             };
             eventResults.Add(bikeResult3448107371);
 

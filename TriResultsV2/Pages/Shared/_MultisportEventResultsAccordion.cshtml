@@ -20,7 +20,16 @@
             string discipline2Sport = "Bike";
             string discipline3Sport = "Run";
 
-            if (result.Sport == SportType.Duathlon)
+            string discipline1Type = string.Empty;
+
+            if (result.Sport == SportType.Triathlon)
+            {
+                if (result.SwimType.HasValue)
+                {
+                    discipline1Type = result.SwimType.ToString();
+                }
+            }
+            else if (result.Sport == SportType.Duathlon)
             {
                 discipline1Sport = "Run";
             }
@@ -39,17 +48,23 @@
                                     <th scope="col" class="col col-lg-2"></th>
                                     <th scope="col" class="col col-lg-2">
                                         <div>@discipline1Sport</div>
-                                        <div class="figure-caption">@result.Discipline1Distance</div>
+                                        <div class="figure-caption">
+                                            @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport)
+                                            @if (!string.IsNullOrEmpty(discipline1Type))
+                                            {
+                                                <text> @discipline1Type</text>
+                                            }
+                                        </div>
                                     </th>
                                     <th scope="col" class="col col-lg-1">T1</th>
                                     <th scope="col" class="col col-lg-2">
                                         <div>@discipline2Sport</div>
-                                        <div class="figure-caption">@result.Discipline2Distance</div>
+                                        <div class="figure-caption">@EventHelper.GetFormattedDistance(result.Discipline2Distance, result.Discipline2DistanceUnit, result.Sport)</div>
                                     </th>
                                     <th scope="col" class="col col-lg-1">T2</th>
                                     <th scope="col" class="col col-lg-2">
                                         <div>@discipline3Sport</div>
-                                        <div class="figure-caption">@result.Discipline3Distance</div>
+                                        <div class="figure-caption">@EventHelper.GetFormattedDistance(result.Discipline3Distance, result.Discipline3DistanceUnit, result.Sport)</div>
                                     </th>
                                     <th scope="col" class="col col-lg-2">Total</th>
                                 </tr>
@@ -72,11 +87,28 @@
                                         <i class="fas fa-tachometer-alt"></i>
                                         <div class="d-none d-lg-inline-block">Pace/Speed</div>
                                     </th>
-                                    <td>@result.Discipline1PaceSpeed</td>
+                                    <td>
+                                        @{
+                                            string discipline1PaceSpeed = "-";
+
+                                            if (result.Sport == SportType.Triathlon)
+                                            {
+                                                if (result.ActualSwimTime.HasValue)
+                                                {
+                                                    discipline1PaceSpeed = SwimHelper.Get25MetreSwimPace(result.Discipline1Distance, result.ActualSwimTime.Value);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                discipline1PaceSpeed = RunHelper.GetFormattedAvgPace(result.Discipline1AvgRunPaceMinMi);
+                                            }
+                                        }
+                                        @discipline1PaceSpeed
+                                    </td>
                                     <td>-</td>
-                                    <td>@result.Discipline2PaceSpeed</td>
+                                    <td>@BikeHelper.GetFormattedAvgSpeed(result.Discipline2AvgBikeSpeedMph)</td>
                                     <td>-</td>
-                                    <td>@result.Discipline3PaceSpeed</td>
+                                    <td>@RunHelper.GetFormattedAvgPace(result.Discipline3AvgRunPaceMinMi)</td>
                                     <td>-</td>
                                 </tr>
                                 <tr>
@@ -106,9 +138,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if (result.EventFigures.Any())
+                        @if (result.EventFigures.Any() || result.ActualSwimTime.HasValue)
                         {
                             <div class="tri-race-detail figure-caption">
+                                @if (result.ActualSwimTime.HasValue)
+                                {
+                                    <div><i class="fas fa-info-circle"></i> Swim time includes run to transition. @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport) swim was @EventHelper.GetFormattedTime(result.ActualSwimTime.Value)</div>
+                                }
                                 @foreach (var figure in result.EventFigures)
                                 {
                                     <div><i class="fas fa-info-circle"></i> @figure</div>

@@ -14,7 +14,11 @@ namespace TriResultsV2.Models
 
         public SportType Sport { get; set; }
 
-        public string Distance { get; set; }
+        public EventType EventType { get; set; } = EventType.Standard;
+
+        public double Distance { get; set; }
+
+        public DistanceUnit DistanceUnit { get; set; }
         
         public DateTime EventDate { get; set; }
         
@@ -22,7 +26,9 @@ namespace TriResultsV2.Models
 
         public TimeSpan TotalTime { get; set; }
         
-        public string AvgPaceSpeed { get; set; }
+        public TimeSpan? AvgRunPaceMinMi { get; set; }
+        
+        public double? AvgBikeSpeedMph { get; set; }
 
         public int? TotalParticipants { get; set; }
 

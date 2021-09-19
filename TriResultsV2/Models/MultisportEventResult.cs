@@ -10,14 +10,24 @@ namespace TriResultsV2.Models
     {
         public bool Expanded { get; set; } = false;
 
-        public string Discipline1Distance { get; set; }
+        public double Discipline1Distance { get; set; }
         
-        public string Discipline2Distance { get; set; }
+        public DistanceUnit Discipline1DistanceUnit { get; set; }
         
-        public string Discipline3Distance { get; set; }
+        public double Discipline2Distance { get; set; }
+        
+        public DistanceUnit Discipline2DistanceUnit { get; set; }
+        
+        public double Discipline3Distance { get; set; }
+        
+        public DistanceUnit Discipline3DistanceUnit { get; set; }
+
+        public SwimType? SwimType { get; set; }
 
         public TimeSpan Discipline1Time { get; set; }
-        
+
+        public TimeSpan? ActualSwimTime { get; set; }
+
         public TimeSpan T1Time { get; set; }
 
         public TimeSpan Discipline2Time { get; set; }
@@ -26,11 +36,15 @@ namespace TriResultsV2.Models
 
         public TimeSpan Discipline3Time { get; set; }
 
+        public int? CompareWithEventId { get; set; }
+
         public string Discipline1PaceSpeed { get; set; }
 
-        public string Discipline2PaceSpeed { get; set; }
+        public TimeSpan? Discipline1AvgRunPaceMinMi { get; set; }
 
-        public string Discipline3PaceSpeed { get; set; }
+        public double? Discipline2AvgBikeSpeedMph { get; set; }
+
+        public TimeSpan? Discipline3AvgRunPaceMinMi { get; set; }
 
         public int? Discipline1Position { get; set; }
 
@@ -49,5 +63,15 @@ namespace TriResultsV2.Models
         public string EventNotes { get; set; }
 
         public List<string> EventFigures { get; set; } = new List<string>();
+
+        public void AddEventFigure(string figure)
+        {
+            if (EventFigures == null)
+            {
+                EventFigures = new List<string>();
+            }
+
+            EventFigures.Add(figure);
+        }
     }
 }

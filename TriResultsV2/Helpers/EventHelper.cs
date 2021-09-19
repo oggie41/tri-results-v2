@@ -14,24 +14,76 @@ namespace TriResultsV2.Helpers
         Duathlon
     }
 
+    public enum SwimType
+    {
+        Pool,
+        OW
+    }
+
+    public enum EventType
+    {
+        Standard,
+        MultiStage
+    }
+
+    public enum DistanceUnit
+    {
+        Metres,
+        Kilometres,
+        Miles
+    }
+
     public enum WeatherType
     {
         Sunny,
         Cloudy,
         SunnyCloudy,
-        Rainy,
+        Rainy
     }
 
     public static class EventHelper
     {
-        public const string Distance200Metres = "200m";
-        public const string Distance400Metres = "400m";
-        public const string Distance5Kilometres = "5K";
-        public const string Distance10Kilometres = "10K";
-        public const string Distance20Kilometres = "20K";
-        public const string Distance10Miles = "10mi";
-        public const string Distance25Miles = "25mi";
-        public const string DistanceHalfMarathon = "HM";
+        public static string GetFormattedDistance(double distance, DistanceUnit distanceUnit, SportType sportType)
+        {
+            string distanceUnitStr = string.Empty;
+
+            switch (distanceUnit)
+            {
+                case DistanceUnit.Metres:
+                    distanceUnitStr = "m";
+                    break;
+                case DistanceUnit.Kilometres:
+                    distanceUnitStr = "km";
+                    break;
+                case DistanceUnit.Miles:
+                    distanceUnitStr = "mi";
+                    break;
+            }
+
+            string distanceStr = $"{distance}{distanceUnitStr}";
+
+            if (sportType == SportType.Run)
+            {
+                if (distance == 5 && distanceUnit == DistanceUnit.Kilometres)
+                {
+                    distanceStr = "5K";
+                }
+                else if (distance == 10 && distanceUnit == DistanceUnit.Kilometres)
+                {
+                    distanceStr = "10K";
+                }
+                else if (distance == 13.1 && distanceUnit == DistanceUnit.Miles)
+                {
+                    distanceStr = "HM";
+                }
+                else if (distance == 26.2 && distanceUnit == DistanceUnit.Miles)
+                {
+                    distanceStr = "MA";
+                }
+            }
+
+            return distanceStr;
+        }
 
         public static string GetFormattedTime(TimeSpan totalTime)
         {
@@ -90,21 +142,20 @@ namespace TriResultsV2.Helpers
         {
             string weatherIconClass = "";
 
-            if (weather == WeatherType.Sunny)
+            switch (weather)
             {
-                weatherIconClass = "fas fa-sun";
-            }
-            else if (weather == WeatherType.Cloudy)
-            {
-                weatherIconClass = "fas fa-cloud";
-            }
-            else if (weather == WeatherType.SunnyCloudy)
-            {
-                weatherIconClass = "fas fa-cloud-sun";
-            }
-            else if (weather == WeatherType.Rainy)
-            {
-                weatherIconClass = "fas fa-cloud-rain";
+                case WeatherType.Sunny:
+                    weatherIconClass = "fas fa-sun";
+                    break;
+                case WeatherType.Cloudy:
+                    weatherIconClass = "fas fa-cloud";
+                    break;
+                case WeatherType.SunnyCloudy:
+                    weatherIconClass = "fas fa-cloud-sun";
+                    break;
+                case WeatherType.Rainy:
+                    weatherIconClass = "fas fa-cloud-rain";
+                    break;
             }
 
             return weatherIconClass;

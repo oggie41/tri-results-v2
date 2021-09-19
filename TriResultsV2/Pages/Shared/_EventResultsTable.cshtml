@@ -30,7 +30,7 @@
                                         colHeader = "Speed";
                                     }
 
-                                    if (string.IsNullOrEmpty(firstResult.AvgPaceSpeed))
+                                    if (firstResult.EventType == EventType.MultiStage)
                                     {
                                         colHeader = "Position";
                                     }
@@ -47,6 +47,21 @@
             {
                 foreach (var result in Model.EventResults)
                 {
+                    string avgPaceSpeed = "-";
+
+                    if (result.Sport == SportType.Run)
+                    {
+                        avgPaceSpeed = RunHelper.GetFormattedAvgPace(result.AvgRunPaceMinMi);
+                    }
+                    else if (result.Sport == SportType.Bike)
+                    {
+                        avgPaceSpeed = BikeHelper.GetFormattedAvgSpeed(result.AvgBikeSpeedMph);
+                    }
+                    else if (result.Sport == SportType.Swim)
+                    {
+                        avgPaceSpeed = SwimHelper.Get25MetreSwimPace(result.Distance, result.TotalTime);
+                    }
+
                     string eventName = result.EventName;
 
                     if (!Model.PersonalRecordsTable && result.PersonalBest)
@@ -54,7 +69,7 @@
                         eventName = $"{eventName} (PB)";
                     }
                     <tr>
-                        <td>@result.Distance</td>
+                        <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
                         <td>@result.EventDate.ToString("dd/MM/yy")</td>
                         <td>
                             @if (result.GarminId.HasValue)
@@ -68,16 +83,16 @@
                         </td>
                         <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
                         <td>
-                            @if (!string.IsNullOrEmpty(result.AvgPaceSpeed))
-                            {
-                                @result.AvgPaceSpeed
-                            }
-                            else
+                            @if (result.EventType == EventType.MultiStage)
                             {
                                 @if (result.OverallPosition.HasValue)
                                 {
-                                    <span>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</span>
+                                    <text>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</text>
                                 }
+                            }
+                            else
+                            {
+                                @avgPaceSpeed
                             }
                         </td>
                     </tr>

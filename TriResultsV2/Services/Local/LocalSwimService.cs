@@ -19,13 +19,13 @@ namespace TriResultsV2.Services.Local
                 Id = 3221940710,
                 GarminId = 3221940710,
                 Sport = SportType.Swim,
-                Distance = EventHelper.Distance200Metres,
+                Distance = 200,
+                DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2018, 12, 12),
                 EventName = "Westfield 200m TT",
                 TotalTime = new TimeSpan(0, 3, 18),
                 PersonalBest = true
             };
-            swimResult3221940710.AvgPaceSpeed = SwimHelper.Get25MetreSwimPace(200, swimResult3221940710.TotalTime);
             eventResults.Add(swimResult3221940710);
 
             return eventResults;
@@ -40,13 +40,13 @@ namespace TriResultsV2.Services.Local
                 Id = 3221940710,
                 GarminId = 3221940710,
                 Sport = SportType.Swim,
-                Distance = EventHelper.Distance400Metres,
+                Distance = 400,
+                DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2018, 12, 12),
                 EventName = "Westfield 400m TT",
                 TotalTime = new TimeSpan(0, 6, 52),
                 PersonalBest = true
             };
-            swimResult3221940710.AvgPaceSpeed = SwimHelper.Get25MetreSwimPace(400, swimResult3221940710.TotalTime);
             eventResults.Add(swimResult3221940710);
 
             return eventResults;
