@@ -5,101 +5,116 @@
 <div class="table-responsive mt-3 mb-1">
     <table class="table table-hover table-striped table-bordered align-top">
         <thead class="table-primary align-top">
-            <tr>
-                <th scope="col" class="col-1">
-                    <div class="d-block d-sm-none">Dist.</div>
-                    <div class="d-none d-sm-block">Distance</div>
-                </th>
-                <th scope="col" class="col-2">Date</th>
-                <th scope="col" class="col-5">Race</th>
-                <th scope="col" class="col-2">Time</th>
-                <th scope="col" class="col-2">
-                    @{
-                        string colHeader = "Pace";
+        <tr>
+            <th scope="col" class="col-1">
+                <div class="d-block d-sm-none">Dist.</div>
+                <div class="d-none d-sm-block">Distance</div>
+            </th>
+            <th scope="col" class="col-2">Date</th>
+            <th scope="col" class="col-5">Race</th>
+            <th scope="col" class="col-2">Time</th>
+            <th scope="col" class="col-2">
+                @{
+                    string colHeader = "Pace";
 
-                        if (Model.EventResults != null)
+                    if (Model.EventResults != null)
+                    {
+                        if (Model.EventResults.Any())
                         {
-                            if (Model.EventResults.Any())
+                            var firstResult = Model.EventResults.FirstOrDefault();
+
+                            if (firstResult != null)
                             {
-                                var firstResult = Model.EventResults.FirstOrDefault();
-
-                                if (firstResult != null)
+                                if (firstResult.Sport == SportType.Bike)
                                 {
-                                    if (firstResult.Sport == SportType.Bike)
-                                    {
-                                        colHeader = "Speed";
-                                    }
+                                    colHeader = "Speed";
+                                }
 
-                                    if (firstResult.EventType == EventType.MultiStage)
-                                    {
-                                        colHeader = "Position";
-                                    }
+                                if (firstResult.EventType == EventType.MultiStage)
+                                {
+                                    colHeader = "Position";
                                 }
                             }
                         }
                     }
-                    @colHeader
-                </th>
-            </tr>
+                }
+                @colHeader
+            </th>
+        </tr>
         </thead>
         <tbody>
-            @if (Model.EventResults != null)
+        @if (Model.EventResults != null)
+        {
+            foreach (var result in Model.EventResults)
             {
-                foreach (var result in Model.EventResults)
+                string avgPaceSpeed = "-";
+
+                if (result.Sport == SportType.Run)
                 {
-                    string avgPaceSpeed = "-";
+                    avgPaceSpeed = RunHelper.GetFormattedAvgPace(result.AvgRunPaceMinMi);
+                }
+                else if (result.Sport == SportType.Bike)
+                {
+                    avgPaceSpeed = BikeHelper.GetFormattedAvgSpeed(result.AvgBikeSpeedMph);
+                }
+                else if (result.Sport == SportType.Swim)
+                {
+                    avgPaceSpeed = SwimHelper.Get25MetreSwimPace(result.Distance, result.TotalTime);
+                }
 
-                    if (result.Sport == SportType.Run)
-                    {
-                        avgPaceSpeed = RunHelper.GetFormattedAvgPace(result.AvgRunPaceMinMi);
-                    }
-                    else if (result.Sport == SportType.Bike)
-                    {
-                        avgPaceSpeed = BikeHelper.GetFormattedAvgSpeed(result.AvgBikeSpeedMph);
-                    }
-                    else if (result.Sport == SportType.Swim)
-                    {
-                        avgPaceSpeed = SwimHelper.Get25MetreSwimPace(result.Distance, result.TotalTime);
-                    }
+                string eventName = result.EventName;
+                string rowCssClass = string.Empty;
 
-                    string eventName = result.EventName;
-                    string rowCssClass = string.Empty;
-
-                    if (!Model.PersonalRecordsTable && result.PersonalBest)
-                    {
-                        eventName = $"{eventName} (PB)";
-                        rowCssClass = "fw-bold";
-                    }
-                    <tr class="@rowCssClass">
-                        <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
-                        <td>@result.EventDate.ToString("dd/MM/yy")</td>
-                        <td>
-                            @if (result.GarminId.HasValue)
+                if (!Model.PersonalRecordsTable && result.PersonalBest)
+                {
+                    eventName = $"{eventName} (PB)";
+                    rowCssClass = "fw-bold";
+                }
+                <tr class="@rowCssClass">
+                    <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
+                    <td>@result.EventDate.ToString("dd/MM/yy")</td>
+                    <td>
+                        @if (result.GarminId.HasValue)
+                        {
+                            <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@Html.Raw(eventName)</a>
+                        }
+                        else
+                        {
+                            @Html.Raw(eventName)
+                        }
+                    </td>
+                    <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
+                    <td>
+                        @if (result.EventType == EventType.MultiStage)
+                        {
+                            @if (result.OverallPosition.HasValue)
                             {
-                                <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@Html.Raw(eventName)</a>
+                                <text>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</text>
                             }
-                            else
-                            {
-                                @Html.Raw(eventName)
-                            }
-                        </td>
-                        <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
-                        <td>
-                            @if (result.EventType == EventType.MultiStage)
-                            {
-                                @if (result.OverallPosition.HasValue)
+                        }
+                        else
+                        {
+                            @avgPaceSpeed
+                        }
+                    </td>
+                </tr>
+                @if (result.EventFigures.Any())
+                {
+                    <tr>
+                        <td colspan="5">
+                            <div class="figure-caption">
+                                @foreach (var figure in result.EventFigures)
                                 {
-                                    <text>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</text>
+                                    <div>
+                                        <i class="fas fa-info-circle"></i> @figure
+                                    </div>
                                 }
-                            }
-                            else
-                            {
-                                @avgPaceSpeed
-                            }
+                            </div>
                         </td>
                     </tr>
                 }
             }
+        }
         </tbody>
     </table>
 </div>

@@ -63,17 +63,5 @@ namespace TriResultsV2.Models
         public int WindMph { get; set; }
 
         public string EventNotes { get; set; }
-
-        public List<string> EventFigures { get; set; } = new List<string>();
-
-        public void AddEventFigure(string figure)
-        {
-            if (EventFigures == null)
-            {
-                EventFigures = new List<string>();
-            }
-
-            EventFigures.Add(figure);
-        }
     }
 }

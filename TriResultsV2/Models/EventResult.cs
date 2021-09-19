@@ -35,5 +35,17 @@ namespace TriResultsV2.Models
         public int? OverallPosition { get; set; }
 
         public bool PersonalBest { get; set; } = false;
+
+        public List<string> EventFigures { get; set; } = new List<string>();
+
+        public void AddEventFigure(string figure)
+        {
+            if (EventFigures == null)
+            {
+                EventFigures = new List<string>();
+            }
+
+            EventFigures.Add(figure);
+        }
     }
 }
