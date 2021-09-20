@@ -93,8 +93,83 @@ namespace TriResultsV2.Services.Local
             result7226965095.AddEventFigure("Tight, technical bike course.");
             eventResults.Add(result7226965095);
 
-            // Hatfield Sprint Triathlon, 23/06/19.
-            // 3774902533.
+            var result3774902533 = new MultisportEventResult
+            {
+                Id = 3774902533,
+                GarminId = 3774902533,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2019, 6, 23),
+                EventName = "Hatfield Sprint Triathlon",
+                Course = Course.HatfieldSprintTriathlon,
+                Discipline1Distance = 750,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.OW,
+                Discipline2Distance = 23.5,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 12, 52),
+                T1Time = new TimeSpan(0, 1, 10),
+                Discipline2Time = new TimeSpan(0, 41, 58),
+                T2Time = new TimeSpan(0, 0, 35),
+                Discipline3Time = new TimeSpan(0, 20, 17),
+                TotalTime = new TimeSpan(1, 16, 52),
+                Discipline2AvgBikeSpeedMph = 21.3,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 6, 49),
+                TotalParticipants = 55,
+                Discipline1Position = 11,
+                T1Position = 24,
+                Discipline2Position = 17,
+                T2Position = 17,
+                Discipline3Position = 13,
+                OverallPosition = 14,
+                Weather = WeatherType.Sunny,
+                TemperatureDegreesCelsius = 14,
+                WindMph = 5,
+                EventNotes = "Early start! Ideal conditions when we got started. Frustrating swim - got trapped in a pack for first 2/3 of the swim; made decent progress after last buoy and finished strongly though. Need to position better next OWS race so can pass on the outside. Polarized lenses would be better for next time as well - was difficult sighting with the sun today at times.<br/>" +
+                             "Really enjoyed the bike leg - felt fresh after the swim, not much wind, flat roads, so was a quick one. Still loving the ISM saddle in TT position. Still think there's room for improvement on the bike though. Legs felt absolutely fine, but cramped in calf muscles after changing shoes in T2.<br/>" +
+                             "Took first mile of the run to shake off the cramps, but felt good after that. Pleased with performance overall :)",
+                CompareWithEventId = 1260511684
+            };
+            eventResults.Add(result3774902533);
+
+            var result1260511684 = new MultisportEventResult
+            {
+                Id = 1260511684,
+                GarminId = 1260511684,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2016, 7, 17),
+                EventName = "Hatfield Sprint Triathlon",
+                Course = Course.HatfieldSprintTriathlon,
+                Discipline1Distance = 750,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.OW,
+                Discipline2Distance = 23.5,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 12, 34),
+                T1Time = new TimeSpan(0, 1, 50),
+                Discipline2Time = new TimeSpan(0, 47, 1),
+                T2Time = new TimeSpan(0, 0, 44),
+                Discipline3Time = new TimeSpan(0, 23, 14),
+                TotalTime = new TimeSpan(1, 25, 21),
+                Discipline2AvgBikeSpeedMph = 18.6,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 27),
+                TotalParticipants = 61,
+                Discipline1Position = 22,
+                T1Position = 47,
+                Discipline2Position = 27,
+                T2Position = 33,
+                Discipline3Position = 24,
+                OverallPosition = 25,
+                Weather = WeatherType.Sunny,
+                TemperatureDegreesCelsius = 18,
+                WindMph = 7,
+                EventNotes = "Enjoyed the race. Open water swim went well (750m is the furthest I've done so far), started nearer the front as well.<br/>" +
+                             "Felt stronger on the bike. Once again, the run was OK, but should be doing quicker."
+            };
+            eventResults.Add(result1260511684);
 
             return eventResults;
         }
