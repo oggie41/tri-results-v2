@@ -16,6 +16,8 @@ namespace TriResultsV2.Models
 
         public EventType EventType { get; set; } = EventType.Standard;
 
+        public Course? Course { get; set; }
+
         public double Distance { get; set; }
 
         public DistanceUnit DistanceUnit { get; set; }

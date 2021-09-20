@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,9 +15,90 @@ namespace TriResultsV2.Helpers
         Duathlon
     }
 
+    public enum Course
+    {
+        [Display(Name = "Bassetlaw Sprint Triathlon")]
+        BassetlawSprintTriathlon,
+
+        [Display(Name = "Brass Monkey Half Marathon")]
+        BrassMonkeyHalfMarathon,
+
+        [Display(Name = "Clumber Sprint Duathlon")]
+        ClumberSprintDuathlon,
+
+        [Display(Name = "Cuckney 10 Mile TT")]
+        Cuckney10MileTT,
+
+        [Display(Name = "Doncaster 5K")]
+        Doncaster5K,
+
+        [Display(Name = "Hatfield 25 Mile TT")]
+        Hatfield25MileTT,
+
+        [Display(Name = "Hatfield Sprint Triathlon")]
+        HatfieldSprintTriathlon,
+
+        [Display(Name = "Leeds 5K")]
+        Leeds5K,
+        
+        [Display(Name = "Leeds Half Marathon")]
+        LeedsHalfMarathon,
+        
+        [Display(Name = "Loxley Lash 5K")]
+        LoxleyLash5K,
+        
+        [Display(Name = "Clifton Park Parkrun")]
+        ParkrunCliftonPark,
+        
+        [Display(Name = "Endcliffe Parkrun")]
+        ParkrunEndcliffe,
+        
+        [Display(Name = "Rother Valley Parkrun")]
+        ParkrunRotherValley,
+
+        [Display(Name = "Percy Pud 10K")]
+        PercyPud10K,
+
+        [Display(Name = "Rother Valley 10K")]
+        RotherValley10K,
+
+        [Display(Name = "Rother Valley Sprint Triathlon")]
+        RotherValleySprintTriathlon,
+
+        [Display(Name = "Round Sheffield Run")]
+        RoundSheffieldRun,
+
+        [Display(Name = "Sheffield 10K")]
+        Sheffield10K,
+
+        [Display(Name = "Sheffield Half Marathon")]
+        SheffieldHalfMarathon,
+        
+        [Display(Name = "Clumber Trust10")]
+        Trust10Clumber,
+        
+        [Display(Name = "Longshaw Trust10")]
+        Trust10Longshaw,
+        
+        [Display(Name = "Worksop Half Marathon")]
+        WorksopHalfMarathon,
+        
+        [Display(Name = "York 5K")]
+        York5K,
+        
+        [Display(Name = "York 10K")]
+        York10K,
+
+        [Display(Name = "York Sprint Triathlon")]
+        YorkSprintTriathlon
+    }
+
     public enum SwimType
     {
+        [Display(Name = "Pool")]
         Pool,
+
+        [Display(Name = "Open Water")]
         OW
     }
 
@@ -35,9 +117,16 @@ namespace TriResultsV2.Helpers
 
     public enum WeatherType
     {
+        [Display(Name = "Sunny")]
         Sunny,
+
+        [Display(Name = "Cloudy")]
         Cloudy,
+        
+        [Display(Name = "Sunny/Cloudy")]
         SunnyCloudy,
+        
+        [Display(Name = "Rainy")]
         Rainy
     }
 
@@ -193,7 +282,7 @@ namespace TriResultsV2.Helpers
 
         public static string GetFormattedWeatherNotes(WeatherType weather, int temperatureDegreesCelsius, int windMph)
         {
-            string weatherNotes = $"{temperatureDegreesCelsius}°C, {weather}, {windMph}mph wind";
+            string weatherNotes = $"{temperatureDegreesCelsius}°C, {weather.GetEnumDisplayName()}, {windMph}mph wind";
             return weatherNotes;
         }
     }

@@ -23,6 +23,7 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2018, 5, 8),
                 EventName = "Cuckney 10 Mile TT",
+                Course = Course.Cuckney10MileTT,
                 TotalTime = new TimeSpan(0, 27, 00),
                 AvgBikeSpeedMph = 22.2,
                 PersonalBest = true
@@ -45,6 +46,7 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2019, 3, 9),
                 EventName = "Sheffrec CC 2-Up 25 Mile TT",
+                Course = Course.Hatfield25MileTT,
                 TotalTime = new TimeSpan(1, 17, 40),
                 AvgBikeSpeedMph = 19.3
             };
