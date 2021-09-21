@@ -130,6 +130,33 @@ body {
     margin: 0 0 .6rem 0;
 }
 
+.tri-banner-img {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 86px;
+}
+
+.tri-banner-img-tri {
+    background-image: url("../images/banner/banner-tri.jpg");
+}
+
+.tri-banner-img-swim {
+    background-image: url("../images/banner/banner-swim.jpg");
+}
+
+.tri-banner-img-bike {
+    background-image: url("../images/banner/banner-bike.jpg");
+}
+
+.tri-banner-img-run {
+    background-image: url("../images/banner/banner-run.jpg");
+}
+
+.tri-banner-img-race-diary {
+    background-image: url("../images/banner/banner-race-diary.jpg");
+}
+
 .tri-race-footer {
     margin: 0 0 1rem 0;
 }
@@ -144,19 +171,6 @@ body {
         width: 280px;
     }
 }
-
-/*.tri-brand-background {
-    background: url(../images/background/background.png);
-    background-size: 100%;
-    background-position-y: bottom;
-    background-repeat: no-repeat;
-    background-color: #2b285f;
-}
-
-.tri-background-fixed {
-    background-attachment: fixed;
-}
-*/
 
 /* Loading spinner
 -------------------------------------------------- */
