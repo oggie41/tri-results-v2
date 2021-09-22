@@ -87,7 +87,7 @@
                                     <tr>
                                         <th scope="row">
                                             <i class="fas fa-stopwatch d-inline-block"></i>
-                                            <div class="d-none d-lg-inline-block">Time</div>
+                                            <div class="d-none d-md-inline-block">Time</div>
                                         </th>
                                         <td>@EventHelper.GetFormattedTime(result.Discipline1Time)</td>
                                         <td>@EventHelper.GetFormattedTime(result.T1Time)</td>
@@ -101,7 +101,7 @@
                                         <tr>
                                             <th scope="row">
                                                 <i class="fas fa-chart-line"></i>
-                                                <div class="d-none d-lg-inline-block">Improvement</div>
+                                                <div class="d-none d-md-inline-block">Improvement</div>
                                             </th>
                                             <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline1Time, comparisonResult.Discipline1Time))</td>
                                             <td>@Html.Raw(EventHelper.GetImprovementHtml(result.T1Time, comparisonResult.T1Time))</td>
@@ -114,7 +114,7 @@
                                     <tr>
                                         <th scope="row">
                                             <i class="fas fa-tachometer-alt"></i>
-                                            <div class="d-none d-lg-inline-block">Pace/Speed</div>
+                                            <div class="d-none d-md-inline-block">Pace/Speed</div>
                                         </th>
                                         <td>
                                             @{
@@ -143,7 +143,7 @@
                                     <tr>
                                         <th scope="row">
                                             <i class="fas fa-clipboard-list"></i>
-                                            <div class="d-none d-lg-inline-block">Position</div>
+                                            <div class="d-none d-md-inline-block">Position</div>
                                         </th>
                                         <td>@EventHelper.GetFormattedPosition(result.Discipline1Position)</td>
                                         <td>@EventHelper.GetFormattedPosition(result.T1Position)</td>
@@ -155,7 +155,7 @@
                                     <tr>
                                         <th scope="row">
                                             <i class="fas fa-percent"></i>
-                                            <div class="d-none d-lg-inline-block">Performance</div>
+                                            <div class="d-none d-md-inline-block">Performance</div>
                                         </th>
                                         <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline1Position)</td>
                                         <td>@EventHelper.GetPerformance(result.TotalParticipants, result.T1Position)</td>

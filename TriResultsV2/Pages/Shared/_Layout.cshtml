@@ -21,7 +21,7 @@
 <partial name="_Loading"/>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark box-shadow py-2">
-        <div class="container">
+        <div class="container-xl">
             <a class="navbar-brand" asp-area="" asp-page="/Index">
                 <img src="/images/general/tri-results-logo-800.png" alt="Tri Results" class="tri-logo" />
             </a>
@@ -31,19 +31,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Index"><i class="fas fa-clipboard-list"></i> Results</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Index" title="Triathlon/Duathlon Results"><i class="fas fa-clipboard-list"></i> Results</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Swim"><i class="fas fa-swimmer"></i> Swim</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Swim" title="Swim Results"><i class="fas fa-swimmer"></i> Swim</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Bike"><i class="fas fa-biking"></i> Bike</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Bike" title="Bike Results"><i class="fas fa-biking"></i> Bike</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Run"><i class="fas fa-running"></i> Run</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Run" title="Run Results"><i class="fas fa-running"></i> Run</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/RaceDiary"><i class="far fa-calendar-alt"></i> Race Diary</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/RaceDiary" title="Race Diary"><i class="far fa-calendar-alt"></i> Race Diary</a>
                     </li>
                 </ul>
             </div>
@@ -52,14 +52,14 @@
     <div class="tri-banner-img @bannerCssClass">
     </div>
 </header>
-<div class="container">
+<div class="container-xl">
     <main role="main" class="pt-2 pb-3">
         @RenderBody()
     </main>
 </div>
 
 <footer class="border-top footer text-muted">
-    <div class="container">
+    <div class="container-xl">
         &copy; @DateTime.Now.Year - David Ogle
     </div>
 </footer>

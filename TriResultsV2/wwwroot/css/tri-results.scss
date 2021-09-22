@@ -103,6 +103,10 @@ body {
     font-size: 1.3rem;
 }
 
+ul.navbar-nav a:hover {
+    color: #c5d7f2 !important;
+}
+
 @media (min-width: 768px) {
     .navbar .navbar-nav .nav-link {
         padding-right: .3rem;
@@ -166,7 +170,7 @@ body {
     height: auto;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     .tri-logo {
         width: 280px;
     }
