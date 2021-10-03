@@ -51,7 +51,8 @@ namespace TriResultsV2.Pages
                 {
                     ContentId = "400m-tts",
                     HeaderText = "400m TTs",
-                    EventResults = swimResults400MetreTT
+                    EventResults = swimResults400MetreTT,
+                    Expanded = true
                 };
 
                 // Personal Records.

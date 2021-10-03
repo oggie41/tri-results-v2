@@ -40,7 +40,8 @@ namespace TriResultsV2.Pages
                 {
                     ContentId = "10mi-tts",
                     HeaderText = "10 Mile TTs",
-                    EventResults = bikeResults10MileTT
+                    EventResults = bikeResults10MileTT,
+                    Expanded = true
                 };
 
                 // 25 Mile TT Results.

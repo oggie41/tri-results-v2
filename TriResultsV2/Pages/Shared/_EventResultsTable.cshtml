@@ -16,7 +16,7 @@
                 Course:
             </div>
             <div class="d-inline-block">
-                <select class="form-select form-select-sm" onchange="courseChanged(this, '@resultTableId')">
+                <select class="form-select" onchange="courseChanged(this, '@resultTableId')">
                     <option value="all" selected>Show All</option>
                     @foreach (var course in distinctCourses)
                     {
