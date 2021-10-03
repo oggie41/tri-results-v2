@@ -47,13 +47,13 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Loxley Lash 5K")]
         LoxleyLash5K,
         
-        [Display(Name = "Clifton Park Parkrun")]
+        [Display(Name = "Parkrun (Clifton Park)")]
         ParkrunCliftonPark,
         
-        [Display(Name = "Endcliffe Parkrun")]
+        [Display(Name = "Parkrun (Endcliffe)")]
         ParkrunEndcliffe,
         
-        [Display(Name = "Rother Valley Parkrun")]
+        [Display(Name = "Parkrun (Rother Valley)")]
         ParkrunRotherValley,
 
         [Display(Name = "Percy Pud 10K")]
