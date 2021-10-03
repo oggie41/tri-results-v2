@@ -38,7 +38,7 @@ namespace TriResultsV2.Pages
 
                 BikeResults10MiAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-10mi-tts",
+                    ContentId = "10mi-tts",
                     HeaderText = "10 Mile TTs",
                     EventResults = bikeResults10MileTT
                 };
@@ -48,7 +48,7 @@ namespace TriResultsV2.Pages
 
                 BikeResults25MiAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-25mi-tts",
+                    ContentId = "25mi-tts",
                     HeaderText = "25 Mile TTs",
                     EventResults = bikeResults25MileTT
                 };

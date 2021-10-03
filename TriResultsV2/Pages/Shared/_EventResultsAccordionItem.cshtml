@@ -4,6 +4,7 @@
 @{
     var eventResultsTable = new EventResultsTableVM()
     {
+        ContentId =  Model.ContentId,
         PersonalRecordsTable = Model.PersonalRecordsItem,
         EventResults = Model.EventResults
     };
@@ -16,14 +17,16 @@
         headerButtonCss = "accordion-button";
         bodyContainerCss = "accordion-collapse collapse show";
     }
+
+    string contentDivId = $"div-{Model.ContentId}";
 }
 <div class="accordion-item">
     <h2 class="accordion-header">
-        <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#@Model.ContentId">
+        <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#@contentDivId">
             @Model.HeaderText
         </button>
     </h2>
-    <div id="@Model.ContentId" class="@bodyContainerCss">
+    <div id="@contentDivId" class="@bodyContainerCss">
         <div class="accordion-body">
             <partial name="_EventResultsTable" model="@eventResultsTable" />
         </div>

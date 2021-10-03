@@ -38,7 +38,7 @@ namespace TriResultsV2.Pages
 
                 SwimResults200MetreAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-200m-tts",
+                    ContentId = "200m-tts",
                     HeaderText = "200m TTs",
                     EventResults = swimResults200MetreTT
                 };
@@ -49,7 +49,7 @@ namespace TriResultsV2.Pages
 
                 SwimResults400MetreAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-400m-tts",
+                    ContentId = "400m-tts",
                     HeaderText = "400m TTs",
                     EventResults = swimResults400MetreTT
                 };

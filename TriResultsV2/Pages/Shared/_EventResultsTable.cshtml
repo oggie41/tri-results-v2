@@ -2,8 +2,33 @@
 @using TriResultsV2.Helpers
 @model EventResultsTableVM
 
+@{
+    string resultTableId = $"tbl-{Model.ContentId}";
+
+    var distinctCourses = Model.EventResults.Where(e => e.Course != null).OrderBy(e => e.Course).Select(e => e.Course).Distinct().ToList();
+}
+@if (!Model.PersonalRecordsTable && distinctCourses.Any())
+{
+    if (distinctCourses.Count > 1)
+    {
+        <div class="mt-3">
+            <div class="d-inline-block me-1">
+                Course:
+            </div>
+            <div class="d-inline-block">
+                <select class="form-select form-select-sm" onchange="courseChanged(this, '@resultTableId')">
+                    <option value="all" selected>Show All</option>
+                    @foreach (var course in distinctCourses)
+                    {
+                        <option value="@course.ToString()">@course.GetEnumDisplayName()</option>
+                    }
+                </select>
+            </div>
+        </div>
+    }
+}
 <div class="table-responsive mt-3 mb-1">
-    <table class="table table-hover table-striped table-bordered align-top">
+    <table id="@resultTableId" class="table table-hover table-striped table-bordered align-top">
         <thead class="table-primary align-top">
         <tr>
             <th scope="col" class="col-1">
@@ -70,7 +95,7 @@
                     eventName = $"{eventName} (PB)";
                     rowCssClass = "fw-bold";
                 }
-                <tr class="@rowCssClass">
+                <tr class="@rowCssClass" data-course="@result.Course">
                     <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
                     <td>@result.EventDate.ToString("dd/MM/yy")</td>
                     <td>

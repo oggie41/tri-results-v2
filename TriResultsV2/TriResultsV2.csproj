@@ -14,6 +14,7 @@
     <Content Remove="wwwroot\images\banner\source\banner-swim-source.jpg" />
     <Content Remove="wwwroot\images\banner\source\banner-tri-source.jpg" />
     <Content Remove="wwwroot\images\general\tri-results-logo-original.png" />
+    <Content Remove="wwwroot\images\general\tri-results-logo-transparent.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +26,7 @@
     <None Include="wwwroot\images\banner\source\banner-swim-source.jpg" />
     <None Include="wwwroot\images\banner\source\banner-tri-source.jpg" />
     <None Include="wwwroot\images\general\tri-results-logo-original.png" />
+    <None Include="wwwroot\images\general\tri-results-logo-transparent.png" />
   </ItemGroup>
 
   <ItemGroup>

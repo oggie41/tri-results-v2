@@ -40,7 +40,7 @@ namespace TriResultsV2.Pages
 
                 RunResults5KAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-5k-races",
+                    ContentId = "5k-races",
                     HeaderText = "5K Races",
                     EventResults = runResults5K
                 };
@@ -51,7 +51,7 @@ namespace TriResultsV2.Pages
 
                 RunResults10KAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-10k-races",
+                    ContentId = "10k-races",
                     HeaderText = "10K Races",
                     EventResults = runResults10K
                 };
@@ -62,7 +62,7 @@ namespace TriResultsV2.Pages
 
                 RunResultsHmAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-HM-races",
+                    ContentId = "hm-races",
                     HeaderText = "Half Marathon Races",
                     EventResults = runResultsHm
                 };
@@ -72,7 +72,7 @@ namespace TriResultsV2.Pages
 
                 RunResultsMsrAccordionItem = new EventResultsAccordionItemVM
                 {
-                    ContentId = "div-MS-races",
+                    ContentId = "ms-races",
                     HeaderText = "Multi-Stage Races",
                     EventResults = runResultsMsr
                 };
