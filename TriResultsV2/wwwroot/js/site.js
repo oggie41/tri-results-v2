@@ -13,13 +13,13 @@ function displayLoadingIndicator() {
     $(".tri-loading-overlay").show();
 }
 
-function courseChanged(obj, resultTableId) {
+function courseChanged(obj, parentId) {
     var course = obj.value;
 
     if (course === "all") {
-        $("#" + resultTableId + " [data-course]").fadeIn();
+        $("#" + parentId + " [data-course]").fadeIn();
     } else {
-        $("#" + resultTableId + " [data-course]").hide();
-        $("#" + resultTableId + " [data-course='" + obj.value + "']").fadeIn();
+        $("#" + parentId + " [data-course]").hide();
+        $("#" + parentId + " [data-course='" + obj.value + "']").fadeIn();
     }
 };

@@ -42,6 +42,7 @@ namespace TriResultsV2.Pages
 
                 TriathlonResultsAccordion = new MultisportEventResultsAccordionVM
                 {
+                    ContentId = "triathlon-races",
                     DisplayNotes = DisplayNotes,
                     MultisportEventResults = triathlonResults
                 };
@@ -51,6 +52,7 @@ namespace TriResultsV2.Pages
 
                 DuathlonResultsAccordion = new MultisportEventResultsAccordionVM
                 {
+                    ContentId = "duathlon-races",
                     DisplayNotes = DisplayNotes,
                     MultisportEventResults = duathlonResults
                 };

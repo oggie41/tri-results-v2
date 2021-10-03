@@ -2,7 +2,32 @@
 @using TriResultsV2.Helpers
 @model MultisportEventResultsAccordionVM
 
-<div class="accordion accordion-flush">
+@{
+    string accordionId = $"acc-{Model.ContentId}";
+
+    var distinctCourses = Model.MultisportEventResults.Where(e => e.Course != null).OrderBy(e => e.Course).Select(e => e.Course).Distinct().ToList();
+}
+@if (distinctCourses.Any())
+{
+    if (distinctCourses.Count > 1)
+    {
+        <div class="mt-3 mb-2">
+            <div class="d-inline-block me-1">
+                Course:
+            </div>
+            <div class="d-inline-block">
+                <select class="form-select" onchange="courseChanged(this, '@accordionId')">
+                    <option value="all" selected>Show All</option>
+                    @foreach (var course in distinctCourses)
+                    {
+                        <option value="@course.ToString()">@course.GetEnumDisplayName()</option>
+                    }
+                </select>
+            </div>
+        </div>
+    }
+}
+<div id="@accordionId" class="accordion accordion-flush">
     @if (Model.MultisportEventResults != null)
     {
         foreach (var result in Model.MultisportEventResults)
@@ -47,7 +72,7 @@
                     displayImprovement = true;
                 }
             }
-            <div class="accordion-item">
+            <div class="accordion-item" data-course="@result.Course">
                 <h2 class="accordion-header">
                     <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#div-race-@result.Id">
                         @result.EventName, @result.EventDate.ToString("dd/MM/yy") (@EventHelper.GetFormattedTime(result.TotalTime))

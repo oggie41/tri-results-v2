@@ -7,6 +7,8 @@ namespace TriResultsV2.Models
 {
     public class MultisportEventResultsAccordionVM
     {
+        public string ContentId { get; set; }
+
         public bool DisplayNotes { get; set; } = false;
 
         public IEnumerable<MultisportEventResult> MultisportEventResults { get; set; }
