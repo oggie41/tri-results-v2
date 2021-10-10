@@ -148,7 +148,8 @@ ul.navbar-nav a:hover {
 /* Navbar button
 -------------------------------------------------- */
 .navbar-toggler {
-  width: 52px; }
+  width: 52px;
+  padding: 6px; }
 
 .navbar-toggler:focus {
   box-shadow: none; }
