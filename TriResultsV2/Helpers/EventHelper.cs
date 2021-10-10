@@ -23,6 +23,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Brass Monkey Half Marathon")]
         BrassMonkeyHalfMarathon,
 
+        [Display(Name = "Chatsworth 10K")]
+        Chatsworth10K,
+
         [Display(Name = "Clumber Sprint Duathlon")]
         ClumberSprintDuathlon,
 
@@ -38,8 +41,14 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Hatfield Sprint Triathlon")]
         HatfieldSprintTriathlon,
 
+        [Display(Name = "Humber Bridge Half Marathon")]
+        HumberBridgeHalfMarathon,
+
         [Display(Name = "Leeds 5K")]
         Leeds5K,
+
+        [Display(Name = "Leeds Abbey Dash")]
+        LeedsAbbeyDash,
         
         [Display(Name = "Leeds Half Marathon")]
         LeedsHalfMarathon,
@@ -71,13 +80,25 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Sheffield 10K")]
         Sheffield10K,
 
+        [Display(Name = "Sheffield 10K (Hillsborough)")]
+        Sheffield10KHillsborough,
+
         [Display(Name = "Sheffield Half Marathon")]
         SheffieldHalfMarathon,
+
+        [Display(Name = "Sheffield Half Marathon (Don Valley)")]
+        SheffieldHalfMarathonDonValley,
+
+        [Display(Name = "Sherwood Pines 10K")]
+        SherwoodPines10K,
+
+        [Display(Name = "Sherwood Pines Trail 10K")]
+        SherwoodPinesTrail10K,
         
-        [Display(Name = "Clumber Trust10")]
+        [Display(Name = "Trust10 (Clumber)")]
         Trust10Clumber,
         
-        [Display(Name = "Longshaw Trust10")]
+        [Display(Name = "Trust10 (Longshaw)")]
         Trust10Longshaw,
         
         [Display(Name = "Worksop Half Marathon")]

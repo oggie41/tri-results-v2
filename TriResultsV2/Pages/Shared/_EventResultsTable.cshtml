@@ -4,8 +4,13 @@
 
 @{
     string resultTableId = $"tbl-{Model.ContentId}";
-
     var distinctCourses = Model.EventResults.Where(e => e.Course != null).OrderBy(e => e.Course).Select(e => e.Course).Distinct().ToList();
+    var eventResultsSorted = Model.EventResults.OrderByDescending(e => e.EventDate).ToList();
+
+    if (Model.PersonalRecordsTable)
+    {
+        eventResultsSorted = Model.EventResults.OrderBy(e => e.Distance).ToList();
+    }
 }
 @if (!Model.PersonalRecordsTable && distinctCourses.Any())
 {
@@ -42,23 +47,20 @@
                 @{
                     string colHeader = "Pace";
 
-                    if (Model.EventResults != null)
+                    if (eventResultsSorted.Any())
                     {
-                        if (Model.EventResults.Any())
+                        var firstResult = eventResultsSorted.FirstOrDefault();
+
+                        if (firstResult != null)
                         {
-                            var firstResult = Model.EventResults.FirstOrDefault();
-
-                            if (firstResult != null)
+                            if (firstResult.Sport == SportType.Bike)
                             {
-                                if (firstResult.Sport == SportType.Bike)
-                                {
-                                    colHeader = "Speed";
-                                }
+                                colHeader = "Speed";
+                            }
 
-                                if (firstResult.EventType == EventType.MultiStage)
-                                {
-                                    colHeader = "Position";
-                                }
+                            if (firstResult.EventType == EventType.MultiStage)
+                            {
+                                colHeader = "Position";
                             }
                         }
                     }
@@ -68,9 +70,9 @@
         </tr>
         </thead>
         <tbody>
-        @if (Model.EventResults != null)
+        @if (eventResultsSorted.Any())
         {
-            foreach (var result in Model.EventResults)
+            foreach (var result in eventResultsSorted)
             {
                 string avgPaceSpeed = "-";
 
@@ -125,7 +127,7 @@
                 </tr>
                 @if (result.EventFigures.Any())
                 {
-                    <tr>
+                    <tr data-course="@result.Course">
                         <td colspan="5">
                             <div class="figure-caption">
                                 @foreach (var figure in result.EventFigures)
