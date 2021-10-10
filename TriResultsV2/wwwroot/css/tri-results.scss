@@ -194,6 +194,10 @@ ul.navbar-nav a:hover {
     width: 52px;
 }
 
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
 /* Custom navbar menu icons (using Font Awesome) */
 .tri-navbar-icon {
     display: inline-block;
