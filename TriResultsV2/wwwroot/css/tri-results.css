@@ -145,6 +145,30 @@ ul.navbar-nav a:hover {
   .tri-logo {
     width: 280px; } }
 
+/* Navbar button
+-------------------------------------------------- */
+.navbar-toggler {
+  width: 52px; }
+
+/* Custom navbar menu icons (using Font Awesome) */
+.tri-navbar-icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 25px; }
+
+/* Control which navbar menu icon is displayed */
+.navbar-toggler.collapsed .tri-navbar-menu-icon {
+  display: inline-block; }
+
+.navbar-toggler:not(.collapsed) .tri-navbar-menu-icon {
+  display: none; }
+
+.navbar-toggler.collapsed .tri-navbar-close-icon {
+  display: none; }
+
+.navbar-toggler:not(.collapsed) .tri-navbar-close-icon {
+  display: inline-block; }
+
 /* Loading spinner
 -------------------------------------------------- */
 .tri-loading-overlay {
