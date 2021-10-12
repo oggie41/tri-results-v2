@@ -33,7 +33,7 @@
     }
 }
 <div class="table-responsive mt-3 mb-1">
-    <table id="@resultTableId" class="table table-hover table-striped table-bordered align-top">
+    <table id="@resultTableId" class="table table-hover table-bordered align-top">
         <thead class="table-primary align-top">
         <tr>
             <th scope="col" class="col-1">
@@ -72,6 +72,8 @@
         <tbody>
         @if (eventResultsSorted.Any())
         {
+            int rowNumber = 1;
+
             foreach (var result in eventResultsSorted)
             {
                 string avgPaceSpeed = "-";
@@ -92,11 +94,20 @@
                 string eventName = result.EventName;
                 string rowCssClass = string.Empty;
 
+                // If this is a PB event display the row text in bold (not for PB table).
                 if (!Model.PersonalRecordsTable && result.PersonalBest)
                 {
                     eventName = $"{eventName} (PB)";
-                    rowCssClass = "fw-bold";
+                    rowCssClass = "fw-bold ";
                 }
+
+                // Alternate row striping is done manually (not using table-striped) as need to re-apply after filtering.
+                if(rowNumber % 2 != 0)
+                {
+                    rowCssClass += "tri-striped-row";
+                }
+
+                rowNumber++;
                 <tr class="@rowCssClass" data-course="@result.Course">
                     <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
                     <td>@result.EventDate.ToString("dd/MM/yy")</td>
