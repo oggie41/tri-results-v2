@@ -101,6 +101,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Trust10 (Longshaw)")]
         Trust10Longshaw,
         
+        [Display(Name = "Westfield")]
+        Westfield,
+
         [Display(Name = "Worksop Half Marathon")]
         WorksopHalfMarathon,
         

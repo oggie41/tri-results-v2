@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using TriResultsV2.Helpers;
 using TriResultsV2.Models;
 using TriResultsV2.Services.Interfaces;
 
@@ -36,16 +37,44 @@ namespace TriResultsV2.Pages
                 var swimResults200MetreTT = await SwimService.Get200MetreTTResultsAsync();
                 swimPersonalRecords.AddRange(swimResults200MetreTT.Where(res => res.PersonalBest));
 
+                // 400 Metre TT Results.
+                var swimResults400MetreTT = await SwimService.Get400MetreTTResultsAsync();
+                swimPersonalRecords.AddRange(swimResults400MetreTT.Where(res => res.PersonalBest));
+
+                // Calculate the CSS details for the 200m results.
+                foreach (var result200m in swimResults200MetreTT)
+                {
+                    if (result200m.GarminId.HasValue)
+                    {
+                        var result400m = swimResults400MetreTT.FirstOrDefault(r => r.GarminId == result200m.GarminId);
+
+                        if (result400m != null)
+                        {
+                            result200m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime));
+                        }
+                    }
+                }
+
+                // Calculate the CSS details for the 400m results.
+                foreach (var result400m in swimResults400MetreTT)
+                {
+                    if (result400m.GarminId.HasValue)
+                    {
+                        var result200m = swimResults200MetreTT.FirstOrDefault(r => r.GarminId == result400m.GarminId);
+
+                        if (result200m != null)
+                        {
+                            result400m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime));
+                        }
+                    }
+                }
+
                 SwimResults200MetreAccordionItem = new EventResultsAccordionItemVM
                 {
                     ContentId = "200m-tts",
                     HeaderText = "200m TTs",
                     EventResults = swimResults200MetreTT
                 };
-
-                // 400 Metre TT Results.
-                var swimResults400MetreTT = await SwimService.Get400MetreTTResultsAsync();
-                swimPersonalRecords.AddRange(swimResults400MetreTT.Where(res => res.PersonalBest));
 
                 SwimResults400MetreAccordionItem = new EventResultsAccordionItemVM
                 {

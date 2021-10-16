@@ -22,12 +22,10 @@ namespace TriResultsV2.Services.Local
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2018, 12, 12),
-                EventName = "Westfield 200m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 18),
                 PersonalBest = true
             };
-            // TODO: Add Swim CSS calculation. See http://previous.swimsmooth.com/training.html.
-            //result.AddEventFigure("CSS: 1:47/100m");
             eventResults.Add(result);
 
             result = new EventResult
@@ -38,7 +36,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2017, 3, 29),
-                EventName = "Westfield 200m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 21)
             };
             eventResults.Add(result);
@@ -51,7 +49,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2017, 2, 23),
-                EventName = "Westfield 200m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 26)
             };
             eventResults.Add(result);
@@ -64,7 +62,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2015, 12, 16),
-                EventName = "Westfield 200m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 29)
             };
             eventResults.Add(result);
@@ -77,7 +75,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2015, 10, 28),
-                EventName = "Westfield 200m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 29)
             };
             eventResults.Add(result);
@@ -97,11 +95,10 @@ namespace TriResultsV2.Services.Local
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2018, 12, 12),
-                EventName = "Westfield 400m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 6, 52),
                 PersonalBest = true
             };
-            //result.AddEventFigure("CSS: 1:47/100m");
             eventResults.Add(result);
 
             result = new EventResult
@@ -112,7 +109,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2017, 3, 29),
-                EventName = "Westfield 400m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 6, 56)
             };
             eventResults.Add(result);
@@ -125,7 +122,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2017, 2, 23),
-                EventName = "Westfield 400m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 7, 23)
             };
             eventResults.Add(result);
@@ -138,7 +135,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2015, 12, 16),
-                EventName = "Westfield 400m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 7, 25)
             };
             eventResults.Add(result);
@@ -151,7 +148,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2015, 10, 28),
-                EventName = "Westfield 400m TT",
+                Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 7, 21)
             };
             eventResults.Add(result);

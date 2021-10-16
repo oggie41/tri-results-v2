@@ -92,13 +92,20 @@
                 }
 
                 string eventName = result.EventName;
+
+                if (result.Sport == SportType.Swim)
+                {
+                    eventName = SwimHelper.GetTimeTrialEventName(result);
+                }
+
                 string rowCssClass = string.Empty;
+                string rowPbCssClass = string.Empty;
 
                 // If this is a PB event display the row text in bold (not for PB table).
                 if (!Model.PersonalRecordsTable && result.PersonalBest)
                 {
                     eventName = $"{eventName} (PB)";
-                    rowCssClass = "fw-bold ";
+                    rowPbCssClass = "fw-bold";
                 }
 
                 // Alternate row striping is done manually (not using table-striped) as need to re-apply after filtering.
@@ -108,7 +115,7 @@
                 }
 
                 rowNumber++;
-                <tr class="@rowCssClass" data-course="@result.Course">
+                <tr class="@rowCssClass @rowPbCssClass" data-course="@result.Course">
                     <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
                     <td>@result.EventDate.ToString("dd/MM/yy")</td>
                     <td>
@@ -138,7 +145,7 @@
                 </tr>
                 @if (!Model.PersonalRecordsTable && result.EventFigures.Any())
                 {
-                    <tr data-course="@result.Course">
+                    <tr class="@rowCssClass" data-course="@result.Course">
                         <td colspan="5">
                             <div class="figure-caption">
                                 @foreach (var figure in result.EventFigures)
