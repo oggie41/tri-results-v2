@@ -136,7 +136,7 @@
                         }
                     </td>
                 </tr>
-                @if (result.EventFigures.Any())
+                @if (!Model.PersonalRecordsTable && result.EventFigures.Any())
                 {
                     <tr data-course="@result.Course">
                         <td colspan="5">
