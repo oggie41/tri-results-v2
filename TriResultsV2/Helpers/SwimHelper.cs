@@ -12,7 +12,7 @@ namespace TriResultsV2.Helpers
         {
             double numberOf25MetreLaps = distanceInMetres / 25;
             double secondsPer25MetreLap = swimTime.TotalSeconds / numberOf25MetreLaps;
-            string swimPace = $"{Math.Round(secondsPer25MetreLap, 1)} sec/25m";
+            string swimPace = $"{Math.Round(secondsPer25MetreLap, 1):F1} sec/25m";
             return swimPace;
         }
 
@@ -25,11 +25,11 @@ namespace TriResultsV2.Helpers
             double metresPerSec = (400 - 200) / (time400m.TotalSeconds - time200m.TotalSeconds);
 
             double secsPer100m = 100 / metresPerSec;
-            var ts100mPace = TimeSpan.FromSeconds(secsPer100m);
+            var ts100mPace = TimeSpan.FromSeconds(Math.Round(secsPer100m, 0));
 
             double secsPer25m = secsPer100m / 4;
 
-            string cssDetails = $"CSS Pace: {ts100mPace.Minutes}:{ts100mPace.Seconds}/100m. Tempo Trainer 25m setting: {secsPer25m:F2}.";
+            string cssDetails = $"CSS: {ts100mPace.Minutes}:{ts100mPace.Seconds}/100m (tempo trainer: {Math.Round(secsPer25m, 1):F1} sec/25m)";
 
             return cssDetails;
         }
