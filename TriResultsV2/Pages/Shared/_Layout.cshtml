@@ -56,7 +56,10 @@
 </header>
 <div class="container-xl">
     <main role="main" class="pt-2 pb-3">
-        @RenderBody()
+        <h1>@ViewData["Title"]</h1>
+        <div class="col-xl-12">
+            @RenderBody()
+        </div>
     </main>
 </div>
 

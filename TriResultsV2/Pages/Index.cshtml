@@ -4,15 +4,12 @@
     ViewData["Title"] = "Results";
     ViewData["BannerCssClass"] = "tri-banner-img-tri";
 }
-<h1>@ViewData["Title"]</h1>
 
-<div class="col-xl-12">
-    <div id="div-triathlon-results" class="mt-2 mb-4">
-        <h3><i class="fas fa-clipboard-list"></i> Triathlon Results</h3>
-        <partial name="_MultisportEventResultsAccordion" model="Model.TriathlonResultsAccordion" />
-    </div>
-    <div id="div-duathlon-results" class="mt-2 mb-4">
-        <h3><i class="fas fa-clipboard-list"></i> Duathlon Results</h3>
-        <partial name="_MultisportEventResultsAccordion" model="Model.DuathlonResultsAccordion" />
-    </div>
+<div id="div-triathlon-results" class="mt-2 mb-4">
+    <h3><i class="fas fa-clipboard-list"></i> Triathlon Results</h3>
+    <partial name="_MultisportEventResultsAccordion" model="Model.TriathlonResultsAccordion"/>
+</div>
+<div id="div-duathlon-results" class="mt-2 mb-4">
+    <h3><i class="fas fa-clipboard-list"></i> Duathlon Results</h3>
+    <partial name="_MultisportEventResultsAccordion" model="Model.DuathlonResultsAccordion"/>
 </div>
