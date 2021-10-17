@@ -21,6 +21,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2018, 12, 12),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 18),
@@ -35,6 +36,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2017, 3, 29),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 21)
@@ -48,6 +50,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2017, 2, 23),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 26)
@@ -61,6 +64,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2015, 12, 16),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 29)
@@ -74,6 +78,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 200,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2015, 10, 28),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 3, 29)
@@ -94,6 +99,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2018, 12, 12),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 6, 52),
@@ -108,6 +114,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2017, 3, 29),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 6, 56)
@@ -121,6 +128,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2017, 2, 23),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 7, 23)
@@ -134,6 +142,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2015, 12, 16),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 7, 25)
@@ -147,6 +156,7 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Swim,
                 Distance = 400,
                 DistanceUnit = DistanceUnit.Metres,
+                TimeTrial = true,
                 EventDate = new DateTime(2015, 10, 28),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 7, 21)

@@ -93,9 +93,12 @@
 
                 string eventName = result.EventName;
 
-                if (result.Sport == SportType.Swim)
+                if (result.TimeTrial)
                 {
-                    eventName = SwimHelper.GetTimeTrialEventName(result);
+                    if (string.IsNullOrEmpty(result.EventName))
+                    {
+                        eventName = EventHelper.GetTimeTrialEventName(result);
+                    }
                 }
 
                 string rowCssClass = string.Empty;

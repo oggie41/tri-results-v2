@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TriResultsV2.Models;
 
 namespace TriResultsV2.Helpers
 {
@@ -29,13 +30,13 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Clumber Sprint Duathlon")]
         ClumberSprintDuathlon,
 
-        [Display(Name = "Cuckney 10 Mile TT")]
+        [Display(Name = "Cuckney 10mi TT")]
         Cuckney10MileTT,
 
         [Display(Name = "Doncaster 5K")]
         Doncaster5K,
 
-        [Display(Name = "Hatfield 25 Mile TT")]
+        [Display(Name = "Hatfield 25mi TT")]
         Hatfield25MileTT,
 
         [Display(Name = "Hatfield Sprint Triathlon")]
@@ -308,6 +309,23 @@ namespace TriResultsV2.Helpers
         {
             string weatherNotes = $"{temperatureDegreesCelsius}°C, {weather.GetEnumDisplayName()}, {windMph}mph wind";
             return weatherNotes;
+        }
+
+        public static string GetTimeTrialEventName(EventResult timeTrial)
+        {
+            string eventName = string.Empty;
+
+            if (timeTrial.Course.HasValue)
+            {
+                eventName = timeTrial.Course.Value.GetEnumDisplayName();
+            }
+
+            if (timeTrial.Sport == SportType.Swim)
+            {
+                eventName = $"{eventName} {GetFormattedDistance(timeTrial.Distance, timeTrial.DistanceUnit, timeTrial.Sport)} TT";
+            }
+
+            return eventName;
         }
     }
 }

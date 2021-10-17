@@ -85,7 +85,7 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.Cloudy,
                 TemperatureDegreesCelsius = 18,
                 WindMph = 9,
-                EventNotes = "Nice pool. Pleased with the swim considering I've only swam twice in the last year! Kept it relaxed, breathing felt good. We had to swap lanes every 4 laps, so not ideal for a quick time.<br/>" +
+                EventNotes = "First time doing this race. Pleased with the swim considering I've only swam twice in the last year! Kept it relaxed, breathing felt good. We had to swap lanes every 4 laps, so not ideal for a quick time.<br/>" +
                              "Bike course was really tight and technical (6 laps of the uni-campus). Wasn't the kind of course I'm used to so found it challenging, but good fun :)<br/>" +
                              "Run was 4 laps round the cycle track. Felt OK, but think capable of going a bit quicker. Enjoyed the race, would do it again.",
                 Expanded = false

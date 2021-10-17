@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TriResultsV2.Models;
 
 namespace TriResultsV2.Helpers
 {
@@ -32,18 +31,6 @@ namespace TriResultsV2.Helpers
             string cssDetails = $"CSS: {ts100mPace.Minutes}:{ts100mPace.Seconds}/100m (tempo trainer: {Math.Round(secsPer25m, 1):F1} sec/25m)";
 
             return cssDetails;
-        }
-
-        public static string GetTimeTrialEventName(EventResult timeTrial)
-        {
-            string eventName = $"{timeTrial.Distance}m TT";
-
-            if (timeTrial.Course.HasValue)
-            {
-                eventName = $"{timeTrial.Course.Value.GetEnumDisplayName()} {eventName}";
-            }
-
-            return eventName;
         }
     }
 }

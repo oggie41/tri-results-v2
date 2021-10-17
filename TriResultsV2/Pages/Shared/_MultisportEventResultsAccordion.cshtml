@@ -114,7 +114,17 @@
                                             <i class="fas fa-stopwatch d-inline-block"></i>
                                             <div class="d-none d-md-inline-block">Time</div>
                                         </th>
-                                        <td>@EventHelper.GetFormattedTime(result.Discipline1Time)</td>
+                                        <td>
+                                            @EventHelper.GetFormattedTime(result.Discipline1Time)
+                                            
+                                            @if (result.Sport == SportType.Triathlon)
+                                            {
+                                                if (result.ActualSwimTime.HasValue)
+                                                {
+                                                    <span>(@EventHelper.GetFormattedTime(result.ActualSwimTime.Value))</span>
+                                                }
+                                            }
+                                        </td>
                                         <td>@EventHelper.GetFormattedTime(result.T1Time)</td>
                                         <td>@EventHelper.GetFormattedTime(result.Discipline2Time)</td>
                                         <td>@EventHelper.GetFormattedTime(result.T2Time)</td>
@@ -201,7 +211,7 @@
                                     {
                                         if (result.ActualSwimTime.Value != result.Discipline1Time)
                                         {
-                                            <div><i class="fas fa-info-circle"></i> Swim time includes run to transition. @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport) swim was @EventHelper.GetFormattedTime(result.ActualSwimTime.Value)</div>
+                                            <div><i class="fas fa-info-circle"></i> Swim time includes run to transition. @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport) swim was @EventHelper.GetFormattedTime(result.ActualSwimTime.Value).</div>
                                         }
                                     }
                                     else
