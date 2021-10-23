@@ -93,12 +93,10 @@
 
                 string eventName = result.EventName;
 
-                if (result.TimeTrial)
+                if (string.IsNullOrEmpty(eventName))
                 {
-                    if (string.IsNullOrEmpty(result.EventName))
-                    {
-                        eventName = EventHelper.GetTimeTrialEventName(result);
-                    }
+                    // No event name specified so generate the name. 
+                    eventName = EventHelper.GetEventName(result);
                 }
 
                 string rowCssClass = string.Empty;

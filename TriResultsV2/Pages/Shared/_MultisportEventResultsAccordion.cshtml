@@ -72,10 +72,18 @@
                     displayImprovement = true;
                 }
             }
+
+            string eventName = result.EventName;
+
+            if (string.IsNullOrEmpty(eventName))
+            {
+                // No event name specified so generate the name. 
+                eventName = EventHelper.GetEventName(result);
+            }
             <div class="accordion-item" data-course="@result.Course">
                 <h2 class="accordion-header">
                     <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#div-race-@result.Id">
-                        @result.EventName, @result.EventDate.ToString("dd/MM/yy") (@EventHelper.GetFormattedTime(result.TotalTime))
+                        @eventName, @result.EventDate.ToString("dd/MM/yy") (@EventHelper.GetFormattedTime(result.TotalTime))
                     </button>
                 </h2>
                 <div id="div-race-@result.Id" class="@bodyContainerCss">

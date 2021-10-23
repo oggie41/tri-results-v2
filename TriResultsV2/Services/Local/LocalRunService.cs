@@ -22,7 +22,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2021, 9, 18),
-                EventName = "Rother Valley Parkrun",
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 19, 14),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 8)
@@ -37,7 +36,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2021, 4, 23),
-                EventName = "York 5K Series Apr 2021",
                 Course = Course.York5K,
                 TotalTime = new TimeSpan(0, 18, 56),
                 AvgRunPaceMinMi = new TimeSpan(0, 5, 58),
@@ -53,7 +51,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 10, 10),
-                EventName = "York 5K Series Oct 2019",
                 Course = Course.York5K,
                 TotalTime = new TimeSpan(0, 19, 32),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 7)
@@ -68,7 +65,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 8, 30),
-                EventName = "Loxley Lash 5K Series Aug 2019",
                 Course = Course.LoxleyLash5K,
                 TotalTime = new TimeSpan(0, 19, 31),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 6)
@@ -83,7 +79,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 7, 13),
-                EventName = "Rother Valley Parkrun",
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 18, 58),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 6)
@@ -98,7 +93,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 7, 10),
-                EventName = "Doncaster 5K 2019",
                 Course = Course.Doncaster5K,
                 TotalTime = new TimeSpan(0, 19, 16),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 13)
@@ -113,7 +107,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 4, 11),
-                EventName = "York 5K Series Apr 2019",
                 Course = Course.York5K,
                 TotalTime = new TimeSpan(0, 19, 6),
                 AvgRunPaceMinMi = new TimeSpan(0, 5, 58)
@@ -128,7 +121,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2018, 9, 26),
-                EventName = "Leeds 5K Series Sep 2018",
                 Course = Course.Leeds5K,
                 TotalTime = new TimeSpan(0, 19, 16),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 2)
@@ -143,7 +135,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2018, 8, 15),
-                EventName = "Leeds 5K Series Aug 2018",
                 Course = Course.Leeds5K,
                 TotalTime = new TimeSpan(0, 19, 54),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 14)
@@ -158,7 +149,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2018, 5, 23),
-                EventName = "Leeds 5K Series May 2018",
                 Course = Course.Leeds5K,
                 TotalTime = new TimeSpan(0, 19, 25),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 2)
@@ -173,7 +163,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2017, 7, 12),
-                EventName = "Doncaster 5K 2017",
                 Course = Course.Doncaster5K,
                 TotalTime = new TimeSpan(0, 19, 28),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 14)
@@ -188,7 +177,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2016, 12, 31),
-                EventName = "Rother Valley Parkrun",
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 19, 49),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 20)
@@ -203,7 +191,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2015, 10, 31),
-                EventName = "Rother Valley Parkrun",
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 20, 14),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 27)
@@ -218,7 +205,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2014, 6, 21),
-                EventName = "Rother Valley Parkrun",
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 20, 49),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 37)
@@ -233,7 +219,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2013, 6, 22),
-                EventName = "Rother Valley Parkrun",
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 21, 57),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 1)
@@ -255,7 +240,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2020, 1, 26),
-                EventName = "Trust10 (Clumber Park) Jan 2020",
                 Course = Course.Trust10Clumber,
                 TotalTime = new TimeSpan(0, 42, 33),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 51)
@@ -270,7 +254,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 12, 1),
-                EventName = "Percy Pud 10K 2019",
                 Course = Course.PercyPud10K,
                 TotalTime = new TimeSpan(0, 40, 49),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 35)
@@ -285,7 +268,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 8, 4),
-                EventName = "York 10K 2019",
                 Course = Course.York10K,
                 TotalTime = new TimeSpan(0, 42, 19),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 50)
@@ -300,7 +282,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 5, 26),
-                EventName = "Trust10 (Clumber Park) May 2019",
                 Course = Course.Trust10Clumber,
                 TotalTime = new TimeSpan(0, 42, 29),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 53)
@@ -315,7 +296,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2018, 11, 25),
-                EventName = "Trust10 (Clumber Park) Nov 2018",
                 Course = Course.Trust10Clumber,
                 TotalTime = new TimeSpan(0, 41, 43),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 43)
@@ -330,8 +310,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2018, 11, 4),
-                EventName = "Leeds Abbey Dash 10K 2018",
-                Course = Course.LeedsAbbeyDash,
+                Course = Course.LeedsAbbeyDash10K,
                 TotalTime = new TimeSpan(0, 42, 31),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 46)
             };
@@ -345,7 +324,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2017, 12, 3),
-                EventName = "Percy Pud 10K 2017",
                 Course = Course.PercyPud10K,
                 TotalTime = new TimeSpan(0, 40, 46),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 33),
@@ -361,8 +339,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2017, 11, 5),
-                EventName = "Leeds Abbey Dash 10K 2017",
-                Course = Course.LeedsAbbeyDash,
+                Course = Course.LeedsAbbeyDash10K,
                 TotalTime = new TimeSpan(0, 41, 57),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 42)
             };
@@ -376,7 +353,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2017, 8, 6),
-                EventName = "York 10K 2017",
                 Course = Course.York10K,
                 TotalTime = new TimeSpan(0, 41, 21),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 40)
@@ -391,7 +367,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2017, 1, 22),
-                EventName = "Trust10 (Clumber Park) Jan 2017",
                 Course = Course.Trust10Clumber,
                 TotalTime = new TimeSpan(0, 42, 28),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 49)
@@ -406,7 +381,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2016, 12, 4),
-                EventName = "Percy Pud 10K 2016",
                 Course = Course.PercyPud10K,
                 TotalTime = new TimeSpan(0, 43, 58),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 5)
@@ -421,8 +395,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2015, 11, 15),
-                EventName = "Leeds Abbey Dash 10K 2015",
-                Course = Course.LeedsAbbeyDash,
+                Course = Course.LeedsAbbeyDash10K,
                 TotalTime = new TimeSpan(0, 44, 48),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 8)
             };
@@ -436,7 +409,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2014, 8, 10),
-                EventName = "Sherwood Pines Trail 10K 2014",
                 Course = Course.SherwoodPinesTrail10K,
                 TotalTime = new TimeSpan(0, 44, 19),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 14)
@@ -451,7 +423,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2014, 5, 4),
-                EventName = "Chatsworth 10K 2014",
                 Course = Course.Chatsworth10K,
                 TotalTime = new TimeSpan(0, 46, 16),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 35)
@@ -488,7 +459,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 13.1,
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2019, 10, 27),
-                EventName = "Worksop Half Marathon 2019",
                 Course = Course.WorksopHalfMarathon,
                 TotalTime = new TimeSpan(1, 37, 37),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 27)
@@ -503,7 +473,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 13.1,
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2018, 1, 14),
-                EventName = "Brass Monkey Half Marathon 2018",
                 Course = Course.BrassMonkeyHalfMarathon,
                 TotalTime = new TimeSpan(1, 35, 45),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 18),
@@ -519,7 +488,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 13.1,
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2017, 5, 14),
-                EventName = "Leeds Half Marathon 2017",
                 Course = Course.LeedsHalfMarathon,
                 TotalTime = new TimeSpan(1, 39, 45),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 36)
@@ -534,7 +502,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 13.1,
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2014, 6, 29),
-                EventName = "Humber Bridge Half Marathon 2014",
                 Course = Course.HumberBridgeHalfMarathon,
                 TotalTime = new TimeSpan(1, 43, 0),
                 AvgRunPaceMinMi = new TimeSpan(0, 7, 54)
@@ -572,7 +539,6 @@ namespace TriResultsV2.Services.Local
                 Distance = 20,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2021, 6, 27),
-                EventName = "Round Sheffield Run 2021",
                 Course = Course.RoundSheffieldRun,
                 TotalTime = new TimeSpan(1, 23, 49),
                 TotalParticipants = 2161,

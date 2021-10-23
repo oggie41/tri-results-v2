@@ -22,8 +22,6 @@ namespace TriResultsV2.Models
 
         public DistanceUnit DistanceUnit { get; set; }
 
-        public bool TimeTrial { get; set; } = false;
-
         public DateTime EventDate { get; set; }
         
         public string EventName { get; set; }

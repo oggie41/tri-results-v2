@@ -21,7 +21,6 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Bike,
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Miles,
-                TimeTrial = true,
                 EventDate = new DateTime(2018, 5, 8),
                 Course = Course.Cuckney10MileTT,
                 TotalTime = new TimeSpan(0, 27, 00),
@@ -44,9 +43,8 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Bike,
                 Distance = 25,
                 DistanceUnit = DistanceUnit.Miles,
-                TimeTrial = true,
                 EventDate = new DateTime(2019, 3, 9),
-                EventName = "Sheffrec CC 2-Up 25mi TT (with Greg)",
+                EventName = "Sheffrec CC 2-Up 25mi TT",
                 Course = Course.Hatfield25MileTT,
                 TotalTime = new TimeSpan(1, 17, 40),
                 AvgBikeSpeedMph = 19.3

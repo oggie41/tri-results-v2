@@ -45,16 +45,16 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Humber Bridge Half Marathon")]
         HumberBridgeHalfMarathon,
 
-        [Display(Name = "Leeds 5K")]
+        [Display(Name = "Leeds 5K Series")]
         Leeds5K,
 
-        [Display(Name = "Leeds Abbey Dash")]
-        LeedsAbbeyDash,
+        [Display(Name = "Leeds Abbey Dash 10K")]
+        LeedsAbbeyDash10K,
         
         [Display(Name = "Leeds Half Marathon")]
         LeedsHalfMarathon,
         
-        [Display(Name = "Loxley Lash 5K")]
+        [Display(Name = "Loxley Lash 5K Series")]
         LoxleyLash5K,
         
         [Display(Name = "Parkrun (Clifton Park)")]
@@ -108,7 +108,7 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Worksop Half Marathon")]
         WorksopHalfMarathon,
         
-        [Display(Name = "York 5K")]
+        [Display(Name = "York 5K Series")]
         York5K,
         
         [Display(Name = "York 10K")]
@@ -311,18 +311,43 @@ namespace TriResultsV2.Helpers
             return weatherNotes;
         }
 
-        public static string GetTimeTrialEventName(EventResult timeTrial)
+        public static string GetEventName(EventResult result)
         {
-            string eventName = string.Empty;
+            string eventName = $"{result.Sport} on {result.EventDate:dd/MM/yy}";
 
-            if (timeTrial.Course.HasValue)
+            if (result.Course.HasValue)
             {
-                eventName = timeTrial.Course.Value.GetEnumDisplayName();
-            }
+                eventName = $"{result.Course.Value.GetEnumDisplayName()} {result.EventDate:yyyy}";
 
-            if (timeTrial.Sport == SportType.Swim)
-            {
-                eventName = $"{eventName} {GetFormattedDistance(timeTrial.Distance, timeTrial.DistanceUnit, timeTrial.Sport)} TT";
+                // If this is a race series display the month and year.
+                if (result.Course.Value == Course.Leeds5K
+                    || result.Course.Value == Course.LoxleyLash5K
+                    || result.Course.Value == Course.Trust10Clumber
+                    || result.Course.Value == Course.Trust10Longshaw
+                    || result.Course.Value == Course.York5K)
+                {
+                    eventName = $"{result.Course.Value.GetEnumDisplayName()} {result.EventDate:MMM} {result.EventDate:yyyy}";
+                }
+
+                // Parkrun doesn't need the month or year.
+                if (result.Course.GetEnumDisplayName().StartsWith("Parkrun"))
+                {
+                    eventName = result.Course.Value.GetEnumDisplayName();
+                }
+
+                // Additional sport-specific formatting.
+                if (result.Sport == SportType.Triathlon || result.Sport == SportType.Duathlon)
+                {
+                    eventName = result.Course.Value.GetEnumDisplayName();
+                }
+                else if (result.Sport == SportType.Bike)
+                {
+                    eventName = result.Course.Value.GetEnumDisplayName();
+                }
+                else if (result.Sport == SportType.Swim)
+                {
+                    eventName = $"{result.Course.Value.GetEnumDisplayName()} {GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)} TT";
+                }
             }
 
             return eventName;
