@@ -80,7 +80,7 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2019, 7, 13),
                 Course = Course.ParkrunRotherValley,
-                TotalTime = new TimeSpan(0, 18, 58),
+                TotalTime = new TimeSpan(0, 19, 5),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 6)
             };
             eventResults.Add(result);

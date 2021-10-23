@@ -14,7 +14,64 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var bikeResult2684332277 = new EventResult
+            var result = new EventResult
+            {
+                Id = 2952900617,
+                GarminId = 2952900617,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2018, 8, 21),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 9),
+                AvgBikeSpeedMph = 22.1
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 2915375857,
+                GarminId = 2915375857,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2018, 8, 7),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 26),
+                AvgBikeSpeedMph = 21.9
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 2807860740,
+                GarminId = 2807860740,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2018, 6, 26),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 15),
+                AvgBikeSpeedMph = 22.0
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 2737930095,
+                GarminId = 2737930095,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2018, 5, 29),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 51),
+                AvgBikeSpeedMph = 21.5
+            };
+            result.AddEventFigure("Strong headwind going out.");
+            eventResults.Add(result);
+
+            result = new EventResult
             {
                 Id = 2684332277,
                 GarminId = 2684332277,
@@ -23,11 +80,127 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2018, 5, 8),
                 Course = Course.Cuckney10MileTT,
-                TotalTime = new TimeSpan(0, 27, 00),
+                TotalTime = new TimeSpan(0, 27, 0),
                 AvgBikeSpeedMph = 22.2,
                 PersonalBest = true
             };
-            eventResults.Add(bikeResult2684332277);
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 2632617143,
+                GarminId = 2632617143,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2018, 4, 17),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 45),
+                AvgBikeSpeedMph = 21.6
+            };
+            result.AddEventFigure("Added Fulcrum Quattro wheels.");
+            result.AddEventFigure("Strong headwind coming back.");
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 1947561200,
+                GarminId = 1947561200,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2017, 8, 29),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 29),
+                AvgBikeSpeedMph = 21.8
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 1876799493,
+                GarminId = 1876799493,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2017, 7, 25),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 7),
+                AvgBikeSpeedMph = 22.1
+            };
+            result.AddEventFigure("Added aero helmet.");
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 1796732653,
+                GarminId = 1796732653,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2017, 6, 13),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 31),
+                AvgBikeSpeedMph = 21.8
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 1769467964,
+                GarminId = 1769467964,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2017, 5, 30),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 27, 57),
+                AvgBikeSpeedMph = 21.5
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 1754862185,
+                GarminId = 1754862185,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2017, 5, 23),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 28, 25),
+                AvgBikeSpeedMph = 21.1
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 1724277940,
+                GarminId = 1724277940,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2017, 5, 9),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 28, 9),
+                AvgBikeSpeedMph = 21.3
+            };
+            result.AddEventFigure("Added aero bars.");
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 1711109551,
+                GarminId = 1711109551,
+                Sport = SportType.Bike,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Miles,
+                EventDate = new DateTime(2017, 5, 2),
+                Course = Course.Cuckney10MileTT,
+                TotalTime = new TimeSpan(0, 29, 54),
+                AvgBikeSpeedMph = 20.1
+            };
+            eventResults.Add(result);
 
             return eventResults;
         }
@@ -36,7 +209,7 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var bikeResult3448107371 = new EventResult
+            var result = new EventResult
             {
                 Id = 3448107371,
                 GarminId = 3448107371,
@@ -49,7 +222,8 @@ namespace TriResultsV2.Services.Local
                 TotalTime = new TimeSpan(1, 17, 40),
                 AvgBikeSpeedMph = 19.3
             };
-            eventResults.Add(bikeResult3448107371);
+            result.AddEventFigure("With Greg. Really tough conditions... 26mph winds!");
+            eventResults.Add(result);
 
             return eventResults;
         }
