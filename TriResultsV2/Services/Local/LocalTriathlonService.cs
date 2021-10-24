@@ -88,7 +88,7 @@ namespace TriResultsV2.Services.Local
                              "Run was 4 laps round the cycle track. Felt OK, but think capable of going a bit quicker. Enjoyed the race, would do it again.",
                 Expanded = false
             };
-            result7226965095.AddEventFigure("Tight, technical bike course.");
+            result7226965095.AddEventFigure("Tight, technical bike course.", NamedIcon.Bike);
             eventResults.Add(result7226965095);
 
             var result3774902533 = new MultisportEventResult

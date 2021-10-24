@@ -38,16 +38,22 @@ namespace TriResultsV2.Models
 
         public bool PersonalBest { get; set; } = false;
 
-        public List<string> EventFigures { get; set; } = new List<string>();
+        public List<EventFigure> EventFigures { get; set; } = new List<EventFigure>();
 
-        public void AddEventFigure(string figure)
+        public void AddEventFigure(string figureText, NamedIcon figureIcon = NamedIcon.Info)
         {
             if (EventFigures == null)
             {
-                EventFigures = new List<string>();
+                EventFigures = new List<EventFigure>();
             }
 
-            EventFigures.Add(figure);
+            var eventFigure = new EventFigure
+            {
+                Icon = figureIcon, 
+                Text = figureText
+            };
+
+            EventFigures.Add(eventFigure);
         }
     }
 }

@@ -219,17 +219,17 @@
                                     {
                                         if (result.ActualSwimTime.Value != result.Discipline1Time)
                                         {
-                                            <div><i class="fas fa-info-circle"></i> Swim time includes run to transition. @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport) swim was @EventHelper.GetFormattedTime(result.ActualSwimTime.Value).</div>
+                                            <div><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim time includes run to transition. @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport) swim was @EventHelper.GetFormattedTime(result.ActualSwimTime.Value).</div>
                                         }
                                     }
                                     else
                                     {
-                                        <div><i class="fas fa-info-circle"></i> Swim time includes run to transition.</div>
+                                        <div><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim time includes run to transition.</div>
                                     }
                                 }
                                 @foreach (var figure in result.EventFigures)
                                 {
-                                    <div><i class="fas fa-info-circle"></i> @figure</div>
+                                    <div><i class="@IconHelper.GetIconClass(figure.Icon)"></i> @figure.Text</div>
                                 }
                             </div>
                         }

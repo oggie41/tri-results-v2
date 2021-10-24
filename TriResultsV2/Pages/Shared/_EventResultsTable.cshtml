@@ -152,7 +152,7 @@
                                 @foreach (var figure in result.EventFigures)
                                 {
                                     <div>
-                                        <i class="fas fa-info-circle"></i> @figure
+                                        <i class="@IconHelper.GetIconClass(figure.Icon)"></i> @figure.Text
                                     </div>
                                 }
                             </div>

@@ -68,7 +68,7 @@ namespace TriResultsV2.Services.Local
                 TotalTime = new TimeSpan(0, 27, 51),
                 AvgBikeSpeedMph = 21.5
             };
-            result.AddEventFigure("Strong headwind going out.");
+            result.AddEventFigure("Strong headwind going out.", NamedIcon.Wind);
             eventResults.Add(result);
 
             result = new EventResult
@@ -98,8 +98,8 @@ namespace TriResultsV2.Services.Local
                 TotalTime = new TimeSpan(0, 27, 45),
                 AvgBikeSpeedMph = 21.6
             };
-            result.AddEventFigure("Added Fulcrum Quattro wheels.");
-            result.AddEventFigure("Strong headwind coming back.");
+            result.AddEventFigure("Added Fulcrum Quattro wheels.", NamedIcon.Gear);
+            result.AddEventFigure("Strong headwind coming back.", NamedIcon.Wind);
             eventResults.Add(result);
 
             result = new EventResult
@@ -128,7 +128,7 @@ namespace TriResultsV2.Services.Local
                 TotalTime = new TimeSpan(0, 27, 7),
                 AvgBikeSpeedMph = 22.1
             };
-            result.AddEventFigure("Added aero helmet.");
+            result.AddEventFigure("Added aero helmet.", NamedIcon.Gear);
             eventResults.Add(result);
 
             result = new EventResult
@@ -185,7 +185,7 @@ namespace TriResultsV2.Services.Local
                 TotalTime = new TimeSpan(0, 28, 9),
                 AvgBikeSpeedMph = 21.3
             };
-            result.AddEventFigure("Added aero bars.");
+            result.AddEventFigure("Added aero bars.", NamedIcon.Gear);
             eventResults.Add(result);
 
             result = new EventResult
@@ -217,12 +217,12 @@ namespace TriResultsV2.Services.Local
                 Distance = 25,
                 DistanceUnit = DistanceUnit.Miles,
                 EventDate = new DateTime(2019, 3, 9),
-                EventName = "Sheffrec CC 2-Up 25mi TT",
+                EventName = "Sheffrec CC 2-Up 25mi TT (w/ Greg)",
                 Course = Course.Hatfield25MileTT,
                 TotalTime = new TimeSpan(1, 17, 40),
                 AvgBikeSpeedMph = 19.3
             };
-            result.AddEventFigure("With Greg. Really tough conditions... 26mph winds!");
+            result.AddEventFigure("Really tough conditions... 26mph winds!", NamedIcon.Wind);
             eventResults.Add(result);
 
             return eventResults;

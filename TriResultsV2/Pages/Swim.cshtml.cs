@@ -50,7 +50,7 @@ namespace TriResultsV2.Pages
 
                         if (result400m != null)
                         {
-                            result200m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime));
+                            result200m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime), NamedIcon.Stopwatch);
                         }
                     }
                 }
@@ -64,7 +64,7 @@ namespace TriResultsV2.Pages
 
                         if (result200m != null)
                         {
-                            result400m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime));
+                            result400m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime), NamedIcon.Stopwatch);
                         }
                     }
                 }

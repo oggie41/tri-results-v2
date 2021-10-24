@@ -51,7 +51,8 @@ namespace TriResultsV2.Pages
                 {
                     ContentId = "25mi-tts",
                     HeaderText = "25 Mile TTs",
-                    EventResults = bikeResults25MileTT
+                    EventResults = bikeResults25MileTT,
+                    Expanded = true
                 };
 
                 // Personal Records.
