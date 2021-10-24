@@ -27,6 +27,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Chatsworth 10K")]
         Chatsworth10K,
 
+        [Display(Name = "Clumber Off-Road Sprint Duathlon")]
+        ClumberOffRoadSprintDuathlon,
+
         [Display(Name = "Clumber Sprint Duathlon")]
         ClumberSprintDuathlon,
 
@@ -56,7 +59,13 @@ namespace TriResultsV2.Helpers
         
         [Display(Name = "Loxley Lash 5K Series")]
         LoxleyLash5K,
-        
+
+        [Display(Name = "Oulton Park Sprint Duathlon")]
+        OultonParkSprintDuathlon,
+
+        [Display(Name = "Oulton Park Standard Duathlon")]
+        OultonParkStandardDuathlon,
+
         [Display(Name = "Parkrun (Clifton Park)")]
         ParkrunCliftonPark,
         

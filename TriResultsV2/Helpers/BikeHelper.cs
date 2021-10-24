@@ -13,7 +13,7 @@ namespace TriResultsV2.Helpers
 
             if (avgBikeSpeedMph.HasValue)
             {
-                avgSpeedFormatted = $"{Math.Round(avgBikeSpeedMph.Value, 1)} mph";
+                avgSpeedFormatted = $"{Math.Round(avgBikeSpeedMph.Value, 1):F1} mph";
             }
 
             return avgSpeedFormatted;

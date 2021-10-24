@@ -86,13 +86,89 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.Sunny,
                 TemperatureDegreesCelsius = 15,
                 WindMph = 6,
-                EventNotes = "Notes: Good course, enjoyed the race. It was tough in the heat though.<br/>" +
+                EventNotes = "Good course, enjoyed the race. It was tough in the heat though.<br/>" +
                              "The first run was steady enough, although a bit more undulating than I expected.<br/>" +
                              "The bike leg went well; feeling stronger on the bike after all the winter turbo.<br/>" +
                              "The second run was tough going! More bike -> run brick workouts needed. Definitely want to give this a go again next year."
             };
             result2674814887.AddEventFigure("ITU World Championship Qualifier - strong field.");
             eventResults.Add(result2674814887);
+
+            var result1612747638 = new MultisportEventResult
+            {
+                Id = 1612747638,
+                GarminId = 1612747638,
+                Sport = SportType.Duathlon,
+                EventDate = new DateTime(2017, 3, 5),
+                Course = Course.OultonParkStandardDuathlon,
+                EventName = "Oulton Park Spring Duathlon",
+                Discipline1Distance = 8.6,
+                Discipline1DistanceUnit = DistanceUnit.Kilometres,
+                Discipline2Distance = 38.8,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 4.3,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 38, 10),
+                T1Time = new TimeSpan(0, 1, 17),
+                Discipline2Time = new TimeSpan(1, 15, 56),
+                T2Time = new TimeSpan(0, 1, 25),
+                Discipline3Time = new TimeSpan(0, 20, 54),
+                TotalTime = new TimeSpan(2, 17, 44),
+                Discipline1AvgRunPaceMinMi = new TimeSpan(0, 7, 9),
+                Discipline2AvgBikeSpeedMph = 19.0,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 50),
+                TotalParticipants = 225,
+                Discipline1Position = 149,
+                T1Position = 73,
+                Discipline2Position = 165,
+                T2Position = 71,
+                Discipline3Position = 158,
+                OverallPosition = 156,
+                Weather = WeatherType.Rainy,
+                TemperatureDegreesCelsius = 4,
+                WindMph = 12,
+                EventNotes = "First standard distance duathlon completed. Really tough race with the conditions.<br/>" +
+                 "First run went well. Bad calf cramps on the bike, but managed to keep going; run -> bike brick sessions needed to help with this.<br/>" +
+                 "Like a muppet forgot to take my helmet off in T2, so had to run with it! Second run was really tough - couldn't feel my feet!"
+            };
+            result1612747638.AddEventFigure("ITU World Championship Qualifier - strong field.");
+            eventResults.Add(result1612747638);
+
+            var result930444954 = new MultisportEventResult
+            {
+                Id = 930444954,
+                GarminId = 930444954,
+                Sport = SportType.Duathlon,
+                EventDate = new DateTime(2015, 10, 17),
+                Course = Course.ClumberOffRoadSprintDuathlon,
+                Discipline1Distance = 5,
+                Discipline1DistanceUnit = DistanceUnit.Kilometres,
+                Discipline2Distance = 17,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 3,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 20, 55),
+                T1Time = new TimeSpan(0, 0, 44),
+                Discipline2Time = new TimeSpan(0, 55, 8),
+                T2Time = new TimeSpan(0, 0, 41),
+                Discipline3Time = new TimeSpan(0, 14, 32),
+                TotalTime = new TimeSpan(1, 32, 0),
+                Discipline1AvgRunPaceMinMi = new TimeSpan(0, 6, 58),
+                Discipline2AvgBikeSpeedMph = 11.5,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 45),
+                TotalParticipants = 204,
+                Discipline1Position = 69,
+                T1Position = 41,
+                Discipline2Position = 122,
+                T2Position = 68,
+                Discipline3Position = 79,
+                OverallPosition = 93,
+                Weather = WeatherType.Cloudy,
+                TemperatureDegreesCelsius = 9,
+                WindMph = 8,
+                EventNotes = "Tough event. Felt good on the runs, but the cycle leg was really tough, especially on the hybrid (borrowed from Eddy)."
+            };
+            eventResults.Add(result930444954);
 
             return eventResults;
         }
