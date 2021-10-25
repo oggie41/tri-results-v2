@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TriResultsV2.Helpers
+@{
     string bannerCssClass = "tri-banner-img-tri";
 
     if (ViewData["BannerCssClass"] != null)
@@ -20,7 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/da48e6d6b6.js" crossorigin="anonymous"></script>
+    @*<script src="https://kit.fontawesome.com/da48e6d6b6.js" crossorigin="anonymous"></script>*@
+    <link rel="stylesheet" href="~/font-awesome/css/all.css" />
 </head>
 <body>
 <partial name="_Loading"/>
@@ -31,24 +33,24 @@
                 <img src="/images/general/tri-results-logo-800.png" alt="Tri Results" class="tri-logo" />
             </a>
             <button class="d-print-none navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="tri-navbar-icon tri-navbar-menu-icon fas fa-bars"></span><span class="tri-navbar-icon tri-navbar-close-icon fas fa-times-circle"></span> <span class="tri-navbar-toggler-text">Menu</span>
+                <span class="tri-navbar-icon tri-navbar-menu-icon @IconHelper.GetIconClass(NamedIcon.Menu, IconOption.Light)"></span><span class="tri-navbar-icon tri-navbar-close-icon @IconHelper.GetIconClass(NamedIcon.MenuClose)"></span> <span class="tri-navbar-toggler-text">Menu</span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Index" title="Multisport Results"><i class="fas fa-random"></i> Multisport</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Index" title="Multisport Results"><i class="@IconHelper.GetIconClass(NamedIcon.MultiSport)"></i> Multisport</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Swim" title="Swim Results"><i class="fas fa-swimmer"></i> Swim</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Swim" title="Swim Results"><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Bike" title="Bike Results"><i class="fas fa-biking"></i> Bike</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Bike" title="Bike Results"><i class="@IconHelper.GetIconClass(NamedIcon.Bike)"></i> Bike</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Run" title="Run Results"><i class="fas fa-running"></i> Run</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Run" title="Run Results"><i class="@IconHelper.GetIconClass(NamedIcon.Run)"></i> Run</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/RaceDiary" title="Race Diary"><i class="far fa-calendar-alt"></i> Race Diary</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/RaceDiary" title="Race Diary"><i class="@IconHelper.GetIconClass(NamedIcon.Diary)"></i> Race Diary</a>
                     </li>
                 </ul>
             </div>

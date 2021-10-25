@@ -298,16 +298,16 @@ namespace TriResultsV2.Helpers
             switch (weather)
             {
                 case WeatherType.Sunny:
-                    weatherIconClass = "fas fa-sun";
+                    weatherIconClass = IconHelper.GetIconClass(NamedIcon.Sun);
                     break;
                 case WeatherType.Cloudy:
-                    weatherIconClass = "fas fa-cloud";
+                    weatherIconClass = IconHelper.GetIconClass(NamedIcon.Cloud);
                     break;
                 case WeatherType.SunnyCloudy:
-                    weatherIconClass = "fas fa-cloud-sun";
+                    weatherIconClass = IconHelper.GetIconClass(NamedIcon.CloudSun);
                     break;
                 case WeatherType.Rainy:
-                    weatherIconClass = "fas fa-cloud-rain";
+                    weatherIconClass = IconHelper.GetIconClass(NamedIcon.Rain);
                     break;
             }
 

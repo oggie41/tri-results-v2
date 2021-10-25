@@ -9,17 +9,26 @@ namespace TriResultsV2.Helpers
     {
         None,
         Bike,
+        Cloud,
+        CloudSun,
         Diary,
+        Edit,
         Gear,
+        Improvement,
         Info,
+        Link,
         Menu,
         MenuClose,
         MultiSport,
+        Percent,
         PersonalBest,
+        Rain,
         Result,
         Run,
-        Swim,
+        Speed,
         Stopwatch,
+        Sun,
+        Swim,
         Wind
     }
 
@@ -33,7 +42,7 @@ namespace TriResultsV2.Helpers
 
     public static class IconHelper
     {
-        public static string GetIconClass(NamedIcon icon, IconOption option = IconOption.Solid)
+        public static string GetIconClass(NamedIcon icon, IconOption option = IconOption.DuoTone)
         {
             string faClass;
 
@@ -60,16 +69,25 @@ namespace TriResultsV2.Helpers
             {
                 case NamedIcon.None: return string.Empty;
                 case NamedIcon.Bike: return $"{faClass} fa-biking";
+                case NamedIcon.Cloud: return $"{faClass} fa-cloud";
+                case NamedIcon.CloudSun: return $"{faClass} fa-cloud-sun";
                 case NamedIcon.Diary: return $"{faClass} fa-calendar-alt";
+                case NamedIcon.Edit: return $"{faClass} fa-calendar-alt";
                 case NamedIcon.Gear: return $"{faClass} fa-cog";
+                case NamedIcon.Improvement: return $"{faClass} fa-chart-line";
                 case NamedIcon.Info: return $"{faClass} fa-info-circle";
+                case NamedIcon.Link: return $"{faClass} fa-link";
                 case NamedIcon.Menu: return $"{faClass} fa-bars";
                 case NamedIcon.MenuClose: return $"{faClass} fa-times-circle";
                 case NamedIcon.MultiSport: return $"{faClass} fa-random";
+                case NamedIcon.Percent: return $"{faClass} fa-percent";
                 case NamedIcon.PersonalBest: return $"{faClass} fa-medal";
+                case NamedIcon.Rain: return $"{faClass} fa-cloud-rain";
                 case NamedIcon.Result: return $"{faClass} fa-clipboard-list";
                 case NamedIcon.Run: return $"{faClass} fa-running";
+                case NamedIcon.Speed: return $"{faClass} fa-tachometer-alt";
                 case NamedIcon.Stopwatch: return $"{faClass} fa-stopwatch";
+                case NamedIcon.Sun: return $"{faClass} fa-sun";
                 case NamedIcon.Swim: return $"{faClass} fa-swimmer";
                 case NamedIcon.Wind: return $"{faClass} fa-wind";
             }
