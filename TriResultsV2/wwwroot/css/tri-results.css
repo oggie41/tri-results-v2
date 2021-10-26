@@ -77,7 +77,7 @@ body {
   font-weight: bold; }
 
 .accordion-button {
-  padding: 1rem 1rem; }
+  padding: 1rem 0.6rem; }
 
 .figure-caption {
   font-size: .94em; }

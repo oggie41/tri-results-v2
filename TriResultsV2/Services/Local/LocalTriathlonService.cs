@@ -50,8 +50,7 @@ namespace TriResultsV2.Services.Local
                 EventNotes = "Great conditions. Swim went pretty well considering the lack of swim training.<br/>" +
                              "Good bike course, plenty of opportunity to get on the tri bars. Need to up the bike training really though, especially TT specific riding, didn't feel strong enough at times.<br/>" +
                              "Run was 2 laps around the local area. Felt pretty good and finished strongly. With more bike training should be able to perform better on the run as will feel fresher.<br/>" +
-                             "Really enjoyed the race, definitely want to do it again next year.",
-                Expanded = true
+                             "Really enjoyed the race, definitely want to do it again next year."
             };
             eventResults.Add(result7430411827);
 

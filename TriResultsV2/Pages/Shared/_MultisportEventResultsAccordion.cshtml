@@ -30,12 +30,14 @@
 <div id="@accordionId" class="accordion accordion-flush">
     @if (Model.MultisportEventResults != null)
     {
+        int i = 0;
+
         foreach (var result in Model.MultisportEventResults)
         {
             string headerButtonCss = "accordion-button collapsed";
             string bodyContainerCss = "accordion-collapse collapse";
 
-            if (result.Expanded)
+            if (i == 0 || result.Expanded)
             {
                 headerButtonCss = "accordion-button";
                 bodyContainerCss = "accordion-collapse collapse show";
@@ -250,6 +252,7 @@
                     </div>
                 </div>
             </div>
+            i++;
         }
     }
 </div>
