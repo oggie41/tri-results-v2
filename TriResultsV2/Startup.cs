@@ -13,9 +13,12 @@ namespace TriResultsV2
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment Environment;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             Configuration = configuration;
+            Environment = webHostEnvironment;
         }
 
         public IConfiguration Configuration { get; }
@@ -45,6 +48,20 @@ namespace TriResultsV2
                 services.AddTransient<Services.Interfaces.ITriathlonService, Services.Sql.SqlTriathlonService>();
                 services.AddTransient<Services.Interfaces.IDuathlonService, Services.Sql.SqlDuathlonService>();
             }
+
+            // Use WebOptimizer to minify the JS files (if not development environment).
+            // https://github.com/ligershark/WebOptimizer
+            if (Environment.IsDevelopment())
+            {
+                services.AddWebOptimizer(minifyJavaScript: false, minifyCss: false);
+            }
+            else
+            {
+                services.AddWebOptimizer(pipeline =>
+                {
+                    pipeline.MinifyJsFiles("js/site.js");
+                });
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +77,10 @@ namespace TriResultsV2
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // WebOptimizer - for minifying and bundling files.
+            // https://github.com/ligershark/WebOptimizer
+            app.UseWebOptimizer();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
