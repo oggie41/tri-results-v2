@@ -1,38 +1,41 @@
-﻿$(function () {
-    // Document ready.
-
-    // For testing - loading spinner always visible.
-    //displayLoadingIndicator();
+﻿$(window).on("beforeunload", function () {
+    //Tri.DisplayLoadingIndicator();
 });
 
-$(window).on("beforeunload", function () {
-    //displayLoadingIndicator();
-});
+/* Using a JavaScript closure - it creates an Immediately-Invoked Function Expression (IIFE), allowing for private variables/functions. */
+var Tri = (function () {
+    /* Private Functions/Variables */
+    /* End Private Functions/Variables */
 
-function displayLoadingIndicator() {
-    $(".tri-loading-overlay").show();
-}
+    /* Public Functions */
+    return {
+        DisplayLoadingIndicator: function () {
+            $(".tri-loading-overlay").show();
+        },
 
-function courseChanged(obj, parentId) {
-    var course = obj.value;
+        CourseChanged: function (obj, parentId) {
+            var course = obj.value;
 
-    if (course === "all") {
-        $("#" + parentId + " [data-course]").fadeIn();
-    } else {
-        $("#" + parentId + " [data-course]").hide();
-        $("#" + parentId + " [data-course='" + obj.value + "']").fadeIn();
-    }
+            if (course === "all") {
+                $("#" + parentId + " [data-course]").fadeIn();
+            } else {
+                $("#" + parentId + " [data-course]").hide();
+                $("#" + parentId + " [data-course='" + obj.value + "']").fadeIn();
+            }
 
-    // If the parent element is a table re-apply the table striping after filtering.
-    var elementType = $("#" + parentId).get(0).tagName;
+            // If the parent element is a table re-apply the table striping after filtering.
+            var elementType = $("#" + parentId).get(0).tagName;
 
-    if (elementType.toUpperCase() === "TABLE") {
-        $("#" + parentId + " tr").each(function(index) {
-            $(this).removeClass("tri-striped-row");
-        });
+            if (elementType.toUpperCase() === "TABLE") {
+                $("#" + parentId + " tr").each(function (index) {
+                    $(this).removeClass("tri-striped-row");
+                });
 
-        $("#" + parentId + " tr:visible").each(function(index) {
-            $(this).toggleClass("tri-striped-row", !!(index & 1));
-        });
-    }
-};
+                $("#" + parentId + " tr:visible").each(function (index) {
+                    $(this).toggleClass("tri-striped-row", !!(index & 1));
+                });
+            }
+        }
+    };
+    /* End Public Functions */
+})();
