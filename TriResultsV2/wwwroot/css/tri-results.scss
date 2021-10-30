@@ -1,6 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 $default-font-family: 'Quicksand', Segoe UI, sans-serif;
+/*$table-striping-background: rgba(0, 0, 0, 0.05);*/
+$table-striping-background: #f2f7fc;
 
 a.navbar-brand {
     white-space: normal;
@@ -121,7 +123,7 @@ ul.navbar-nav a:hover {
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-    --bs-table-accent-bg: #eef4fc;
+    --bs-table-accent-bg: $table-striping-background;
 }
 
 .table-hover > tbody > tr:hover {
@@ -160,8 +162,7 @@ ul.navbar-nav a:hover {
 }
 
 .tri-striped-row {
-    background-color: #eef4fc;
-    /*background-color: rgba(0, 0, 0, 0.05);*/
+    background-color: $table-striping-background;
 }
 
 .tri-banner-img {
