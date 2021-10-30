@@ -39,6 +39,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Doncaster 5K")]
         Doncaster5K,
 
+        [Display(Name = "Epworth Sprint Triathlon")]
+        EpworthSprintTriathlon,
+
         [Display(Name = "Hatfield 25mi TT")]
         Hatfield25MileTT,
 

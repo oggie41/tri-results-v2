@@ -14,7 +14,7 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<MultisportEventResult>();
 
-            var result3487254095 = new MultisportEventResult
+            var result = new MultisportEventResult
             {
                 Id = 3487254095,
                 GarminId = 3487254095,
@@ -52,9 +52,9 @@ namespace TriResultsV2.Services.Local
                              "Transitions still need some work!",
                 CompareWithEventId = 2674814887
             };
-            eventResults.Add(result3487254095);
+            eventResults.Add(result);
 
-            var result2674814887 = new MultisportEventResult
+            result = new MultisportEventResult
             {
                 Id = 2674814887,
                 GarminId = 2674814887,
@@ -91,10 +91,10 @@ namespace TriResultsV2.Services.Local
                              "The bike leg went well; feeling stronger on the bike after all the winter turbo.<br/>" +
                              "The second run was tough going! More bike -> run brick workouts needed. Definitely want to give this a go again next year."
             };
-            result2674814887.AddEventFigure("ITU World Championship Qualifier - strong field.");
-            eventResults.Add(result2674814887);
+            result.AddEventFigure("ITU World Championship Qualifier - strong field.");
+            eventResults.Add(result);
 
-            var result1612747638 = new MultisportEventResult
+            result = new MultisportEventResult
             {
                 Id = 1612747638,
                 GarminId = 1612747638,
@@ -131,10 +131,10 @@ namespace TriResultsV2.Services.Local
                  "First run went well. Bad calf cramps on the bike, but managed to keep going; run -> bike brick sessions needed to help with this.<br/>" +
                  "Like a muppet forgot to take my helmet off in T2, so had to run with it! Second run was really tough - couldn't feel my feet!"
             };
-            result1612747638.AddEventFigure("ITU World Championship Qualifier - strong field.");
-            eventResults.Add(result1612747638);
+            result.AddEventFigure("ITU World Championship Qualifier - strong field.");
+            eventResults.Add(result);
 
-            var result930444954 = new MultisportEventResult
+            result = new MultisportEventResult
             {
                 Id = 930444954,
                 GarminId = 930444954,
@@ -168,7 +168,7 @@ namespace TriResultsV2.Services.Local
                 WindMph = 8,
                 EventNotes = "Tough event. Felt good on the runs, but the cycle leg was really tough, especially on the hybrid (borrowed from Eddy)."
             };
-            eventResults.Add(result930444954);
+            eventResults.Add(result);
 
             return eventResults;
         }

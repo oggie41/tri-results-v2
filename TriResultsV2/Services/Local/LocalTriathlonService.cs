@@ -14,7 +14,7 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<MultisportEventResult>();
 
-            var result7430411827 = new MultisportEventResult
+            var result = new MultisportEventResult
             {
                 Id = 7430411827,
                 GarminId = 7430411827,
@@ -52,9 +52,9 @@ namespace TriResultsV2.Services.Local
                              "Run was 2 laps around the local area. Felt pretty good and finished strongly. With more bike training should be able to perform better on the run as will feel fresher.<br/>" +
                              "Really enjoyed the race, definitely want to do it again next year."
             };
-            eventResults.Add(result7430411827);
+            eventResults.Add(result);
 
-            var result7226965095 = new MultisportEventResult
+            result = new MultisportEventResult
             {
                 Id = 7226965095,
                 GarminId = 7226965095,
@@ -84,13 +84,12 @@ namespace TriResultsV2.Services.Local
                 WindMph = 9,
                 EventNotes = "First time doing this race. Pleased with the swim considering I've only swam twice in the last year! Kept it relaxed, breathing felt good. We had to swap lanes every 4 laps, so not ideal for a quick time.<br/>" +
                              "Bike course was really tight and technical (6 laps of the uni-campus). Wasn't the kind of course I'm used to so found it challenging, but good fun :)<br/>" +
-                             "Run was 4 laps round the cycle track. Felt OK, but think capable of going a bit quicker. Enjoyed the race, would do it again.",
-                Expanded = false
+                             "Run was 4 laps round the cycle track. Felt OK, but think capable of going a bit quicker. Enjoyed the race, would do it again."
             };
-            result7226965095.AddEventFigure("Tight, technical bike course.", NamedIcon.Bike);
-            eventResults.Add(result7226965095);
+            result.AddEventFigure("Tight, technical bike course.", NamedIcon.Bike);
+            eventResults.Add(result);
 
-            var result3774902533 = new MultisportEventResult
+            result = new MultisportEventResult
             {
                 Id = 3774902533,
                 GarminId = 3774902533,
@@ -127,9 +126,91 @@ namespace TriResultsV2.Services.Local
                              "Took first mile of the run to shake off the cramps, but felt good after that. Pleased with performance overall :)",
                 CompareWithEventId = 1260511684
             };
-            eventResults.Add(result3774902533);
+            eventResults.Add(result);
 
-            var result1260511684 = new MultisportEventResult
+            result = new MultisportEventResult
+            {
+                Id = 3575876082,
+                GarminId = 3575876082,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2019, 4, 21),
+                Course = Course.EpworthSprintTriathlon,
+                EventName = "Epworth Start of Season Sprint Triathlon 2019",
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 20,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 7, 13),
+                ActualSwimTime = new TimeSpan(0, 6, 53),
+                T1Time = new TimeSpan(0, 0, 52),
+                Discipline2Time = new TimeSpan(0, 36, 51),
+                T2Time = new TimeSpan(0, 0, 47),
+                Discipline3Time = new TimeSpan(0, 19, 22),
+                TotalTime = new TimeSpan(1, 5, 5),
+                Discipline2AvgBikeSpeedMph = 20.0,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 6, 47),
+                TotalParticipants = 81,
+                Discipline1Position = 19,
+                T1Position = 17,
+                Discipline2Position = 21,
+                T2Position = 15,
+                Discipline3Position = 10,
+                OverallPosition = 12,
+                Weather = WeatherType.Sunny,
+                TemperatureDegreesCelsius = 10,
+                WindMph = 2,
+                EventNotes = "Epworth PB and highest finish so far :) Perfect conditions -  sunny, not too hot and not much wind.<br/>" +
+                             "Quickest Epworth swim - decent chunk off last time. Most comfortable I've felt in a triathlon pool swim, the video lesson from Nov has paid off.<br/>" +
+                             "Bike leg went well, felt controlled and left enough in the tank for the run. Loving the new ISM saddle for TT position. Have definitely still got room for improvement on the bike, although would need to up my bike volume.<br/>" +
+                             "The run went really well. Felt strong, the strength workouts have started to pay off for the later stages in races.",
+                CompareWithEventId = 3036668531
+            };
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
+                Id = 3036668531,
+                GarminId = 3036668531,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2018, 9, 23),
+                Course = Course.EpworthSprintTriathlon,
+                EventName = "Epworth End of Season Sprint Triathlon 2018",
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 20,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 7, 50),
+                T1Time = new TimeSpan(0, 1, 15),
+                Discipline2Time = new TimeSpan(0, 36, 48),
+                T2Time = new TimeSpan(0, 0, 56),
+                Discipline3Time = new TimeSpan(0, 20, 10),
+                TotalTime = new TimeSpan(1, 6, 56),
+                Discipline2AvgBikeSpeedMph = 20.0,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 6, 54),
+                TotalParticipants = 88,
+                Discipline1Position = 22,
+                T1Position = 31,
+                Discipline2Position = 18,
+                T2Position = 32,
+                Discipline3Position = 12,
+                OverallPosition = 15,
+                Weather = WeatherType.SunnyCloudy,
+                TemperatureDegreesCelsius = 9,
+                WindMph = 6,
+                EventNotes = "Best finish so far :) Quickest Epworth swim - first 10 laps were difficult with congested lane and leaking goggles, but finished strongly last 10 laps.<br/>" +
+                 "Felt good on the bike, decent improvement. Best tri run so far - felt strong, recent brick workouts paid off.<br/>" +
+                 "Transitions need some work!",
+                CompareWithEventId = 1681338479
+            };
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
             {
                 Id = 1260511684,
                 GarminId = 1260511684,
@@ -164,7 +245,126 @@ namespace TriResultsV2.Services.Local
                 EventNotes = "Enjoyed the race. Open water swim went well (750m is the furthest I've done so far), started nearer the front as well.<br/>" +
                              "Felt stronger on the bike. Once again, the run was OK, but should be doing quicker."
             };
-            eventResults.Add(result1260511684);
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
+                Id = 1681338479,
+                GarminId = 1681338479,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2017, 4, 16),
+                Course = Course.EpworthSprintTriathlon,
+                EventName = "Epworth Start of Season Sprint Triathlon 2017",
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 20,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 7, 57),
+                T1Time = new TimeSpan(0, 1, 14),
+                Discipline2Time = new TimeSpan(0, 38, 20),
+                T2Time = new TimeSpan(0, 0, 48),
+                Discipline3Time = new TimeSpan(0, 20, 53),
+                TotalTime = new TimeSpan(1, 9, 10),
+                Discipline2AvgBikeSpeedMph = 18.9,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 17),
+                TotalParticipants = 119,
+                Discipline1Position = 46,
+                T1Position = 39,
+                Discipline2Position = 36,
+                T2Position = 25,
+                Discipline3Position = 27,
+                OverallPosition = 33,
+                Weather = WeatherType.SunnyCloudy,
+                TemperatureDegreesCelsius = 6,
+                WindMph = 8,
+                EventNotes = "Over 6 mins quicker than last year, plus best finish so far, so big improvement :)<br/>" +
+                             "Steady enough swim; more CSS work should start to improve the time.<br/>" +
+                             "Felt good on the bike, big improvement over last year. Slight calf cramp, but nothing major.<br/>" +
+                             "Bad calf cramp at the start of the run, but it went away after the first mile; finished the run strongly.",
+                CompareWithEventId = 1141389428
+            };
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
+                Id = 1141389428,
+                GarminId = 1141389428,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2016, 4, 24),
+                Course = Course.EpworthSprintTriathlon,
+                EventName = "Epworth Start of Season Sprint Triathlon 2016",
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 20,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 8, 7),
+                T1Time = new TimeSpan(0, 1, 41),
+                Discipline2Time = new TimeSpan(0, 42, 27),
+                T2Time = new TimeSpan(0, 0, 48),
+                Discipline3Time = new TimeSpan(0, 22, 43),
+                TotalTime = new TimeSpan(1, 15, 44),
+                Discipline2AvgBikeSpeedMph = 17.0,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 52),
+                TotalParticipants = 110,
+                Discipline1Position = 46,
+                T1Position = 51,
+                Discipline2Position = 58,
+                T2Position = 25,
+                Discipline3Position = 47,
+                OverallPosition = 52,
+                Weather = WeatherType.Sunny,
+                TemperatureDegreesCelsius = 6,
+                WindMph = 14,
+                EventNotes = "Not my finest race at all. Bad swim; went off too quick, goggles leaked.<br/>" +
+                             "First time racing on road bike; improved since last time, but wasn't strong enough into the wind.<br/>" +
+                             "Ran badly (over a minute slower than last time!), didn't push it enough.",
+                CompareWithEventId = 890290409
+            };
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
+                Id = 890290409,
+                GarminId = 890290409,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2015, 9, 6),
+                Course = Course.EpworthSprintTriathlon,
+                EventName = "Epworth End of Season Sprint Triathlon 2015",
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 20,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 8, 52),
+                T1Time = new TimeSpan(0, 2, 44),
+                Discipline2Time = new TimeSpan(0, 46, 24),
+                T2Time = new TimeSpan(0, 0, 44),
+                Discipline3Time = new TimeSpan(0, 21, 14),
+                TotalTime = new TimeSpan(1, 19, 58),
+                Discipline2AvgBikeSpeedMph = 15.6,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 18),
+                TotalParticipants = 109,
+                Discipline1Position = 51,
+                T1Position = 99,
+                Discipline2Position = 87,
+                T2Position = 22,
+                Discipline3Position = 24,
+                OverallPosition = 65,
+                Weather = WeatherType.Sunny,
+                TemperatureDegreesCelsius = 10,
+                WindMph = 5,
+                EventNotes = "First triathlon completed :) Really enjoyed it.<br/>" +
+                             "Used Eddy's Dawes hybrid bike - definitely need a road bike!"
+            };
+            eventResults.Add(result);
 
             return eventResults;
         }
