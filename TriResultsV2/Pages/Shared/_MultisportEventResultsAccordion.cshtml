@@ -121,7 +121,7 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Stopwatch, IconOption.Regular) d-inline-block"></i>
+                                            <i class="@IconHelper.GetIconClass(NamedIcon.Stopwatch) d-inline-block"></i>
                                             <div class="d-none d-md-inline-block">Time</div>
                                         </th>
                                         <td>
@@ -145,7 +145,7 @@
                                     {
                                         <tr>
                                             <th scope="row">
-                                                <i class="@IconHelper.GetIconClass(NamedIcon.Improvement, IconOption.Regular)"></i>
+                                                <i class="@IconHelper.GetIconClass(NamedIcon.Improvement)"></i>
                                                 <div class="d-none d-md-inline-block">Improvement</div>
                                             </th>
                                             <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline1Time, comparisonResult.Discipline1Time))</td>
@@ -158,7 +158,7 @@
                                     }
                                     <tr>
                                         <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Speed, IconOption.Regular)"></i>
+                                            <i class="@IconHelper.GetIconClass(NamedIcon.Speed)"></i>
                                             <div class="d-none d-md-inline-block">Pace/Speed</div>
                                         </th>
                                         <td>
@@ -187,7 +187,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Result, IconOption.Regular)"></i>
+                                            <i class="@IconHelper.GetIconClass(NamedIcon.Result)"></i>
                                             <div class="d-none d-md-inline-block">Position</div>
                                         </th>
                                         <td>@EventHelper.GetFormattedPosition(result.Discipline1Position)</td>
@@ -199,7 +199,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Percent, IconOption.Regular)"></i>
+                                            <i class="@IconHelper.GetIconClass(NamedIcon.Percent)"></i>
                                             <div class="d-none d-md-inline-block">Performance</div>
                                         </th>
                                         <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline1Position)</td>

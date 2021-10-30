@@ -7,11 +7,11 @@
 }
 
 <div id="div-bike-pbs" class="my-2">
-    <h3><i class="@IconHelper.GetIconClass(NamedIcon.PersonalBest)"></i> Personal Records</h3>
+    <h3><i class="@IconHelper.GetIconClass(NamedIcon.PersonalBest, IconOption.DuoTone)"></i> Personal Records</h3>
     <partial name="_EventResultsTable" model="Model.PersonalRecordsTable"/>
 </div>
 <div id="div-bike-results" class="my-2">
-    <h3><i class="@IconHelper.GetIconClass(NamedIcon.Result)"></i> Bike Results</h3>
+    <h3><i class="@IconHelper.GetIconClass(NamedIcon.Result, IconOption.DuoTone)"></i> Bike Results</h3>
     <div class="accordion accordion-flush">
         <partial name="_EventResultsAccordionItem" model="Model.BikeResults10MiAccordionItem"/>
         <partial name="_EventResultsAccordionItem" model="Model.BikeResults25MiAccordionItem"/>

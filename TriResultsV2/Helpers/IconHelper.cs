@@ -42,9 +42,9 @@ namespace TriResultsV2.Helpers
 
     public static class IconHelper
     {
-        public static string GetIconClass(NamedIcon icon, IconOption option = IconOption.DuoTone)
+        public static string GetIconClass(NamedIcon icon, IconOption option = IconOption.Regular)
         {
-            string faClass;
+            string faClass = "far";
 
             switch (option)
             {
@@ -60,7 +60,7 @@ namespace TriResultsV2.Helpers
                     faClass = "far";
                     break;
 
-                default:
+                case IconOption.Solid:
                     faClass = "fas";
                     break;
             }
