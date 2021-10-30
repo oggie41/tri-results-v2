@@ -109,7 +109,7 @@ body {
 }
 
 ul.navbar-nav a:hover {
-    color: #c5d7f2 !important;
+    color: #cfe2ff !important;
 }
 
 .navbar .navbar-nav .nav-item {
@@ -118,6 +118,14 @@ ul.navbar-nav a:hover {
 
 .navbar .navbar-nav .nav-item:last-child {
     border-bottom: none;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    --bs-table-accent-bg: #f7fafe;
+}
+
+.table-hover > tbody > tr:hover {
+    --bs-table-accent-bg: #e7f1ff;
 }
 
 @media (min-width: 768px) {
@@ -152,7 +160,8 @@ ul.navbar-nav a:hover {
 }
 
 .tri-striped-row {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #f7fafe;
+    /*background-color: rgba(0, 0, 0, 0.05);*/
 }
 
 .tri-banner-img {
