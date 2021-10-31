@@ -234,6 +234,21 @@ namespace TriResultsV2.Services.Local
 
             var result = new EventResult
             {
+                Id = 7744477060,
+                GarminId = 7744477060,
+                Sport = SportType.Run,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2021, 10, 31),
+                Course = Course.Lincoln10K,
+                TotalTime = new TimeSpan(0, 40, 43),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 36),
+                PersonalBest = true
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
                 Id = 4479290181,
                 GarminId = 4479290181,
                 Sport = SportType.Run,
@@ -326,8 +341,7 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2017, 12, 3),
                 Course = Course.PercyPud10K,
                 TotalTime = new TimeSpan(0, 40, 46),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 33),
-                PersonalBest = true
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 33)
             };
             eventResults.Add(result);
 

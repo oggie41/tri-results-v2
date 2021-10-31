@@ -59,7 +59,10 @@ namespace TriResultsV2.Helpers
         
         [Display(Name = "Leeds Half Marathon")]
         LeedsHalfMarathon,
-        
+
+        [Display(Name = "Lincoln 10K")]
+        Lincoln10K,
+
         [Display(Name = "Loxley Lash 5K Series")]
         LoxleyLash5K,
 
