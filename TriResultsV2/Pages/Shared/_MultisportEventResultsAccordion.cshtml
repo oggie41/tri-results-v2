@@ -6,6 +6,7 @@
     string accordionId = $"acc-{Model.ContentId}";
 
     var distinctCourses = Model.MultisportEventResults.Where(e => e.Course != null).OrderBy(e => e.Course).Select(e => e.Course).Distinct().ToList();
+    var eventResultsSorted = Model.MultisportEventResults.OrderByDescending(e => e.EventDate).ToList();
 }
 @if (distinctCourses.Any())
 {
@@ -28,11 +29,11 @@
     }
 }
 <div id="@accordionId" class="accordion accordion-flush">
-    @if (Model.MultisportEventResults != null)
+    @if (eventResultsSorted != null)
     {
         int i = 0;
 
-        foreach (var result in Model.MultisportEventResults)
+        foreach (var result in eventResultsSorted)
         {
             string headerButtonCss = "accordion-button collapsed";
             string bodyContainerCss = "accordion-collapse collapse";
@@ -67,7 +68,7 @@
 
             if (result.CompareWithEventId.HasValue)
             {
-                comparisonResult = Model.MultisportEventResults.FirstOrDefault(e => e.Id == result.CompareWithEventId.Value);
+                comparisonResult = eventResultsSorted.FirstOrDefault(e => e.Id == result.CompareWithEventId.Value);
 
                 if (comparisonResult is { Id: > 0 })
                 {
@@ -131,7 +132,10 @@
                                             {
                                                 if (result.ActualSwimTime.HasValue)
                                                 {
-                                                    <span>(@EventHelper.GetFormattedTime(result.ActualSwimTime.Value))</span>
+                                                    if (result.ActualSwimTime != result.Discipline1Time)
+                                                    {
+                                                        <span>(@EventHelper.GetFormattedTime(result.ActualSwimTime.Value))</span>
+                                                    }
                                                 }
                                             }
                                         </td>

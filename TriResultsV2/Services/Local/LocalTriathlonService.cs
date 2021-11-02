@@ -212,6 +212,159 @@ namespace TriResultsV2.Services.Local
 
             result = new MultisportEventResult
             {
+                Id = 2966291134,
+                GarminId = 2966291134,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2018, 8, 27),
+                Course = Course.MatlockSprintTriathlon,
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 17,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5.1,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 7, 43),
+                ActualSwimTime = new TimeSpan(0, 7, 43),
+                Discipline2Time = new TimeSpan(0, 34, 5),
+                Discipline3Time = new TimeSpan(0, 25, 8),
+                TotalTime = new TimeSpan(1, 10, 3),
+                Discipline2AvgBikeSpeedMph = 17.4,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 49),
+                TotalParticipants = 151,
+                Discipline1Position = 48,
+                OverallPosition = 30,
+                Weather = WeatherType.Cloudy,
+                TemperatureDegreesCelsius = 14,
+                WindMph = 13,
+                EventNotes = "Nice chilled atmosphere, as always. Paced the swim more conservatively than previous races as wanted to concentrate on keeping the breathing relaxed. The swim split was slightly slower than last year, but felt much more controlled.<br/>" +
+                             "Tough bike and run legs - did as well as I could on the day. Caught by some traffic riding back into Matlock, so that slowed the ride by around 20 secs.<br/>" +
+                             "The lack of brick runs this year showed in the first couple of miles of the run though.<br/>" +
+                             "Highest finish so far (inside top 20%).",
+                CompareWithEventId = 1944167661
+            };
+            result.AddEventFigure("Transition and bike/run splits not provided (no chip timing) - bike/run improvement (against this race last year) not accurate.");
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
+                Id = 1944167661,
+                GarminId = 1944167661,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2017, 8, 28),
+                Course = Course.MatlockSprintTriathlon,
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 17,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5.1,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 7, 18),
+                ActualSwimTime = new TimeSpan(0, 7, 18),
+                Discipline2Time = new TimeSpan(0, 34, 45),
+                Discipline3Time = new TimeSpan(0, 25, 9),
+                TotalTime = new TimeSpan(1, 9, 47),
+                Discipline2AvgBikeSpeedMph = 17.3,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 55),
+                TotalParticipants = 144,
+                Discipline1Position = 33,
+                OverallPosition = 31,
+                Weather = WeatherType.Sunny,
+                TemperatureDegreesCelsius = 18,
+                WindMph = 6,
+                EventNotes = "Great value for money race (only a tenner) - relaxed atmosphere with no-one taking it too serious.<br/>" +
+                             "Relatively pleased with swim time, although breathing got too quick after about 200m - need to work on this for race efforts.<br/>" +
+                             "The bike and run legs are both really tough going with the climbing involved. I actually used the correct bike route this year, so that was a victory in itself!<br/>" +
+                             "Highest finish so far (inside top 25%), so pleased with progress."
+            };
+            result.AddEventFigure("Transition times not provided (no chip timing).");
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
+                Id = 1834789890,
+                GarminId = 1834789890,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2017, 7, 1),
+                Course = Course.RiponStandardTriathlon,
+                Discipline1Distance = 1500,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.OW,
+                Discipline2Distance = 40,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 10,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 27, 40),
+                T1Time = new TimeSpan(0, 2, 31),
+                Discipline2Time = new TimeSpan(1, 15, 21),
+                T2Time = new TimeSpan(0, 1, 16),
+                Discipline3Time = new TimeSpan(0, 48, 52),
+                TotalTime = new TimeSpan(2, 35, 40),
+                Discipline2AvgBikeSpeedMph = 19.8,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 52),
+                TotalParticipants = 1014,
+                Discipline1Position = 359,
+                T1Position = 783,
+                Discipline2Position = 553,
+                T2Position = 420,
+                Discipline3Position = 514,
+                OverallPosition = 484,
+                Weather = WeatherType.Sunny,
+                TemperatureDegreesCelsius = 20,
+                WindMph = 14,
+                EventNotes = "Loved the race - great vibe and atmosphere, really well organised. First Olympic distance triathlon completed :)<br/>" +
+                             "Open water swim went well, felt comfortable.<br/>" +
+                             "Felt good on the bike - paced it much better than previous races; didn't wreck the legs too much.<br/>" +
+                             "The run was pretty tough in the heat, but the legs felt pretty good (considering the distance).<br/>" +
+                             "Pleased with overall performance. Want to try it again next year to aim for a sub 2hr 30mins."
+            };
+            result.AddEventFigure("ITU World Championship Qualifier - strong field.");
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
+                Id = 1681338479,
+                GarminId = 1681338479,
+                Sport = SportType.Triathlon,
+                EventDate = new DateTime(2017, 4, 16),
+                Course = Course.EpworthSprintTriathlon,
+                EventName = "Epworth Start of Season Sprint Triathlon 2017",
+                Discipline1Distance = 400,
+                Discipline1DistanceUnit = DistanceUnit.Metres,
+                SwimType = SwimType.Pool,
+                Discipline2Distance = 20,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 7, 57),
+                T1Time = new TimeSpan(0, 1, 14),
+                Discipline2Time = new TimeSpan(0, 38, 20),
+                T2Time = new TimeSpan(0, 0, 48),
+                Discipline3Time = new TimeSpan(0, 20, 53),
+                TotalTime = new TimeSpan(1, 9, 10),
+                Discipline2AvgBikeSpeedMph = 18.9,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 17),
+                TotalParticipants = 119,
+                Discipline1Position = 46,
+                T1Position = 39,
+                Discipline2Position = 36,
+                T2Position = 25,
+                Discipline3Position = 27,
+                OverallPosition = 33,
+                Weather = WeatherType.SunnyCloudy,
+                TemperatureDegreesCelsius = 6,
+                WindMph = 8,
+                EventNotes = "Over 6 mins quicker than last year, plus best finish so far, so big improvement :)<br/>" +
+                 "Steady enough swim; more CSS work should start to improve the time.<br/>" +
+                 "Felt good on the bike, big improvement over last year. Slight calf cramp, but nothing major.<br/>" +
+                 "Bad calf cramp at the start of the run, but it went away after the first mile; finished the run strongly.",
+                CompareWithEventId = 1141389428
+            };
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
+            {
                 Id = 1260511684,
                 GarminId = 1260511684,
                 Sport = SportType.Triathlon,
@@ -249,42 +402,38 @@ namespace TriResultsV2.Services.Local
 
             result = new MultisportEventResult
             {
-                Id = 1681338479,
-                GarminId = 1681338479,
+                Id = 1200043624,
+                GarminId = 1200043624,
                 Sport = SportType.Triathlon,
-                EventDate = new DateTime(2017, 4, 16),
-                Course = Course.EpworthSprintTriathlon,
-                EventName = "Epworth Start of Season Sprint Triathlon 2017",
-                Discipline1Distance = 400,
+                EventDate = new DateTime(2016, 6, 4),
+                Course = Course.RotherValleySprintTriathlon,
+                Discipline1Distance = 500,
                 Discipline1DistanceUnit = DistanceUnit.Metres,
-                SwimType = SwimType.Pool,
-                Discipline2Distance = 20,
+                SwimType = SwimType.OW,
+                Discipline2Distance = 25.4,
                 Discipline2DistanceUnit = DistanceUnit.Kilometres,
                 Discipline3Distance = 5,
                 Discipline3DistanceUnit = DistanceUnit.Kilometres,
-                Discipline1Time = new TimeSpan(0, 7, 57),
-                T1Time = new TimeSpan(0, 1, 14),
-                Discipline2Time = new TimeSpan(0, 38, 20),
-                T2Time = new TimeSpan(0, 0, 48),
-                Discipline3Time = new TimeSpan(0, 20, 53),
-                TotalTime = new TimeSpan(1, 9, 10),
-                Discipline2AvgBikeSpeedMph = 18.9,
-                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 17),
-                TotalParticipants = 119,
-                Discipline1Position = 46,
-                T1Position = 39,
-                Discipline2Position = 36,
-                T2Position = 25,
-                Discipline3Position = 27,
-                OverallPosition = 33,
-                Weather = WeatherType.SunnyCloudy,
-                TemperatureDegreesCelsius = 6,
+                Discipline1Time = new TimeSpan(0, 10, 4),
+                T1Time = new TimeSpan(0, 2, 20),
+                Discipline2Time = new TimeSpan(0, 52, 46),
+                T2Time = new TimeSpan(0, 0, 44),
+                Discipline3Time = new TimeSpan(0, 22, 30),
+                TotalTime = new TimeSpan(1, 28, 24),
+                Discipline2AvgBikeSpeedMph = 17.9,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 7, 15),
+                TotalParticipants = 74,
+                Discipline1Position = 22,
+                T1Position = 37,
+                Discipline2Position = 31,
+                T2Position = 32,
+                Discipline3Position = 19,
+                OverallPosition = 28,
+                Weather = WeatherType.Cloudy,
+                TemperatureDegreesCelsius = 14,
                 WindMph = 8,
-                EventNotes = "Over 6 mins quicker than last year, plus best finish so far, so big improvement :)<br/>" +
-                             "Steady enough swim; more CSS work should start to improve the time.<br/>" +
-                             "Felt good on the bike, big improvement over last year. Slight calf cramp, but nothing major.<br/>" +
-                             "Bad calf cramp at the start of the run, but it went away after the first mile; finished the run strongly.",
-                CompareWithEventId = 1141389428
+                EventNotes = "Really enjoyed this one. First open water swim completed; felt comfortable on the swim.<br/>" +
+                             "Bike went well. Run OK, but can do quicker - more brick runs needed."
             };
             eventResults.Add(result);
 

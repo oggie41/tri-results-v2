@@ -66,6 +66,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Loxley Lash 5K Series")]
         LoxleyLash5K,
 
+        [Display(Name = "Matlock Sprint Triathlon")]
+        MatlockSprintTriathlon,
+
         [Display(Name = "Oulton Park Sprint Duathlon")]
         OultonParkSprintDuathlon,
 
@@ -84,8 +87,8 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Percy Pud 10K")]
         PercyPud10K,
 
-        [Display(Name = "Rother Valley 10K")]
-        RotherValley10K,
+        [Display(Name = "Ripon Standard Triathlon")]
+        RiponStandardTriathlon,
 
         [Display(Name = "Rother Valley Sprint Triathlon")]
         RotherValleySprintTriathlon,
@@ -216,15 +219,18 @@ namespace TriResultsV2.Helpers
 
         public static string GetFormattedTime(TimeSpan totalTime)
         {
-            string totalTimeFormatted;
+            string totalTimeFormatted = "-";
 
-            if (totalTime.Hours > 0)
+            if (totalTime.TotalSeconds > 0)
             {
-                totalTimeFormatted = $"{totalTime.Hours}:{totalTime.Minutes:D2}:{totalTime.Seconds:D2}";
-            }
-            else
-            {
-                totalTimeFormatted = $"{totalTime.Minutes:D2}:{totalTime.Seconds:D2}";
+                if (totalTime.Hours > 0)
+                {
+                    totalTimeFormatted = $"{totalTime.Hours}:{totalTime.Minutes:D2}:{totalTime.Seconds:D2}";
+                }
+                else
+                {
+                    totalTimeFormatted = $"{totalTime.Minutes:D2}:{totalTime.Seconds:D2}";
+                }
             }
 
             return totalTimeFormatted;
