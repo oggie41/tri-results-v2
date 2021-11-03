@@ -18,8 +18,7 @@ namespace TriResultsV2.Pages
 
         public EventResultsTableVM PersonalRecordsTable { get; private set; } = new EventResultsTableVM();
 
-        public EventResultsAccordionItemVM SwimResults200MetreAccordionItem { get; private set; } = new EventResultsAccordionItemVM();
-        public EventResultsAccordionItemVM SwimResults400MetreAccordionItem { get; private set; } = new EventResultsAccordionItemVM();
+        public EventResultsAccordionItemVM SwimCssTestResultsAccordionItem { get; private set; } = new EventResultsAccordionItemVM();
 
         public SwimModel(ILogger<SwimModel> logger, ISwimService swimService)
         {
@@ -33,54 +32,33 @@ namespace TriResultsV2.Pages
             {
                 var swimPersonalRecords = new List<EventResult>();
 
-                // 200 Metre TT Results.
-                var swimResults200MetreTT = await SwimService.Get200MetreTTResultsAsync();
-                swimPersonalRecords.AddRange(swimResults200MetreTT.Where(res => res.PersonalBest));
+                // CSS Test Results.
+                var swimCssTestResults = await SwimService.GetCssTestResultsAsync();
+                swimPersonalRecords.AddRange(swimCssTestResults.Where(res => res.PersonalBest));
 
-                // 400 Metre TT Results.
-                var swimResults400MetreTT = await SwimService.Get400MetreTTResultsAsync();
-                swimPersonalRecords.AddRange(swimResults400MetreTT.Where(res => res.PersonalBest));
-
-                // Calculate the CSS details for the 200m results.
-                foreach (var result200m in swimResults200MetreTT)
+                // Calculate the CSS details.
+                foreach (var result in swimCssTestResults)
                 {
-                    if (result200m.GarminId.HasValue)
+                    if (result.Distance == 400 && result.DistanceUnit == DistanceUnit.Metres)
                     {
-                        var result400m = swimResults400MetreTT.FirstOrDefault(r => r.GarminId == result200m.GarminId);
-
-                        if (result400m != null)
+                        if (result.GarminId.HasValue)
                         {
-                            result200m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime), NamedIcon.Stopwatch);
+                            var result200m = swimCssTestResults.FirstOrDefault(r => r.GarminId == result.GarminId && r.Distance == 200 && r.DistanceUnit == DistanceUnit.Metres);
+
+                            if (result200m != null)
+                            {
+                                result.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result.TotalTime), NamedIcon.Stopwatch);
+                            }
                         }
                     }
                 }
 
-                // Calculate the CSS details for the 400m results.
-                foreach (var result400m in swimResults400MetreTT)
+                SwimCssTestResultsAccordionItem = new EventResultsAccordionItemVM
                 {
-                    if (result400m.GarminId.HasValue)
-                    {
-                        var result200m = swimResults200MetreTT.FirstOrDefault(r => r.GarminId == result400m.GarminId);
-
-                        if (result200m != null)
-                        {
-                            result400m.AddEventFigure(SwimHelper.GetSwimCssDetails(result200m.TotalTime, result400m.TotalTime), NamedIcon.Stopwatch);
-                        }
-                    }
-                }
-
-                SwimResults200MetreAccordionItem = new EventResultsAccordionItemVM
-                {
-                    ContentId = "200m-tts",
-                    HeaderText = "200m TTs",
-                    EventResults = swimResults200MetreTT
-                };
-
-                SwimResults400MetreAccordionItem = new EventResultsAccordionItemVM
-                {
-                    ContentId = "400m-tts",
-                    HeaderText = "400m TTs",
-                    EventResults = swimResults400MetreTT,
+                    ContentId = "css-tests",
+                    HeaderText = "Critical Swim Speed (CSS) Tests",
+                    EventResults = swimCssTestResults,
+                    SwimCssTestsItem = true,
                     Expanded = true
                 };
 

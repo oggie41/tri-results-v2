@@ -15,6 +15,8 @@ namespace TriResultsV2.Models
 
         public bool PersonalRecordsItem { get; set; } = false;
 
+        public bool SwimCssTestsItem { get; set; } = false;
+
         public IEnumerable<EventResult> EventResults { get; set; }
     }
 }

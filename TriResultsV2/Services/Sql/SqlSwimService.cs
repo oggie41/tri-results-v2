@@ -9,13 +9,7 @@ namespace TriResultsV2.Services.Sql
 {
     public class SqlSwimService : ISwimService
     {
-        public async Task<IEnumerable<EventResult>> Get200MetreTTResultsAsync()
-        {
-            var eventResults = new List<EventResult>();
-            return eventResults;
-        }
-
-        public async Task<IEnumerable<EventResult>> Get400MetreTTResultsAsync()
+        public async Task<IEnumerable<EventResult>> GetCssTestResultsAsync()
         {
             var eventResults = new List<EventResult>();
             return eventResults;

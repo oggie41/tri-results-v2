@@ -35,132 +35,210 @@
 <div class="table-responsive mt-3 mb-1">
     <table id="@resultTableId" class="table table-hover table-bordered align-top">
         <thead class="table-primary align-top">
-        <tr>
-            <th scope="col" class="col-1">
-                <div class="d-block d-sm-none">Dist.</div>
-                <div class="d-none d-sm-block">Distance</div>
-            </th>
-            <th scope="col" class="col-2">Date</th>
-            <th scope="col" class="col-5">Race</th>
-            <th scope="col" class="col-2">Time</th>
-            <th scope="col" class="col-2">
-                @{
-                    string colHeader = "Pace";
+            <tr>
+                @if (!Model.SwimCssTestsTable)
+                {
+                    <th scope="col" class="col-1">
+                        <div class="d-block d-sm-none">Dist.</div>
+                        <div class="d-none d-sm-block">Distance</div>
+                    </th>
+                    <th scope="col" class="col-2">Date</th>
+                    <th scope="col" class="col-5">Event</th>
+                    <th scope="col" class="col-2">Time</th>
+                    <th scope="col" class="col-2">
+                        @{
+                            string colHeader = "Pace";
 
-                    if (eventResultsSorted.Any())
-                    {
-                        var firstResult = eventResultsSorted.FirstOrDefault();
-
-                        if (firstResult != null)
-                        {
-                            if (firstResult.Sport == SportType.Bike)
+                            if (eventResultsSorted.Any())
                             {
-                                colHeader = "Speed";
-                            }
+                                var firstResult = eventResultsSorted.FirstOrDefault();
 
-                            if (firstResult.EventType == EventType.MultiStage)
-                            {
-                                colHeader = "Position";
+                                if (firstResult != null)
+                                {
+                                    if (firstResult.Sport == SportType.Bike)
+                                    {
+                                        colHeader = "Speed";
+                                    }
+
+                                    if (firstResult.EventType == EventType.MultiStage)
+                                    {
+                                        colHeader = "Position";
+                                    }
+                                }
                             }
                         }
-                    }
+                        @colHeader
+                    </th>
                 }
-                @colHeader
-            </th>
-        </tr>
+                else
+                {
+                    @* Swim CSS Test headings *@
+                    <th scope="col" class="col-4">Event</th>
+                    <th scope="col" class="col-2">200m Time</th>
+                    <th scope="col" class="col-2">200m Pace</th>
+                    <th scope="col" class="col-2">400m Time</th>
+                    <th scope="col" class="col-2">400m Pace</th>
+                }
+            </tr>
         </thead>
         <tbody>
-        @if (eventResultsSorted.Any())
-        {
-            int rowNumber = 1;
-
-            foreach (var result in eventResultsSorted)
+            @if (eventResultsSorted.Any())
             {
-                string avgPaceSpeed = "-";
+                int rowNumber = 1;
 
-                if (result.Sport == SportType.Run)
+                foreach (var result in eventResultsSorted)
                 {
-                    avgPaceSpeed = RunHelper.GetFormattedAvgPace(result.AvgRunPaceMinMi);
-                }
-                else if (result.Sport == SportType.Bike)
-                {
-                    avgPaceSpeed = BikeHelper.GetFormattedAvgSpeed(result.AvgBikeSpeedMph);
-                }
-                else if (result.Sport == SportType.Swim)
-                {
-                    avgPaceSpeed = SwimHelper.Get25MetreSwimPace(result.Distance, result.TotalTime);
-                }
+                    string avgPaceSpeed = "-";
 
-                string eventName = result.EventName;
+                    if (result.Sport == SportType.Run)
+                    {
+                        avgPaceSpeed = RunHelper.GetFormattedAvgPace(result.AvgRunPaceMinMi);
+                    }
+                    else if (result.Sport == SportType.Bike)
+                    {
+                        avgPaceSpeed = BikeHelper.GetFormattedAvgSpeed(result.AvgBikeSpeedMph);
+                    }
+                    else if (result.Sport == SportType.Swim)
+                    {
+                        avgPaceSpeed = SwimHelper.Get25MetreSwimPace(result.Distance, result.TotalTime);
+                    }
 
-                if (string.IsNullOrEmpty(eventName))
-                {
-                    // No event name specified so generate the name. 
-                    eventName = EventHelper.GetEventName(result);
-                }
+                    string eventName = result.EventName;
 
-                string rowCssClass = string.Empty;
-                string rowPbCssClass = string.Empty;
+                    if (string.IsNullOrEmpty(eventName))
+                    {
+                        // No event name specified so generate the name.
+                        eventName = EventHelper.GetEventName(result);
+                    }
 
-                // If this is a PB event display the row text in bold (not for PB table).
-                if (!Model.PersonalRecordsTable && result.PersonalBest)
-                {
-                    eventName = $"{eventName} (PB)";
-                    rowPbCssClass = "fw-bold";
-                }
+                    string rowCssClass = string.Empty;
+                    string rowPbCssClass = string.Empty;
 
-                // Alternate row striping is done manually (not using table-striped) as need to re-apply after filtering.
-                if(rowNumber % 2 != 0)
-                {
-                    rowCssClass += "tri-striped-row";
-                }
+                    // If this is a PB event display the row text in bold (not for PB or CSS Test table).
+                    if (!Model.PersonalRecordsTable && !Model.SwimCssTestsTable && result.PersonalBest)
+                    {
+                        eventName = $"{eventName} (PB)";
+                        rowPbCssClass = "fw-bold";
+                    }
 
-                rowNumber++;
-                <tr class="@rowCssClass @rowPbCssClass" data-course="@result.Course">
-                    <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
-                    <td>@result.EventDate.ToString("dd/MM/yy")</td>
-                    <td>
-                        @if (result.GarminId.HasValue)
+                    bool displayRow = true;
+
+                    if (Model.SwimCssTestsTable && result.Distance == 200 && result.DistanceUnit == DistanceUnit.Metres)
+                    {
+                        displayRow = false;
+                    }
+
+                    if (displayRow)
+                    {
+                        // Alternate row striping is done manually (not using table-striped) as need to re-apply after filtering.
+                        if (rowNumber % 2 != 0)
                         {
-                            <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@Html.Raw(eventName)</a>
+                            rowCssClass += "tri-striped-row";
                         }
-                        else
-                        {
-                            @Html.Raw(eventName)
-                        }
-                    </td>
-                    <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
-                    <td>
-                        @if (result.EventType == EventType.MultiStage)
-                        {
-                            @if (result.OverallPosition.HasValue)
+
+                        rowNumber++;
+                        <tr class="@rowCssClass @rowPbCssClass" data-course="@result.Course">
+                            @if (!Model.SwimCssTestsTable)
                             {
-                                <text>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</text>
+                                <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
+                                <td>@result.EventDate.ToString("dd/MM/yy")</td>
+                                <td>
+                                    @if (result.GarminId.HasValue)
+                                    {
+                                        <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@Html.Raw(eventName)</a>
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(eventName)
+                                    }
+                                </td>
+                                <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
+                                <td>
+                                    @if (result.EventType == EventType.MultiStage)
+                                    {
+                                        @if (result.OverallPosition.HasValue)
+                                        {
+                                            <text>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</text>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @avgPaceSpeed
+                                    }
+                                </td>
                             }
-                        }
-                        else
-                        {
-                            @avgPaceSpeed
-                        }
-                    </td>
-                </tr>
-                @if (!Model.PersonalRecordsTable && result.EventFigures.Any())
-                {
-                    <tr class="@rowCssClass" data-course="@result.Course">
-                        <td colspan="5">
-                            <div class="figure-caption">
-                                @foreach (var figure in result.EventFigures)
+                            else
+                            {
+                                // Swim CSS Test results.
+                                eventName = $"{result.Course.GetEnumDisplayName()} {result.EventDate.ToString("dd/MM/yy")}";
+
+                                // Only showing the 400m row, so retrieve the 200m time.
+                                var result200m = new EventResult();
+
+                                if (result.GarminId.HasValue)
                                 {
-                                    <div>
-                                        <i class="@IconHelper.GetIconClass(figure.Icon)"></i> @figure.Text
-                                    </div>
+                                    result200m = eventResultsSorted.FirstOrDefault(r => r.GarminId == result.GarminId && r.Distance == 200 && r.DistanceUnit == DistanceUnit.Metres);
                                 }
-                            </div>
-                        </td>
-                    </tr>
+
+                                string cell200mPbCssClass = string.Empty;
+                                string cell400mPbCssClass = string.Empty;
+
+                                if (result.PersonalBest)
+                                {
+                                    cell400mPbCssClass = "fw-bold";
+                                }
+
+                                if (result200m != null)
+                                {
+                                    if (result200m.PersonalBest)
+                                    {
+                                        cell200mPbCssClass = "fw-bold";
+                                    }
+                                }
+                                <td>
+                                    @if (result.GarminId.HasValue)
+                                    {
+                                        <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@Html.Raw(eventName)</a>
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(eventName)
+                                    }
+                                </td>
+                                <td class="@cell200mPbCssClass">
+                                    @if (result200m != null)
+                                    {
+                                        @EventHelper.GetFormattedTime(result200m.TotalTime)
+                                    }
+                                </td>
+                                <td class="@cell200mPbCssClass">
+                                    @if (result200m != null)
+                                    {
+                                        @SwimHelper.Get25MetreSwimPace(result200m.Distance, result200m.TotalTime)
+                                    }
+                                </td>
+                                <td class="@cell400mPbCssClass">@EventHelper.GetFormattedTime(result.TotalTime)</td>
+                                <td class="@cell400mPbCssClass">@avgPaceSpeed</td>
+                            }
+                        </tr>
+                    }
+                    @if (!Model.PersonalRecordsTable && result.EventFigures.Any())
+                    {
+                        <tr class="@rowCssClass" data-course="@result.Course">
+                            <td colspan="5">
+                                <div class="figure-caption">
+                                    @foreach (var figure in result.EventFigures)
+                                    {
+                                        <div>
+                                            <i class="@IconHelper.GetIconClass(figure.Icon)"></i> @figure.Text
+                                        </div>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
                 }
             }
-        }
         </tbody>
     </table>
 </div>

@@ -8,8 +8,6 @@ namespace TriResultsV2.Services.Interfaces
 {
     public interface ISwimService
     {
-        Task<IEnumerable<EventResult>> Get200MetreTTResultsAsync();
-
-        Task<IEnumerable<EventResult>> Get400MetreTTResultsAsync();
+        Task<IEnumerable<EventResult>> GetCssTestResultsAsync();
     }
 }

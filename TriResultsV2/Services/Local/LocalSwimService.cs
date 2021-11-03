@@ -10,10 +10,11 @@ namespace TriResultsV2.Services.Local
 {
     public class LocalSwimService : ISwimService
     {
-        public async Task<IEnumerable<EventResult>> Get200MetreTTResultsAsync()
+        public async Task<IEnumerable<EventResult>> GetCssTestResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
+            // CSS Test on 12/12/2018.
             var result = new EventResult
             {
                 Id = 3221940710,
@@ -30,65 +31,6 @@ namespace TriResultsV2.Services.Local
 
             result = new EventResult
             {
-                Id = 1647266045,
-                GarminId = 1647266045,
-                Sport = SportType.Swim,
-                Distance = 200,
-                DistanceUnit = DistanceUnit.Metres,
-                EventDate = new DateTime(2017, 3, 29),
-                Course = Course.Westfield,
-                TotalTime = new TimeSpan(0, 3, 21)
-            };
-            eventResults.Add(result);
-
-            result = new EventResult
-            {
-                Id = 1586996421,
-                GarminId = 1586996421,
-                Sport = SportType.Swim,
-                Distance = 200,
-                DistanceUnit = DistanceUnit.Metres,
-                EventDate = new DateTime(2017, 2, 23),
-                Course = Course.Westfield,
-                TotalTime = new TimeSpan(0, 3, 26)
-            };
-            eventResults.Add(result);
-
-            result = new EventResult
-            {
-                Id = 984904552,
-                GarminId = 984904552,
-                Sport = SportType.Swim,
-                Distance = 200,
-                DistanceUnit = DistanceUnit.Metres,
-                EventDate = new DateTime(2015, 12, 16),
-                Course = Course.Westfield,
-                TotalTime = new TimeSpan(0, 3, 29)
-            };
-            eventResults.Add(result);
-
-            result = new EventResult
-            {
-                Id = 940902079,
-                GarminId = 940902079,
-                Sport = SportType.Swim,
-                Distance = 200,
-                DistanceUnit = DistanceUnit.Metres,
-                EventDate = new DateTime(2015, 10, 28),
-                Course = Course.Westfield,
-                TotalTime = new TimeSpan(0, 3, 29)
-            };
-            eventResults.Add(result);
-
-            return eventResults;
-        }
-
-        public async Task<IEnumerable<EventResult>> Get400MetreTTResultsAsync()
-        {
-            var eventResults = new List<EventResult>();
-
-            var result = new EventResult
-            {
                 Id = 3221940710,
                 GarminId = 3221940710,
                 Sport = SportType.Swim,
@@ -98,6 +40,20 @@ namespace TriResultsV2.Services.Local
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 6, 52),
                 PersonalBest = true
+            };
+            eventResults.Add(result);
+
+            // CSS Test on 29/03/2017.
+            result = new EventResult
+            {
+                Id = 1647266045,
+                GarminId = 1647266045,
+                Sport = SportType.Swim,
+                Distance = 200,
+                DistanceUnit = DistanceUnit.Metres,
+                EventDate = new DateTime(2017, 3, 29),
+                Course = Course.Westfield,
+                TotalTime = new TimeSpan(0, 3, 21)
             };
             eventResults.Add(result);
 
@@ -114,6 +70,20 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
+            // CSS Test on 23/02/2017.
+            result = new EventResult
+            {
+                Id = 1586996421,
+                GarminId = 1586996421,
+                Sport = SportType.Swim,
+                Distance = 200,
+                DistanceUnit = DistanceUnit.Metres,
+                EventDate = new DateTime(2017, 2, 23),
+                Course = Course.Westfield,
+                TotalTime = new TimeSpan(0, 3, 26)
+            };
+            eventResults.Add(result);
+
             result = new EventResult
             {
                 Id = 1586996421,
@@ -127,6 +97,20 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
+            // CSS Test on 16/12/2015.
+            result = new EventResult
+            {
+                Id = 984904552,
+                GarminId = 984904552,
+                Sport = SportType.Swim,
+                Distance = 200,
+                DistanceUnit = DistanceUnit.Metres,
+                EventDate = new DateTime(2015, 12, 16),
+                Course = Course.Westfield,
+                TotalTime = new TimeSpan(0, 3, 29)
+            };
+            eventResults.Add(result);
+
             result = new EventResult
             {
                 Id = 984904552,
@@ -137,6 +121,20 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2015, 12, 16),
                 Course = Course.Westfield,
                 TotalTime = new TimeSpan(0, 7, 25)
+            };
+            eventResults.Add(result);
+
+            // CSS Test on 28/10/2015.
+            result = new EventResult
+            {
+                Id = 940902079,
+                GarminId = 940902079,
+                Sport = SportType.Swim,
+                Distance = 200,
+                DistanceUnit = DistanceUnit.Metres,
+                EventDate = new DateTime(2015, 10, 28),
+                Course = Course.Westfield,
+                TotalTime = new TimeSpan(0, 3, 29)
             };
             eventResults.Add(result);
 
