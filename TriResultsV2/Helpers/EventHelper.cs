@@ -367,7 +367,7 @@ namespace TriResultsV2.Helpers
                 }
                 else if (result.Sport == SportType.Swim)
                 {
-                    eventName = $"{result.Course.Value.GetEnumDisplayName()} {GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)} TT";
+                    eventName = $"{result.Course.Value.GetEnumDisplayName()} CSS Test";
                 }
             }
 

@@ -73,7 +73,7 @@
                 else
                 {
                     @* Swim CSS Test headings *@
-                    <th scope="col" class="col-4">Event</th>
+                    <th scope="col" class="col-4">Pool/Date</th>
                     <th scope="col" class="col-2">200m Time</th>
                     <th scope="col" class="col-2">200m Pace</th>
                     <th scope="col" class="col-2">400m Time</th>
@@ -170,7 +170,7 @@
                             else
                             {
                                 // Swim CSS Test results.
-                                eventName = $"{result.Course.GetEnumDisplayName()} {result.EventDate.ToString("dd/MM/yy")}";
+                                eventName = $"{result.Course.GetEnumDisplayName()}, {result.EventDate.ToString("dd/MM/yy")}";
 
                                 // Only showing the 400m row, so retrieve the 200m time.
                                 var result200m = new EventResult();
