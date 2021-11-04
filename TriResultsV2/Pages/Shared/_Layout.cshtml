@@ -13,6 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tri Results</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/tri-results.min.css" asp-append-version="true" />
 
@@ -25,59 +26,59 @@
     <link rel="stylesheet" href="~/font-awesome/css/all.css" />
 </head>
 <body>
-<partial name="_Loading"/>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark box-shadow py-2">
-        <div class="container-xl">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">
-                <img src="/images/general/tri-results-logo-800.png" alt="Tri Results" class="tri-logo" />
-            </a>
-            <button class="d-print-none navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="tri-navbar-icon tri-navbar-menu-icon @IconHelper.GetIconClass(NamedIcon.Menu)"></span><span class="tri-navbar-icon tri-navbar-close-icon @IconHelper.GetIconClass(NamedIcon.MenuClose)"></span> <span class="tri-navbar-toggler-text">Menu</span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Index" title="Multisport Results"><i class="@IconHelper.GetIconClass(NamedIcon.MultiSport)"></i> Multisport</a>
-                    </li>
-                    <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Swim" title="Swim Results"><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim</a>
-                    </li>
-                    <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Bike" title="Bike Results"><i class="@IconHelper.GetIconClass(NamedIcon.Bike)"></i> Bike</a>
-                    </li>
-                    <li class="nav-item me-1">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Run" title="Run Results"><i class="@IconHelper.GetIconClass(NamedIcon.Run)"></i> Run</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/RaceDiary" title="Race Diary"><i class="@IconHelper.GetIconClass(NamedIcon.Diary)"></i> Race Diary</a>
-                    </li>
-                </ul>
+    <partial name="_Loading" />
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark box-shadow py-2">
+            <div class="container-xl">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="/images/general/tri-results-logo-800.png" alt="Tri Results" class="tri-logo" />
+                </a>
+                <button class="d-print-none navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="tri-navbar-icon tri-navbar-menu-icon @IconHelper.GetIconClass(NamedIcon.Menu)"></span><span class="tri-navbar-icon tri-navbar-close-icon @IconHelper.GetIconClass(NamedIcon.MenuClose)"></span> <span class="tri-navbar-toggler-text">Menu</span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item me-1">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index" title="Multisport Results"><i class="@IconHelper.GetIconClass(NamedIcon.MultiSport)"></i> Multisport</a>
+                        </li>
+                        <li class="nav-item me-1">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Swim" title="Swim Results"><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim</a>
+                        </li>
+                        <li class="nav-item me-1">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Bike" title="Bike Results"><i class="@IconHelper.GetIconClass(NamedIcon.Bike)"></i> Bike</a>
+                        </li>
+                        <li class="nav-item me-1">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Run" title="Run Results"><i class="@IconHelper.GetIconClass(NamedIcon.Run)"></i> Run</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/RaceDiary" title="Race Diary"><i class="@IconHelper.GetIconClass(NamedIcon.Diary)"></i> Race Diary</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+        <div class="tri-banner-img @bannerCssClass">
         </div>
-    </nav>
-    <div class="tri-banner-img @bannerCssClass">
-    </div>
-</header>
-<div class="container-xl">
-    <main role="main" class="pt-2 pb-3">
-        <h1>@ViewData["Title"]</h1>
-        <div class="col">
-            @RenderBody()
-        </div>
-    </main>
-</div>
-
-<footer class="border-top footer text-muted">
+    </header>
     <div class="container-xl">
-        &copy; @DateTime.Now.Year - David Ogle
+        <main role="main" class="pt-2 pb-3">
+            <h1>@ViewData["Title"]</h1>
+            <div class="col">
+                @RenderBody()
+            </div>
+        </main>
     </div>
-</footer>
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+    <footer class="border-top footer text-muted">
+        <div class="container-xl">
+            &copy; @DateTime.Now.Year - David Ogle
+        </div>
+    </footer>
 
-@await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
