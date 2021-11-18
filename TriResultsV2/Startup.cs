@@ -38,6 +38,7 @@ namespace TriResultsV2
                 services.AddTransient<Services.Interfaces.IRunService, Services.Local.LocalRunService>();
                 services.AddTransient<Services.Interfaces.ITriathlonService, Services.Local.LocalTriathlonService>();
                 services.AddTransient<Services.Interfaces.IDuathlonService, Services.Local.LocalDuathlonService>();
+                services.AddTransient<Services.Interfaces.IDiaryService, Services.Local.LocalDiaryService>();
             }
             else
             {
@@ -47,6 +48,7 @@ namespace TriResultsV2
                 services.AddTransient<Services.Interfaces.IRunService, Services.Sql.SqlRunService>();
                 services.AddTransient<Services.Interfaces.ITriathlonService, Services.Sql.SqlTriathlonService>();
                 services.AddTransient<Services.Interfaces.IDuathlonService, Services.Sql.SqlDuathlonService>();
+                services.AddTransient<Services.Interfaces.IDiaryService, Services.Sql.SqlDiaryService>();
             }
 
             // Use WebOptimizer to minify the JS files (if not development environment).

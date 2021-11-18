@@ -151,10 +151,14 @@ ul.navbar-nav a:hover {
   margin: 0 0 1rem 0; }
 
 .tri-logo {
-  width: 210px;
+  width: 180px;
   height: auto; }
 
-@media (min-width: 768px) {
+@media (min-width: 340px) {
+  .tri-logo {
+    width: 210px; } }
+
+@media (min-width: 992px) {
   .tri-logo {
     width: 280px; } }
 
