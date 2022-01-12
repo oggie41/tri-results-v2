@@ -1,0 +1,53 @@
+﻿@using TriResultsV2.Models
+@using TriResultsV2.Helpers
+@model IEnumerable<PlannedEvent>
+
+<div class="table-responsive mt-3 mb-1">
+    <table class="table table-hover table-striped table-bordered align-top">
+        <thead class="table-primary align-top">
+        <tr>
+            <th scope="col">Sport</th>
+            <th scope="col" class="col-4">Event</th>
+            <th scope="col">
+                <div class="d-block d-sm-none">Dist.</div>
+                <div class="d-none d-sm-block">Distance</div>
+            </th>
+            <th scope="col">Date</th>
+            <th scope="col">Entered?</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model != null)
+        {
+            @foreach (var plannedEvent in Model)
+            {
+                <tr>
+                    <td>@plannedEvent.Sport</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(plannedEvent.EventUrl))
+                        {
+                            <a href="@plannedEvent.EventUrl" target="_blank">@plannedEvent.EventName</a>
+                        }
+                        else
+                        {
+                            @plannedEvent.EventName
+                        }
+                    </td>
+                    <td>
+                        @if (plannedEvent.Distance.HasValue && plannedEvent.DistanceUnit.HasValue)
+                        {
+                            @EventHelper.GetFormattedDistance(plannedEvent.Distance.Value, plannedEvent.DistanceUnit.Value, plannedEvent.Sport)
+                        }
+                        else
+                        {
+                            <text>-</text>
+                        }
+                    </td>
+                    <td>@plannedEvent.EventDate.ToString("dd/MM/yy")</td>
+                    <td>@Html.Raw(plannedEvent.Entered.ToColouredYesNoHtml())</td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
+</div>

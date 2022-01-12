@@ -6,4 +6,9 @@
     ViewData["BannerCssClass"] = "tri-banner-img-race-diary";
 }
 
-<h3><i class="@IconHelper.GetIconClass(NamedIcon.Diary, IconOption.DuoTone)"></i> Upcoming Events</h3>
+<div id="div-planned-events" class="my-2">
+    <h3><i class="@IconHelper.GetIconClass(NamedIcon.Diary, IconOption.DuoTone)"></i> Upcoming Events</h3>
+    <div>
+        <partial name="_PlannedEventsTable" model="Model.PlannedEvents"/>
+    </div>
+</div>

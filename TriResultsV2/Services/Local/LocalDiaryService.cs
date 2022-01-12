@@ -26,6 +26,16 @@ namespace TriResultsV2.Services.Local
             };
             plannedEvents.Add(plannedEvent);
 
+            plannedEvent = new PlannedEvent
+            {
+                EventDate = new DateTime(2022, 4, 23),
+                Sport = SportType.Duathlon,
+                EventName = "Clumber Sprint Duathlon 2022",
+                EventUrl = "https://www.trisociety.co.uk/events/clumber-park-duathlon/",
+                Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
             return plannedEvents;
         }
     }

@@ -17,5 +17,15 @@ namespace TriResultsV2.Helpers
                 .GetCustomAttribute<DisplayAttribute>()
                 ?.GetName();
         }
+
+        public static string ToYesNoString(this bool value)
+        {
+            return value ? "Yes" : "No";
+        }
+
+        public static string ToColouredYesNoHtml(this bool value)
+        {
+            return value ? "<span class=\"text-success\">Yes</span>" : "<span class=\"text-danger\">No</span>";
+        }
     }
 }
