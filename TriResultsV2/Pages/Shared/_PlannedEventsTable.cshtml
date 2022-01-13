@@ -6,8 +6,7 @@
     <table class="table table-hover table-striped table-bordered align-top">
         <thead class="table-primary align-top">
         <tr>
-            <th scope="col">Sport</th>
-            <th scope="col" class="col-4">Event</th>
+            <th scope="col" class="col-5">Event</th>
             <th scope="col">
                 <div class="d-block d-sm-none">Dist.</div>
                 <div class="d-none d-sm-block">Distance</div>
@@ -22,7 +21,6 @@
             @foreach (var plannedEvent in Model)
             {
                 <tr>
-                    <td>@plannedEvent.Sport</td>
                     <td>
                         @if (!string.IsNullOrEmpty(plannedEvent.EventUrl))
                         {
