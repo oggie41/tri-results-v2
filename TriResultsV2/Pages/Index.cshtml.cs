@@ -14,18 +14,15 @@ namespace TriResultsV2.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         protected ITriathlonService TriathlonService { get; private set; }
-        protected IDuathlonService DuathlonService { get; private set; }
 
         public bool DisplayNotes { get; set; } = false;
 
         public MultisportEventResultsAccordionVM TriathlonResultsAccordion { get; private set; } = new MultisportEventResultsAccordionVM();
-        public MultisportEventResultsAccordionVM DuathlonResultsAccordion { get; private set; } = new MultisportEventResultsAccordionVM();
 
         public IndexModel(ILogger<IndexModel> logger, ITriathlonService triathlonService, IDuathlonService duathlonService)
         {
             _logger = logger;
             TriathlonService = triathlonService;
-            DuathlonService = duathlonService;
         }
 
         public async Task<IActionResult> OnGetAsync(string displayNotes = null)
@@ -45,16 +42,6 @@ namespace TriResultsV2.Pages
                     ContentId = "triathlon-races",
                     DisplayNotes = DisplayNotes,
                     MultisportEventResults = triathlonResults
-                };
-
-                // Duathlon Results.
-                var duathlonResults = await DuathlonService.GetResultsAsync();
-
-                DuathlonResultsAccordion = new MultisportEventResultsAccordionVM
-                {
-                    ContentId = "duathlon-races",
-                    DisplayNotes = DisplayNotes,
-                    MultisportEventResults = duathlonResults
                 };
             }
             catch (Exception ex)

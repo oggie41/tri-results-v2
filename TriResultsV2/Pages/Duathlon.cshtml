@@ -1,0 +1,12 @@
+﻿@page
+@using TriResultsV2.Helpers
+@model DuathlonModel
+@{
+    ViewData["Title"] = "Duathlon";
+    ViewData["BannerCssClass"] = "tri-banner-img-run";
+}
+
+<div id="div-duathlon-results" class="mt-2 mb-4">
+    <h3><i class="@IconHelper.GetIconClass(NamedIcon.Result, IconOption.DuoTone)"></i> Duathlon Results</h3>
+    <partial name="_MultisportEventResultsAccordion" model="Model.DuathlonResultsAccordion"/>
+</div>
