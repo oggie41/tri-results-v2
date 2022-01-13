@@ -123,11 +123,15 @@ ul.navbar-nav a:hover {
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-    --bs-table-accent-bg: $table-striping-background;
+    --bs-table-striped-bg: #f2f7fc;
 }
 
 .table-hover > tbody > tr:hover {
     --bs-table-accent-bg: #e7f1ff;
+}
+
+.table > :not(:first-child) {
+    border-top: none;
 }
 
 @media (min-width: 768px) {

@@ -80,6 +80,7 @@ namespace TriResultsV2.Pages
                 // Personal Records.
                 PersonalRecordsTable = new EventResultsTableVM()
                 {
+                    ContentId = "run-pbs",
                     PersonalRecordsTable = true,
                     EventResults = runPersonalRecords
                 };

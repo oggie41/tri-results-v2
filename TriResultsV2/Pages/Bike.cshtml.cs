@@ -58,6 +58,7 @@ namespace TriResultsV2.Pages
                 // Personal Records.
                 PersonalRecordsTable = new EventResultsTableVM()
                 {
+                    ContentId = "bike-pbs",
                     PersonalRecordsTable = true,
                     EventResults = bikePersonalRecords
                 };

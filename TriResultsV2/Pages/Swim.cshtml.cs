@@ -65,6 +65,7 @@ namespace TriResultsV2.Pages
                 // Personal Records.
                 PersonalRecordsTable = new EventResultsTableVM()
                 {
+                    ContentId = "swim-pbs",
                     PersonalRecordsTable = true,
                     EventResults = swimPersonalRecords
                 };
