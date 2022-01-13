@@ -30,7 +30,7 @@ namespace TriResultsV2.Pages
                 var plannedEvents = await DiaryService.GetPlannedEventsAsync();
                 
                 // Ensure only future events are displayed.
-                PlannedEvents = plannedEvents.Where(pe => pe.EventDate >= DateTime.Today);
+                PlannedEvents = plannedEvents.Where(pe => pe.EventDate >= DateTime.Today).OrderBy(pe => pe.EventDate);
             }
             catch (Exception ex)
             {

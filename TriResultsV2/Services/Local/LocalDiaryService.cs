@@ -16,12 +16,12 @@ namespace TriResultsV2.Services.Local
 
             var plannedEvent = new PlannedEvent
             {
-                EventDate = new DateTime(2021, 12, 5),
+                EventDate = new DateTime(2022, 7, 13),
                 Sport = SportType.Run,
-                Distance = 10,
+                Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
-                EventName = "Percy Pud 10K 2021",
-                EventUrl = "https://www.steelcitystriders.co.uk/percy-pud-10k/",
+                EventName = "Doncaster 5K 2022",
+                EventUrl = "https://www.doncasterathleticclub.com/doncaster-5k/",
                 Entered = true
             };
             plannedEvents.Add(plannedEvent);
@@ -32,6 +32,18 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Duathlon,
                 EventName = "Clumber Sprint Duathlon 2022",
                 EventUrl = "https://www.trisociety.co.uk/events/clumber-park-duathlon/",
+                Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
+                EventDate = new DateTime(2021, 12, 5),
+                Sport = SportType.Run,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventName = "Percy Pud 10K 2021",
+                EventUrl = "https://www.steelcitystriders.co.uk/percy-pud-10k/",
                 Entered = true
             };
             plannedEvents.Add(plannedEvent);
