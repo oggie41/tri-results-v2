@@ -9,6 +9,7 @@
     <Content Remove="compilerconfig.json" />
     <Content Remove="wwwroot\images\background\background.png" />
     <Content Remove="wwwroot\images\banner\source\banner-bike-source.jpg" />
+    <Content Remove="wwwroot\images\banner\source\banner-duathlon-source.jpg" />
     <Content Remove="wwwroot\images\banner\source\banner-race-diary-source.jpeg" />
     <Content Remove="wwwroot\images\banner\source\banner-run-source.jpg" />
     <Content Remove="wwwroot\images\banner\source\banner-swim-source.jpg" />
@@ -21,6 +22,7 @@
     <None Include="compilerconfig.json" />
     <None Include="wwwroot\images\background\background.png" />
     <None Include="wwwroot\images\banner\source\banner-bike-source.jpg" />
+    <None Include="wwwroot\images\banner\source\banner-duathlon-source.jpg" />
     <None Include="wwwroot\images\banner\source\banner-race-diary-source.jpeg" />
     <None Include="wwwroot\images\banner\source\banner-run-source.jpg" />
     <None Include="wwwroot\images\banner\source\banner-swim-source.jpg" />

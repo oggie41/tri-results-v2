@@ -28,11 +28,35 @@ namespace TriResultsV2.Services.Local
 
             plannedEvent = new PlannedEvent
             {
+                EventDate = new DateTime(2022, 6, 26),
+                Sport = SportType.Run,
+                Distance = 20,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventName = "Round Sheffield Run 2022",
+                EventUrl = "https://www.roundsheffieldrun.com/",
+                Entered = false
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
                 EventDate = new DateTime(2022, 4, 23),
                 Sport = SportType.Duathlon,
                 EventName = "Clumber Sprint Duathlon 2022",
-                EventUrl = "https://www.trisociety.co.uk/events/clumber-park-duathlon/",
+                EventUrl = "https://resultsbase.net/event/5943",
                 Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
+                EventDate = new DateTime(2022, 3, 6),
+                Sport = SportType.Run,
+                Distance = 13.1,
+                DistanceUnit = DistanceUnit.Miles,
+                EventName = "Retford Half Marathon 2022",
+                EventUrl = "https://bookitzone.com/RetfordHalf/PwjFFX",
+                Entered = false
             };
             plannedEvents.Add(plannedEvent);
 

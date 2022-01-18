@@ -5,6 +5,15 @@
 /* Using a JavaScript closure - it creates an Immediately-Invoked Function Expression (IIFE), allowing for private variables/functions. */
 var Tri = (function () {
     /* Private Functions/Variables */
+    function reapplyTableStriping(parentId) {
+        $("#" + parentId + " tr").each(function (index) {
+            $(this).removeClass("tri-striped-row");
+        });
+
+        $("#" + parentId + " tr:visible").each(function (index) {
+            $(this).toggleClass("tri-striped-row", !!(index & 1));
+        });
+    }
     /* End Private Functions/Variables */
 
     /* Public Functions */
@@ -27,13 +36,25 @@ var Tri = (function () {
             var elementType = $("#" + parentId).get(0).tagName;
 
             if (elementType.toUpperCase() === "TABLE") {
-                $("#" + parentId + " tr").each(function (index) {
-                    $(this).removeClass("tri-striped-row");
-                });
+                reapplyTableStriping(parentId);
+            }
+        },
 
-                $("#" + parentId + " tr:visible").each(function (index) {
-                    $(this).toggleClass("tri-striped-row", !!(index & 1));
-                });
+        SportChanged: function (obj, parentId) {
+            var sport = obj.value;
+
+            if (sport === "all") {
+                $("#" + parentId + " [data-sport]").fadeIn();
+            } else {
+                $("#" + parentId + " [data-sport]").hide();
+                $("#" + parentId + " [data-sport='" + obj.value + "']").fadeIn();
+            }
+
+            // If the parent element is a table re-apply the table striping after filtering.
+            var elementType = $("#" + parentId).get(0).tagName;
+
+            if (elementType.toUpperCase() === "TABLE") {
+                reapplyTableStriping(parentId);
             }
         }
     };

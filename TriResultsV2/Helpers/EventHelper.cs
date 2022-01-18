@@ -212,6 +212,13 @@ namespace TriResultsV2.Helpers
                 {
                     distanceStr = "MA";
                 }
+                else
+                {
+                    if (distanceUnit == DistanceUnit.Kilometres)
+                    {
+                        distanceStr = $"{distance}K";
+                    }
+                }
             }
 
             return distanceStr;

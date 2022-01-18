@@ -12,6 +12,7 @@ namespace TriResultsV2.Helpers
         Cloud,
         CloudSun,
         Diary,
+        Duathlon,
         Edit,
         Gear,
         Improvement,
@@ -19,7 +20,6 @@ namespace TriResultsV2.Helpers
         Link,
         Menu,
         MenuClose,
-        MultiSport,
         Percent,
         PersonalBest,
         Rain,
@@ -29,6 +29,7 @@ namespace TriResultsV2.Helpers
         Stopwatch,
         Sun,
         Swim,
+        Triathlon,
         Wind
     }
 
@@ -72,6 +73,7 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.Cloud: return $"{faClass} fa-cloud";
                 case NamedIcon.CloudSun: return $"{faClass} fa-cloud-sun";
                 case NamedIcon.Diary: return $"{faClass} fa-calendar-alt";
+                case NamedIcon.Duathlon: return $"{faClass} fa-random";
                 case NamedIcon.Edit: return $"{faClass} fa-edit";
                 case NamedIcon.Gear: return $"{faClass} fa-cog";
                 case NamedIcon.Improvement: return $"{faClass} fa-chart-line";
@@ -79,7 +81,6 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.Link: return $"{faClass} fa-link";
                 case NamedIcon.Menu: return $"{faClass} fa-bars";
                 case NamedIcon.MenuClose: return $"{faClass} fa-times-circle";
-                case NamedIcon.MultiSport: return $"{faClass} fa-random";
                 case NamedIcon.Percent: return $"{faClass} fa-percent";
                 case NamedIcon.PersonalBest: return $"{faClass} fa-medal";
                 case NamedIcon.Rain: return $"{faClass} fa-cloud-rain";
@@ -89,6 +90,7 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.Stopwatch: return $"{faClass} fa-stopwatch";
                 case NamedIcon.Sun: return $"{faClass} fa-sun";
                 case NamedIcon.Swim: return $"{faClass} fa-swimmer";
+                case NamedIcon.Triathlon: return $"{faClass} fa-project-diagram";
                 case NamedIcon.Wind: return $"{faClass} fa-wind";
             }
 
