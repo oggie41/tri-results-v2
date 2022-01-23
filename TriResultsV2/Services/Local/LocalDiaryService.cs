@@ -32,9 +32,9 @@ namespace TriResultsV2.Services.Local
                 Sport = SportType.Run,
                 Distance = 20,
                 DistanceUnit = DistanceUnit.Kilometres,
-                EventName = "Round Sheffield Run 2022",
+                EventName = "Round Sheffield Run 2022 (w/ Scott)",
                 EventUrl = "https://www.roundsheffieldrun.com/",
-                Entered = false
+                Entered = true
             };
             plannedEvents.Add(plannedEvent);
 
