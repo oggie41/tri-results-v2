@@ -10,7 +10,7 @@ namespace TriResultsV2.Services.Local
 {
     public class LocalBikeService : IBikeService
     {
-        public async Task<IEnumerable<EventResult>> Get10MileTTResultsAsync()
+        public Task<IEnumerable<EventResult>> Get10MileTTResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
@@ -202,10 +202,10 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
 
-        public async Task<IEnumerable<EventResult>> Get25MileTTResultsAsync()
+        public Task<IEnumerable<EventResult>> Get25MileTTResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
@@ -225,7 +225,7 @@ namespace TriResultsV2.Services.Local
             result.AddEventFigure("Really tough conditions... 26mph winds!", NamedIcon.Wind);
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
     }
 }

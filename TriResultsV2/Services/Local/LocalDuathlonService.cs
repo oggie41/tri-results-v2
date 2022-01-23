@@ -10,7 +10,7 @@ namespace TriResultsV2.Services.Local
 {
     public class LocalDuathlonService : IDuathlonService
     {
-        public async Task<IEnumerable<MultisportEventResult>> GetResultsAsync()
+        public Task<IEnumerable<MultisportEventResult>> GetResultsAsync()
         {
             var eventResults = new List<MultisportEventResult>();
 
@@ -170,7 +170,7 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
     }
 }

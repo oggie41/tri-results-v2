@@ -10,7 +10,7 @@ namespace TriResultsV2.Services.Local
 {
     public class LocalDiaryService : IDiaryService
     {
-        public async Task<IEnumerable<PlannedEvent>> GetPlannedEventsAsync()
+        public Task<IEnumerable<PlannedEvent>> GetPlannedEventsAsync()
         {
             var plannedEvents = new List<PlannedEvent>();
 
@@ -72,7 +72,7 @@ namespace TriResultsV2.Services.Local
             };
             plannedEvents.Add(plannedEvent);
 
-            return plannedEvents;
+            return Task.FromResult(plannedEvents.AsEnumerable());
         }
     }
 }

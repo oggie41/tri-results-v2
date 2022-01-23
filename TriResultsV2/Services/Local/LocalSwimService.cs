@@ -10,7 +10,7 @@ namespace TriResultsV2.Services.Local
 {
     public class LocalSwimService : ISwimService
     {
-        public async Task<IEnumerable<EventResult>> GetCssTestResultsAsync()
+        public Task<IEnumerable<EventResult>> GetCssTestResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
@@ -151,7 +151,7 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
     }
 }

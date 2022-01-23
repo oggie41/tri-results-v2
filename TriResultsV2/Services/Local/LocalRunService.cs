@@ -10,7 +10,7 @@ namespace TriResultsV2.Services.Local
 {
     public class LocalRunService : IRunService
     {
-        public async Task<IEnumerable<EventResult>> Get5KResultsAsync()
+        public Task<IEnumerable<EventResult>> Get5KResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
@@ -225,10 +225,10 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
 
-        public async Task<IEnumerable<EventResult>> Get10KResultsAsync()
+        public Task<IEnumerable<EventResult>> Get10KResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
@@ -472,10 +472,10 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
 
-        public async Task<IEnumerable<EventResult>> GetHalfMarathonResultsAsync()
+        public Task<IEnumerable<EventResult>> GetHalfMarathonResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
@@ -551,10 +551,10 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
 
-        public async Task<IEnumerable<EventResult>> GetMultiStageResultsAsync()
+        public Task<IEnumerable<EventResult>> GetMultiStageResultsAsync()
         {
             var eventResults = new List<EventResult>();
 
@@ -574,7 +574,7 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
-            return eventResults;
+            return Task.FromResult(eventResults.AsEnumerable());
         }
     }
 }
