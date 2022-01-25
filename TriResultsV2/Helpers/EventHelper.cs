@@ -335,7 +335,7 @@ namespace TriResultsV2.Helpers
 
         public static string GetFormattedWeatherNotes(WeatherType weather, int temperatureDegreesCelsius, int windMph)
         {
-            string weatherNotes = $"{temperatureDegreesCelsius}°C, {weather.GetEnumDisplayName()}, {windMph}mph wind";
+            string weatherNotes = $"{temperatureDegreesCelsius}°C, {weather.ToEnumDisplayName()}, {windMph}mph wind";
             return weatherNotes;
         }
 
@@ -345,7 +345,7 @@ namespace TriResultsV2.Helpers
 
             if (result.Course.HasValue)
             {
-                eventName = $"{result.Course.Value.GetEnumDisplayName()} {result.EventDate:yyyy}";
+                eventName = $"{result.Course.Value.ToEnumDisplayName()} {result.EventDate:yyyy}";
 
                 // If this is a race series display the month and year.
                 if (result.Course.Value == Course.Leeds5K
@@ -354,31 +354,37 @@ namespace TriResultsV2.Helpers
                     || result.Course.Value == Course.Trust10Longshaw
                     || result.Course.Value == Course.York5K)
                 {
-                    eventName = $"{result.Course.Value.GetEnumDisplayName()} {result.EventDate:MMM} {result.EventDate:yyyy}";
+                    eventName = $"{result.Course.Value.ToEnumDisplayName()} {result.EventDate:MMM} {result.EventDate:yyyy}";
                 }
 
                 // Parkrun doesn't need the month or year.
-                if (result.Course.GetEnumDisplayName().StartsWith("Parkrun"))
+                if (result.Course.ToEnumDisplayName().StartsWith("Parkrun"))
                 {
-                    eventName = result.Course.Value.GetEnumDisplayName();
+                    eventName = result.Course.Value.ToEnumDisplayName();
                 }
 
                 // Additional sport-specific formatting.
                 if (result.Sport == SportType.Triathlon || result.Sport == SportType.Duathlon)
                 {
-                    eventName = result.Course.Value.GetEnumDisplayName();
+                    eventName = result.Course.Value.ToEnumDisplayName();
                 }
                 else if (result.Sport == SportType.Bike)
                 {
-                    eventName = result.Course.Value.GetEnumDisplayName();
+                    eventName = result.Course.Value.ToEnumDisplayName();
                 }
                 else if (result.Sport == SportType.Swim)
                 {
-                    eventName = $"{result.Course.Value.GetEnumDisplayName()} CSS Test";
+                    eventName = $"{result.Course.Value.ToEnumDisplayName()} CSS Test";
                 }
             }
 
             return eventName;
+        }
+
+        public static string GetFormattedMultisportPersonalBest(TimeSpan resultTime, DateTime resultDate)
+        {
+            string personalBestStr = $"{GetFormattedTime(resultTime)} ({resultDate:MMM yyyy})";
+            return personalBestStr;
         }
     }
 }

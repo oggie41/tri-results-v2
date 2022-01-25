@@ -26,7 +26,8 @@ var Tri = (function () {
             var course = obj.value;
 
             if (course === "all") {
-                $("#" + parentId + " [data-course]").fadeIn();
+                $(".tri-multisport-pb-card").hide();
+                $("#" + parentId + " [data-course]:not(.tri-multisport-pb-card)").fadeIn();
             } else {
                 $("#" + parentId + " [data-course]").hide();
                 $("#" + parentId + " [data-course='" + obj.value + "']").fadeIn();

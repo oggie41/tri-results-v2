@@ -9,7 +9,7 @@ namespace TriResultsV2.Helpers
 {
     public static class CommonHelper
     {
-        public static string GetEnumDisplayName(this Enum enumValue)
+        public static string ToEnumDisplayName(this Enum enumValue)
         {
             return enumValue.GetType()
                 .GetMember(enumValue.ToString())

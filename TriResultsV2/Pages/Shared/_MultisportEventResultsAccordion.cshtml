@@ -3,6 +3,7 @@
 @model MultisportEventResultsAccordionVM
 
 @{
+    string containerId = $"div-{Model.ContentId}";
     string accordionId = $"acc-{Model.ContentId}";
 
     var distinctCourses = Model.MultisportEventResults.Where(e => e.Course != null).OrderBy(e => e.Course).Select(e => e.Course).Distinct().ToList();
@@ -12,251 +13,353 @@
 {
     if (distinctCourses.Count > 1)
     {
-        <div class="mt-3 mb-2">
+        <div class="mt-3 mb-3">
             <div class="d-inline-block me-1">
                 Course:
             </div>
             <div class="d-inline-block">
-                <select class="form-select" onchange="Tri.CourseChanged(this, '@accordionId')">
+                <select class="form-select" onchange="Tri.CourseChanged(this, '@containerId')">
                     <option value="all" selected>Show All</option>
                     @foreach (var course in distinctCourses)
                     {
-                        <option value="@course.ToString()">@course.GetEnumDisplayName()</option>
+                        <option value="@course.ToString()">@course.ToEnumDisplayName()</option>
                     }
                 </select>
             </div>
         </div>
     }
 }
-<div id="@accordionId" class="accordion accordion-flush">
-    @if (eventResultsSorted != null)
+<div id="@containerId">
+@foreach (var course in distinctCourses)
+{
+    var eventsOnCourseCount = eventResultsSorted.Count(e => e.Course == course);
+
+    if (eventsOnCourseCount > 1)
     {
-        int i = 0;
+        var firstResult = eventResultsSorted.FirstOrDefault();
 
-        foreach (var result in eventResultsSorted)
-        {
-            string headerButtonCss = "accordion-button collapsed";
-            string bodyContainerCss = "accordion-collapse collapse";
+        var bestDiscipline1 = eventResultsSorted.Where(e => e.Course == course).OrderBy(e => e.Discipline1Time).FirstOrDefault();
+        var bestT1 = eventResultsSorted.Where(e => e.Course == course).OrderBy(e => e.T1Time).FirstOrDefault();
+        var bestDiscipline2 = eventResultsSorted.Where(e => e.Course == course).OrderBy(e => e.Discipline2Time).FirstOrDefault();
+        var bestT2 = eventResultsSorted.Where(e => e.Course == course).OrderBy(e => e.T2Time).FirstOrDefault();
+        var bestDiscipline3 = eventResultsSorted.Where(e => e.Course == course).OrderBy(e => e.Discipline3Time).FirstOrDefault();
+        var bestTotal = eventResultsSorted.Where(e => e.Course == course).OrderBy(e => e.TotalTime).FirstOrDefault();
 
-            if (i == 0 || result.Expanded)
-            {
-                headerButtonCss = "accordion-button";
-                bodyContainerCss = "accordion-collapse collapse show";
-            }
-
-            string discipline1Sport = "Swim";
-            string discipline2Sport = "Bike";
-            string discipline3Sport = "Run";
-
-            string discipline1Type = string.Empty;
-
-            if (result.Sport == SportType.Triathlon)
-            {
-                if (result.SwimType.HasValue)
-                {
-                    discipline1Type = result.SwimType.ToString();
-                }
-            }
-            else if (result.Sport == SportType.Duathlon)
-            {
-                discipline1Sport = "Run";
-            }
-
-            bool displayImprovement = false;
-
-            MultisportEventResult comparisonResult = new MultisportEventResult();
-
-            if (result.CompareWithEventId.HasValue)
-            {
-                comparisonResult = eventResultsSorted.FirstOrDefault(e => e.Id == result.CompareWithEventId.Value);
-
-                if (comparisonResult is { Id: > 0 })
-                {
-                    displayImprovement = true;
-                }
-            }
-
-            string eventName = result.EventName;
-
-            if (string.IsNullOrEmpty(eventName))
-            {
-                // No event name specified so generate the name. 
-                eventName = EventHelper.GetEventName(result);
-            }
-            <div class="accordion-item" data-course="@result.Course">
-                <h2 class="accordion-header">
-                    <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#div-race-@result.Id">
-                        @eventName, @result.EventDate.ToString("dd/MM/yy") (@EventHelper.GetFormattedTime(result.TotalTime))
-                    </button>
-                </h2>
-                <div id="div-race-@result.Id" class="@bodyContainerCss">
-                    <div class="accordion-body">
-                        <div class="table-responsive mt-3 mb-1">
-                            <table class="table table-hover table-striped table-bordered align-top">
-                                <thead class="table-primary align-top">
-                                    <tr>
-                                        <th scope="col" class="col col-lg-2"></th>
-                                        <th scope="col" class="col col-lg-2">
-                                            <div>@discipline1Sport</div>
-                                            <div class="figure-caption">
-                                                @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport)
-                                                @if (!string.IsNullOrEmpty(discipline1Type))
-                                                {
-                                                    <text> @discipline1Type</text>
-                                                }
-                                            </div>
-                                        </th>
-                                        <th scope="col" class="col col-lg-1">T1</th>
-                                        <th scope="col" class="col col-lg-2">
-                                            <div>@discipline2Sport</div>
-                                            <div class="figure-caption">@EventHelper.GetFormattedDistance(result.Discipline2Distance, result.Discipline2DistanceUnit, result.Sport)</div>
-                                        </th>
-                                        <th scope="col" class="col col-lg-1">T2</th>
-                                        <th scope="col" class="col col-lg-2">
-                                            <div>@discipline3Sport</div>
-                                            <div class="figure-caption">@EventHelper.GetFormattedDistance(result.Discipline3Distance, result.Discipline3DistanceUnit, result.Sport)</div>
-                                        </th>
-                                        <th scope="col" class="col col-lg-2">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Stopwatch) d-inline-block"></i>
-                                            <div class="d-none d-md-inline-block">Time</div>
-                                        </th>
-                                        <td>
-                                            @EventHelper.GetFormattedTime(result.Discipline1Time)
-                                            
-                                            @if (result.Sport == SportType.Triathlon)
-                                            {
-                                                if (result.ActualSwimTime.HasValue)
-                                                {
-                                                    if (result.ActualSwimTime != result.Discipline1Time)
-                                                    {
-                                                        <span>(@EventHelper.GetFormattedTime(result.ActualSwimTime.Value))</span>
-                                                    }
-                                                }
-                                            }
-                                        </td>
-                                        <td>@EventHelper.GetFormattedTime(result.T1Time)</td>
-                                        <td>@EventHelper.GetFormattedTime(result.Discipline2Time)</td>
-                                        <td>@EventHelper.GetFormattedTime(result.T2Time)</td>
-                                        <td>@EventHelper.GetFormattedTime(result.Discipline3Time)</td>
-                                        <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
-                                    </tr>
-                                    @if (displayImprovement)
-                                    {
-                                        <tr>
-                                            <th scope="row">
-                                                <i class="@IconHelper.GetIconClass(NamedIcon.Improvement)"></i>
-                                                <div class="d-none d-md-inline-block">Improvement</div>
-                                            </th>
-                                            <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline1Time, comparisonResult.Discipline1Time))</td>
-                                            <td>@Html.Raw(EventHelper.GetImprovementHtml(result.T1Time, comparisonResult.T1Time))</td>
-                                            <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline2Time, comparisonResult.Discipline2Time))</td>
-                                            <td>@Html.Raw(EventHelper.GetImprovementHtml(result.T2Time, comparisonResult.T2Time))</td>
-                                            <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline3Time, comparisonResult.Discipline3Time))</td>
-                                            <td>@Html.Raw(EventHelper.GetImprovementHtml(result.TotalTime, comparisonResult.TotalTime))</td>
-                                        </tr>
-                                    }
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Speed)"></i>
-                                            <div class="d-none d-md-inline-block">Pace/Speed</div>
-                                        </th>
-                                        <td>
-                                            @{
-                                                string discipline1PaceSpeed = "-";
-
-                                                if (result.Sport == SportType.Triathlon)
-                                                {
-                                                    if (result.ActualSwimTime.HasValue)
-                                                    {
-                                                        discipline1PaceSpeed = SwimHelper.Get25MetreSwimPace(result.Discipline1Distance, result.ActualSwimTime.Value);
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    discipline1PaceSpeed = RunHelper.GetFormattedAvgPace(result.Discipline1AvgRunPaceMinMi);
-                                                }
-                                            }
-                                            @discipline1PaceSpeed
-                                        </td>
-                                        <td>-</td>
-                                        <td>@BikeHelper.GetFormattedAvgSpeed(result.Discipline2AvgBikeSpeedMph)</td>
-                                        <td>-</td>
-                                        <td>@RunHelper.GetFormattedAvgPace(result.Discipline3AvgRunPaceMinMi)</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Result)"></i>
-                                            <div class="d-none d-md-inline-block">Position</div>
-                                        </th>
-                                        <td>@EventHelper.GetFormattedPosition(result.Discipline1Position)</td>
-                                        <td>@EventHelper.GetFormattedPosition(result.T1Position)</td>
-                                        <td>@EventHelper.GetFormattedPosition(result.Discipline2Position)</td>
-                                        <td>@EventHelper.GetFormattedPosition(result.T2Position)</td>
-                                        <td>@EventHelper.GetFormattedPosition(result.Discipline3Position)</td>
-                                        <td>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="@IconHelper.GetIconClass(NamedIcon.Percent)"></i>
-                                            <div class="d-none d-md-inline-block">Performance</div>
-                                        </th>
-                                        <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline1Position)</td>
-                                        <td>@EventHelper.GetPerformance(result.TotalParticipants, result.T1Position)</td>
-                                        <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline2Position)</td>
-                                        <td>@EventHelper.GetPerformance(result.TotalParticipants, result.T2Position)</td>
-                                        <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline3Position)</td>
-                                        <td>@EventHelper.GetPerformance(result.TotalParticipants, result.OverallPosition)</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        @if (result.EventFigures.Any() || result.Sport == SportType.Triathlon)
-                        {
-                            <div class="tri-race-detail figure-caption">
-                                @if (result.Sport == SportType.Triathlon)
+        <div class="mt-3 mb-3 tri-multisport-pb-card" data-course="@course" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <div class="h6 my-1"><i class="@IconHelper.GetIconClass(NamedIcon.PersonalBest, IconOption.DuoTone)"></i> @course.ToEnumDisplayName() PBs</div>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <tr>
+                            <td>
+                                @if (firstResult.Sport == SportType.Triathlon)
                                 {
-                                    if (result.ActualSwimTime.HasValue)
-                                    {
-                                        if (result.ActualSwimTime.Value != result.Discipline1Time)
-                                        {
-                                            <div><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim time includes run to transition. @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport) swim was @EventHelper.GetFormattedTime(result.ActualSwimTime.Value).</div>
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <div><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim time includes run to transition.</div>
-                                    }
+                                    <i class="@IconHelper.GetIconClass(NamedIcon.Swim, IconOption.DuoTone)"></i>
                                 }
-                                @foreach (var figure in result.EventFigures)
+                                else
                                 {
-                                    <div><i class="@IconHelper.GetIconClass(figure.Icon)"></i> @figure.Text</div>
+                                    <i class="@IconHelper.GetIconClass(NamedIcon.Run, IconOption.DuoTone)"></i>
                                 }
-                            </div>
-                        }
-                        @if (result.GarminId.HasValue)
-                        {
-                            <div class="tri-race-detail">
-                                <i class="@IconHelper.GetIconClass(NamedIcon.Link)"></i> <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">View on Garmin</a>
-                            </div>
-                        }
-                        <div class="tri-race-detail"><i class="@EventHelper.GetWeatherIconClass(result.Weather)"></i> @EventHelper.GetFormattedWeatherNotes(result.Weather, result.TemperatureDegreesCelsius, result.WindMph)</div>
-                        @if (Model.DisplayNotes)
-                        {
-                            <div class="tri-race-detail">
-                                <i class="@IconHelper.GetIconClass(NamedIcon.Edit)"></i> @Html.Raw(result.EventNotes)
-                            </div>
-                        }
-                        <div class="tri-race-footer"></div>
-                    </div>
+                            </td>
+                            <td>
+                                @if (firstResult.Sport == SportType.Triathlon)
+                                {
+                                    <text>Best Swim:</text>
+                                }
+                                else
+                                {
+                                    <text>Best Run 1:</text>
+                                }
+                            </td>
+                            <td class="ps-2">@EventHelper.GetFormattedMultisportPersonalBest(bestDiscipline1.Discipline1Time, bestDiscipline1.EventDate)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="@IconHelper.GetIconClass(NamedIcon.Transition, IconOption.DuoTone)"></i>
+                            </td>
+                            <td>Best T1:</td>
+                            <td class="ps-2">@EventHelper.GetFormattedMultisportPersonalBest(bestT1.T1Time, bestT1.EventDate)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="@IconHelper.GetIconClass(NamedIcon.Bike, IconOption.DuoTone)"></i>
+                            </td>
+                            <td>Best Bike:</td>
+                            <td class="ps-2">@EventHelper.GetFormattedMultisportPersonalBest(bestDiscipline2.Discipline2Time, bestDiscipline2.EventDate)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="@IconHelper.GetIconClass(NamedIcon.Transition, IconOption.DuoTone)"></i>
+                            </td>
+                            <td>Best T2:</td>
+                            <td class="ps-2">@EventHelper.GetFormattedMultisportPersonalBest(bestT2.T2Time, bestT2.EventDate)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="@IconHelper.GetIconClass(NamedIcon.Run, IconOption.DuoTone)"></i>
+                            </td>
+                            <td>
+                                @if (firstResult.Sport == SportType.Triathlon)
+                                {
+                                    <text>Best Run:</text>
+                                }
+                                else
+                                {
+                                    <text>Best Run 2:</text>
+                                }
+                            </td>
+                            <td class="ps-2">@EventHelper.GetFormattedMultisportPersonalBest(bestDiscipline3.Discipline1Time, bestDiscipline3.EventDate)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="@IconHelper.GetIconClass(NamedIcon.Stopwatch, IconOption.DuoTone)"></i>
+                            </td>
+                            <td>Best Total:</td>
+                            <td class="ps-2">@EventHelper.GetFormattedMultisportPersonalBest(bestTotal.TotalTime, bestTotal.EventDate)</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            i++;
-        }
+        </div>
     }
+}
+<div id="@accordionId" class="accordion accordion-flush">
+@if (eventResultsSorted != null)
+{
+    int i = 0;
+
+    foreach (var result in eventResultsSorted)
+    {
+        string headerButtonCss = "accordion-button collapsed";
+        string bodyContainerCss = "accordion-collapse collapse";
+
+        if (i == 0 || result.Expanded)
+        {
+            headerButtonCss = "accordion-button";
+            bodyContainerCss = "accordion-collapse collapse show";
+        }
+
+        string discipline1Sport = "Swim";
+        string discipline2Sport = "Bike";
+        string discipline3Sport = "Run";
+
+        string discipline1Type = string.Empty;
+
+        if (result.Sport == SportType.Triathlon)
+        {
+            if (result.SwimType.HasValue)
+            {
+                discipline1Type = result.SwimType.ToString();
+            }
+        }
+        else if (result.Sport == SportType.Duathlon)
+        {
+            discipline1Sport = "Run 1";
+            discipline3Sport = "Run 2";
+        }
+
+        bool displayImprovement = false;
+
+        MultisportEventResult comparisonResult = new MultisportEventResult();
+
+        if (result.CompareWithEventId.HasValue)
+        {
+            comparisonResult = eventResultsSorted.FirstOrDefault(e => e.Id == result.CompareWithEventId.Value);
+
+            if (comparisonResult is { Id: > 0 })
+            {
+                displayImprovement = true;
+            }
+        }
+
+        string eventName = result.EventName;
+
+        if (string.IsNullOrEmpty(eventName))
+        {
+            // No event name specified so generate the name. 
+            eventName = EventHelper.GetEventName(result);
+        }
+        <div class="accordion-item" data-course="@result.Course">
+            <h2 class="accordion-header">
+                <button class="@headerButtonCss" type="button" data-bs-toggle="collapse" data-bs-target="#div-race-@result.Id">
+                    @eventName, @result.EventDate.ToString("dd/MM/yy") (@EventHelper.GetFormattedTime(result.TotalTime))
+                </button>
+            </h2>
+            <div id="div-race-@result.Id" class="@bodyContainerCss">
+                <div class="accordion-body">
+                    <div class="table-responsive mt-3 mb-1">
+                        <table class="table table-hover table-striped table-bordered align-top">
+                            <thead class="table-primary align-top">
+                            <tr>
+                                <th scope="col" class="col col-lg-2"></th>
+                                <th scope="col" class="col col-lg-2">
+                                    <div>@discipline1Sport</div>
+                                    <div class="figure-caption">
+                                        @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport)
+                                        @if (!string.IsNullOrEmpty(discipline1Type))
+                                        {
+                                            <text> @discipline1Type</text>
+                                        }
+                                    </div>
+                                </th>
+                                <th scope="col" class="col col-lg-1">T1</th>
+                                <th scope="col" class="col col-lg-2">
+                                    <div>@discipline2Sport</div>
+                                    <div class="figure-caption">@EventHelper.GetFormattedDistance(result.Discipline2Distance, result.Discipline2DistanceUnit, result.Sport)</div>
+                                </th>
+                                <th scope="col" class="col col-lg-1">T2</th>
+                                <th scope="col" class="col col-lg-2">
+                                    <div>@discipline3Sport</div>
+                                    <div class="figure-caption">@EventHelper.GetFormattedDistance(result.Discipline3Distance, result.Discipline3DistanceUnit, result.Sport)</div>
+                                </th>
+                                <th scope="col" class="col col-lg-2">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <i class="@IconHelper.GetIconClass(NamedIcon.Stopwatch) d-inline-block"></i>
+                                    <div class="d-none d-md-inline-block">Time</div>
+                                </th>
+                                <td>
+                                    @EventHelper.GetFormattedTime(result.Discipline1Time)
+
+                                    @if (result.Sport == SportType.Triathlon)
+                                    {
+                                        if (result.ActualSwimTime.HasValue)
+                                        {
+                                            if (result.ActualSwimTime != result.Discipline1Time)
+                                            {
+                                                <span>(@EventHelper.GetFormattedTime(result.ActualSwimTime.Value))</span>
+                                            }
+                                        }
+                                    }
+                                </td>
+                                <td>@EventHelper.GetFormattedTime(result.T1Time)</td>
+                                <td>@EventHelper.GetFormattedTime(result.Discipline2Time)</td>
+                                <td>@EventHelper.GetFormattedTime(result.T2Time)</td>
+                                <td>@EventHelper.GetFormattedTime(result.Discipline3Time)</td>
+                                <td>@EventHelper.GetFormattedTime(result.TotalTime)</td>
+                            </tr>
+                            @if (displayImprovement)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        <i class="@IconHelper.GetIconClass(NamedIcon.Improvement)"></i>
+                                        <div class="d-none d-md-inline-block">Improvement</div>
+                                    </th>
+                                    <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline1Time, comparisonResult.Discipline1Time))</td>
+                                    <td>@Html.Raw(EventHelper.GetImprovementHtml(result.T1Time, comparisonResult.T1Time))</td>
+                                    <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline2Time, comparisonResult.Discipline2Time))</td>
+                                    <td>@Html.Raw(EventHelper.GetImprovementHtml(result.T2Time, comparisonResult.T2Time))</td>
+                                    <td>@Html.Raw(EventHelper.GetImprovementHtml(result.Discipline3Time, comparisonResult.Discipline3Time))</td>
+                                    <td>@Html.Raw(EventHelper.GetImprovementHtml(result.TotalTime, comparisonResult.TotalTime))</td>
+                                </tr>
+                            }
+                            <tr>
+                                <th scope="row">
+                                    <i class="@IconHelper.GetIconClass(NamedIcon.Speed)"></i>
+                                    <div class="d-none d-md-inline-block">Pace/Speed</div>
+                                </th>
+                                <td>
+                                    @{
+                                        string discipline1PaceSpeed = "-";
+
+                                        if (result.Sport == SportType.Triathlon)
+                                        {
+                                            if (result.ActualSwimTime.HasValue)
+                                            {
+                                                discipline1PaceSpeed = SwimHelper.Get25MetreSwimPace(result.Discipline1Distance, result.ActualSwimTime.Value);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            discipline1PaceSpeed = RunHelper.GetFormattedAvgPace(result.Discipline1AvgRunPaceMinMi);
+                                        }
+                                    }
+                                    @discipline1PaceSpeed
+                                </td>
+                                <td>-</td>
+                                <td>@BikeHelper.GetFormattedAvgSpeed(result.Discipline2AvgBikeSpeedMph)</td>
+                                <td>-</td>
+                                <td>@RunHelper.GetFormattedAvgPace(result.Discipline3AvgRunPaceMinMi)</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="@IconHelper.GetIconClass(NamedIcon.Result)"></i>
+                                    <div class="d-none d-md-inline-block">Position</div>
+                                </th>
+                                <td>@EventHelper.GetFormattedPosition(result.Discipline1Position)</td>
+                                <td>@EventHelper.GetFormattedPosition(result.T1Position)</td>
+                                <td>@EventHelper.GetFormattedPosition(result.Discipline2Position)</td>
+                                <td>@EventHelper.GetFormattedPosition(result.T2Position)</td>
+                                <td>@EventHelper.GetFormattedPosition(result.Discipline3Position)</td>
+                                <td>@EventHelper.GetFormattedPosition(result.OverallPosition) (@result.TotalParticipants)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <i class="@IconHelper.GetIconClass(NamedIcon.Percent)"></i>
+                                    <div class="d-none d-md-inline-block">Performance</div>
+                                </th>
+                                <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline1Position)</td>
+                                <td>@EventHelper.GetPerformance(result.TotalParticipants, result.T1Position)</td>
+                                <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline2Position)</td>
+                                <td>@EventHelper.GetPerformance(result.TotalParticipants, result.T2Position)</td>
+                                <td>@EventHelper.GetPerformance(result.TotalParticipants, result.Discipline3Position)</td>
+                                <td>@EventHelper.GetPerformance(result.TotalParticipants, result.OverallPosition)</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    @if (result.EventFigures.Any() || result.Sport == SportType.Triathlon)
+                    {
+                        <div class="tri-race-detail figure-caption">
+                            @if (result.Sport == SportType.Triathlon)
+                            {
+                                if (result.ActualSwimTime.HasValue)
+                                {
+                                    if (result.ActualSwimTime.Value != result.Discipline1Time)
+                                    {
+                                        <div><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim time includes run to transition. @EventHelper.GetFormattedDistance(result.Discipline1Distance, result.Discipline1DistanceUnit, result.Sport) swim was @EventHelper.GetFormattedTime(result.ActualSwimTime.Value).</div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim time includes run to transition.</div>
+                                }
+                            }
+                            @foreach (var figure in result.EventFigures)
+                            {
+                                <div>
+                                    <i class="@IconHelper.GetIconClass(figure.Icon)"></i> @figure.Text
+                                </div>
+                            }
+                        </div>
+                    }
+                    @if (result.GarminId.HasValue)
+                    {
+                        <div class="tri-race-detail">
+                            <i class="@IconHelper.GetIconClass(NamedIcon.Link)"></i> <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">View on Garmin</a>
+                        </div>
+                    }
+                    <div class="tri-race-detail">
+                        <i class="@EventHelper.GetWeatherIconClass(result.Weather)"></i> @EventHelper.GetFormattedWeatherNotes(result.Weather, result.TemperatureDegreesCelsius, result.WindMph)
+                    </div>
+                    @if (Model.DisplayNotes)
+                    {
+                        <div class="tri-race-detail">
+                            <i class="@IconHelper.GetIconClass(NamedIcon.Edit)"></i> @Html.Raw(result.EventNotes)
+                        </div>
+                    }
+                    <div class="tri-race-footer"></div>
+                </div>
+            </div>
+        </div>
+        i++;
+    }
+}
+</div>
 </div>

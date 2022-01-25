@@ -29,6 +29,7 @@ namespace TriResultsV2.Helpers
         Stopwatch,
         Sun,
         Swim,
+        Transition,
         Triathlon,
         Wind
     }
@@ -90,6 +91,7 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.Stopwatch: return $"{faClass} fa-stopwatch";
                 case NamedIcon.Sun: return $"{faClass} fa-sun";
                 case NamedIcon.Swim: return $"{faClass} fa-swimmer";
+                case NamedIcon.Transition: return $"{faClass} fa-chevron-double-right";
                 case NamedIcon.Triathlon: return $"{faClass} fa-project-diagram";
                 case NamedIcon.Wind: return $"{faClass} fa-wind";
             }
