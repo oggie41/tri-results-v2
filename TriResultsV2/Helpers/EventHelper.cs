@@ -381,9 +381,22 @@ namespace TriResultsV2.Helpers
             return eventName;
         }
 
-        public static string GetFormattedMultisportPersonalBest(TimeSpan resultTime, DateTime resultDate)
+        public static string GetFormattedMultisportPersonalBest(TimeSpan resultTime, DateTime resultDate, TimeSpan? actualSwimTime = null)
         {
-            string personalBestStr = $"{GetFormattedTime(resultTime)} ({resultDate:MMM yyyy})";
+            string personalBestStr = "-";
+
+            if (resultTime.Ticks > 0)
+            {
+                if (actualSwimTime.HasValue && resultTime != actualSwimTime.Value)
+                {
+                    personalBestStr = $"{GetFormattedTime(resultTime)} ({GetFormattedTime(actualSwimTime.Value)}) ({resultDate:MMM yyyy})";
+                }
+                else
+                {
+                    personalBestStr = $"{GetFormattedTime(resultTime)} ({resultDate:MMM yyyy})";
+                }
+            }
+
             return personalBestStr;
         }
     }
