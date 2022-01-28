@@ -202,6 +202,10 @@ ul.navbar-nav a:hover {
   margin: 0 0 1rem 0;
 }
 
+.tri-result-table {
+  min-height: 180px;
+}
+
 .tri-logo {
   width: 180px;
   height: auto;

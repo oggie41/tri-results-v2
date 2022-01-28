@@ -48,17 +48,17 @@ namespace TriResultsV2.Services.Local
             };
             plannedEvents.Add(plannedEvent);
 
-            plannedEvent = new PlannedEvent
-            {
-                EventDate = new DateTime(2022, 3, 6),
-                Sport = SportType.Run,
-                Distance = 13.1,
-                DistanceUnit = DistanceUnit.Miles,
-                EventName = "Retford Half Marathon 2022",
-                EventUrl = "https://bookitzone.com/RetfordHalf/PwjFFX",
-                Entered = false
-            };
-            plannedEvents.Add(plannedEvent);
+            //plannedEvent = new PlannedEvent
+            //{
+            //    EventDate = new DateTime(2022, 3, 6),
+            //    Sport = SportType.Run,
+            //    Distance = 13.1,
+            //    DistanceUnit = DistanceUnit.Miles,
+            //    EventName = "Retford Half Marathon 2022",
+            //    EventUrl = "https://bookitzone.com/RetfordHalf/PwjFFX",
+            //    Entered = false
+            //};
+            //plannedEvents.Add(plannedEvent);
 
             plannedEvent = new PlannedEvent
             {

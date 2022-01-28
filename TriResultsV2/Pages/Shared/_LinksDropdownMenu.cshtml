@@ -1,0 +1,29 @@
+﻿@using TriResultsV2.Models
+@using TriResultsV2.Helpers
+@model LinksDropdownMenuVM
+
+@if (Model?.EventResult != null)
+{
+    string textCssClass = string.Empty;
+
+    if (Model.HideTextForMobile)
+    {
+        textCssClass = "d-none d-sm-inline-block";
+    }
+
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle px-@Model.PaddingX py-@Model.PaddingY" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="@IconHelper.GetIconClass(NamedIcon.Link)"></i> <span class="@textCssClass">View</span>
+        </button>
+        <ul class="dropdown-menu">
+            @if (Model.EventResult.GarminId.HasValue)
+            {
+                <li><a class="dropdown-item" href="@EventHelper.GetGarminActivityUrl(Model.EventResult.GarminId.Value)" target="_blank"><i class="@IconHelper.GetIconClass(NamedIcon.Garmin)"></i> View on Garmin</a></li>
+            }
+            @if (!string.IsNullOrEmpty(Model.EventResult.OfficialResultsUrl))
+            {
+                <li><a class="dropdown-item" href="@Model.EventResult.OfficialResultsUrl" target="_blank"><i class="@IconHelper.GetIconClass(NamedIcon.Result)"></i> View Offical Results</a></li>
+            }
+        </ul>
+    </div>
+}

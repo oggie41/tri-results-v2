@@ -11,6 +11,8 @@ namespace TriResultsV2.Services.Sql
     {
         public async Task<IEnumerable<EventResult>> GetCssTestResultsAsync()
         {
+            await Task.Delay(500);
+
             var eventResults = new List<EventResult>();
             return eventResults;
         }

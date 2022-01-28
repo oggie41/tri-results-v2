@@ -399,5 +399,11 @@ namespace TriResultsV2.Helpers
 
             return personalBestStr;
         }
+
+        public static string GetGarminActivityUrl(long garminActivityId)
+        {
+            string garminActivityUrl = $"https://connect.garmin.com/modern/activity/{garminActivityId}";
+            return garminActivityUrl;
+        }
     }
 }

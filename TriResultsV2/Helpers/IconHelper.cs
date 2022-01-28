@@ -14,6 +14,7 @@ namespace TriResultsV2.Helpers
         Diary,
         Duathlon,
         Edit,
+        Garmin,
         Gear,
         Improvement,
         Info,
@@ -76,6 +77,7 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.Diary: return $"{faClass} fa-calendar-alt";
                 case NamedIcon.Duathlon: return $"{faClass} fa-random";
                 case NamedIcon.Edit: return $"{faClass} fa-edit";
+                case NamedIcon.Garmin: return $"{faClass} fa-triangle";
                 case NamedIcon.Gear: return $"{faClass} fa-cog";
                 case NamedIcon.Improvement: return $"{faClass} fa-chart-line";
                 case NamedIcon.Info: return $"{faClass} fa-info-circle";

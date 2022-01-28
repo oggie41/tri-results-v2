@@ -11,6 +11,8 @@ namespace TriResultsV2.Services.Sql
     {
         public async Task<IEnumerable<MultisportEventResult>> GetResultsAsync()
         {
+            await Task.Delay(500);
+
             var eventResults = new List<MultisportEventResult>();
             return eventResults;
         }

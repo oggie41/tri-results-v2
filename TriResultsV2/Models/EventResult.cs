@@ -40,6 +40,8 @@ namespace TriResultsV2.Models
 
         public List<EventFigure> EventFigures { get; set; } = new List<EventFigure>();
 
+        public string OfficialResultsUrl { get; set; }
+
         public void AddEventFigure(string figureText, NamedIcon figureIcon = NamedIcon.Info)
         {
             if (EventFigures == null)

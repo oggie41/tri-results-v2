@@ -32,16 +32,19 @@
         </div>
     }
 }
-<div class="table-responsive mt-3 mb-1">
+<div class="table-responsive mt-3 mb-1 tri-result-table">
     <table id="@resultTableId" class="table table-hover table-bordered align-top">
         <thead class="table-primary align-top">
             <tr>
                 @if (!Model.SwimCssTestsTable)
                 {
-                    <th scope="col" class="col-1">
-                        <div class="d-block d-sm-none">Dist.</div>
-                        <div class="d-none d-sm-block">Distance</div>
-                    </th>
+                    @if (Model.PersonalRecordsTable)
+                    {
+                        <th scope="col" class="col-1">
+                            <div class="d-block d-sm-none">Dist.</div>
+                            <div class="d-none d-sm-block">Distance</div>
+                        </th>
+                    }
                     <th scope="col" class="col-2">Date</th>
                     <th scope="col" class="col-5">Event</th>
                     <th scope="col" class="col-2">Time</th>
@@ -69,6 +72,10 @@
                         }
                         @colHeader
                     </th>
+                    @if (!Model.PersonalRecordsTable)
+                    {
+                        <th scope="col" class="col-1"></th>
+                    }
                 }
                 else
                 {
@@ -140,7 +147,10 @@
                         <tr class="@rowCssClass @rowPbCssClass" data-course="@result.Course">
                             @if (!Model.SwimCssTestsTable)
                             {
-                                <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
+                                @if (Model.PersonalRecordsTable)
+                                {
+                                    <td>@EventHelper.GetFormattedDistance(result.Distance, result.DistanceUnit, result.Sport)</td>
+                                }
                                 <td>@result.EventDate.ToString("dd/MM/yy")</td>
                                 <td>
                                     @if (result.GarminId.HasValue)
@@ -166,6 +176,19 @@
                                         @avgPaceSpeed
                                     }
                                 </td>
+                                @if (!Model.PersonalRecordsTable)
+                                {
+                                    var linksDropdownMenu = new LinksDropdownMenuVM
+                                    {
+                                        EventResult = result,
+                                        PaddingX = 1,
+                                        HideTextForMobile = true
+                                    };
+
+                                    <td>
+                                        <partial name="_LinksDropdownMenu" model="linksDropdownMenu"/>
+                                    </td>
+                                }
                             }
                             else
                             {
@@ -198,7 +221,7 @@
                                 <td>
                                     @if (result.GarminId.HasValue)
                                     {
-                                        <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">@Html.Raw(eventName)</a>
+                                        <a href="@EventHelper.GetGarminActivityUrl(result.GarminId.Value)" target="_blank">@Html.Raw(eventName)</a>
                                     }
                                     else
                                     {

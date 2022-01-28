@@ -24,7 +24,8 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2021, 9, 18),
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 19, 14),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 8)
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 8),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/314/"
             };
             eventResults.Add(result);
 
@@ -242,7 +243,8 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2021, 12, 5),
                 Course = Course.PercyPud10K,
                 TotalTime = new TimeSpan(0, 41, 8),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 37)
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 37),
+                OfficialResultsUrl = "https://results.sporthive.com/events/6873202899267092480/races/1"
             };
             eventResults.Add(result);
 
@@ -257,6 +259,7 @@ namespace TriResultsV2.Services.Local
                 Course = Course.Lincoln10K,
                 TotalTime = new TimeSpan(0, 40, 43),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 36),
+                OfficialResultsUrl = "https://www.chiptiming.co.uk/events/asda-foundation-lincoln-10k-2021/",
                 PersonalBest = true
             };
             eventResults.Add(result);
@@ -570,7 +573,8 @@ namespace TriResultsV2.Services.Local
                 Course = Course.RoundSheffieldRun,
                 TotalTime = new TimeSpan(1, 23, 49),
                 TotalParticipants = 2161,
-                OverallPosition = 126
+                OverallPosition = 126,
+                OfficialResultsUrl = "https://www.sportident.co.uk/results/Kandoo/2021/RSR/"
             };
             eventResults.Add(result);
 

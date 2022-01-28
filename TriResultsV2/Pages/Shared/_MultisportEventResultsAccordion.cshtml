@@ -340,10 +340,15 @@
                             }
                         </div>
                     }
-                    @if (result.GarminId.HasValue)
+                    @if (result.GarminId.HasValue || !string.IsNullOrEmpty(result.OfficialResultsUrl))
                     {
+                        var linksDropdownMenu = new LinksDropdownMenuVM
+                        {
+                            EventResult = result
+                        };
+
                         <div class="tri-race-detail">
-                            <i class="@IconHelper.GetIconClass(NamedIcon.Link)"></i> <a href="https://connect.garmin.com/modern/activity/@result.GarminId" target="_blank">View on Garmin</a>
+                            <partial name="_LinksDropdownMenu" model="linksDropdownMenu"/>
                         </div>
                     }
                     <div class="tri-race-detail">

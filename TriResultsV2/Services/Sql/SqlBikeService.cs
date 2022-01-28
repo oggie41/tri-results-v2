@@ -11,12 +11,16 @@ namespace TriResultsV2.Services.Sql
     {
         public async Task<IEnumerable<EventResult>> Get10MileTTResultsAsync()
         {
+            await Task.Delay(500);
+
             var eventResults = new List<EventResult>();
             return eventResults;
         }
 
         public async Task<IEnumerable<EventResult>> Get25MileTTResultsAsync()
         {
+            await Task.Delay(500);
+
             var eventResults = new List<EventResult>();
             return eventResults;
         }

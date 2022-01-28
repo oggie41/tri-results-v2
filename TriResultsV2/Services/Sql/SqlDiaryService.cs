@@ -11,6 +11,8 @@ namespace TriResultsV2.Services.Sql
     {
         public async Task<IEnumerable<PlannedEvent>> GetPlannedEventsAsync()
         {
+            await Task.Delay(500);
+
             var plannedEvents = new List<PlannedEvent>();
             return plannedEvents;
         }

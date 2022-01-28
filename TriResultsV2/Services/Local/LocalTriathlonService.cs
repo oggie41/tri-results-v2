@@ -47,6 +47,7 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.SunnyCloudy,
                 TemperatureDegreesCelsius = 18,
                 WindMph = 5,
+                OfficialResultsUrl = "https://results.racetimingsolutions.co.uk/Results.aspx?CId=16269&RId=1269&EId=1",
                 EventNotes = "Great conditions. Swim went pretty well considering the lack of swim training.<br/>" +
                              "Good bike course, plenty of opportunity to get on the tri bars. Need to up the bike training really though, especially TT specific riding, didn't feel strong enough at times.<br/>" +
                              "Run was 2 laps around the local area. Felt pretty good and finished strongly. With more bike training should be able to perform better on the run as will feel fresher.<br/>" +
