@@ -11,6 +11,14 @@
     {
         eventResultsSorted = Model.EventResults.OrderBy(e => e.Distance).ToList();
     }
+
+    string resultsContainerCssClass = string.Empty;
+
+    if (!Model.PersonalRecordsTable)
+    {
+        // This class ensures a minimum height is set, which avoids scrolling issues with the link dropdown menu. Not required for personal record tables.
+        resultsContainerCssClass = "tri-result-table";
+    }
 }
 @if (!Model.PersonalRecordsTable && distinctCourses.Any())
 {
@@ -32,7 +40,7 @@
         </div>
     }
 }
-<div class="table-responsive mt-3 mb-1 tri-result-table">
+<div class="table-responsive mt-3 mb-1 @resultsContainerCssClass">
     <table id="@resultTableId" class="table table-hover table-bordered align-top">
         <thead class="table-primary align-top">
             <tr>
