@@ -18,6 +18,7 @@ namespace TriResultsV2.Helpers
         Gear,
         Improvement,
         Info,
+        IntervalsIcu,
         Link,
         Menu,
         MenuClose,
@@ -81,6 +82,7 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.Gear: return $"{faClass} fa-cog";
                 case NamedIcon.Improvement: return $"{faClass} fa-chart-line";
                 case NamedIcon.Info: return $"{faClass} fa-info-circle";
+                case NamedIcon.IntervalsIcu: return $"{faClass} fa-waveform-path";
                 case NamedIcon.Link: return $"{faClass} fa-link";
                 case NamedIcon.Menu: return $"{faClass} fa-bars";
                 case NamedIcon.MenuClose: return $"{faClass} fa-times-circle";

@@ -18,6 +18,7 @@ namespace TriResultsV2.Services.Local
             {
                 Id = 7430411827,
                 GarminId = 7430411827,
+                IntervalsIcuId = 1879038,
                 Sport = SportType.Triathlon,
                 EventDate = new DateTime(2021, 9, 5),
                 Course = Course.BassetlawSprintTriathlon,

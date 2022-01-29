@@ -8,6 +8,8 @@
 
         public int PaddingY { get; set; } = 0;
 
+        public bool ShowExtendedText { get; set; } = true;
+        
         public bool HideTextForMobile { get; set; } = false;
     }
 }

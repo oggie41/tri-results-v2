@@ -4,6 +4,23 @@
 
 @if (Model?.EventResult != null)
 {
+    string buttonText = "View";
+
+    if (Model.ShowExtendedText)
+    {
+        if (Model.EventResult.AdvancedAnalysisAvailable)
+        {
+            buttonText = !string.IsNullOrEmpty(Model.EventResult.OfficialResultsUrl) ? "View Analysis / Official Results" : "View Analysis";
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(Model.EventResult.OfficialResultsUrl))
+            {
+                buttonText = "View Official Results";
+            }
+        }
+    }
+
     string textCssClass = string.Empty;
 
     if (Model.HideTextForMobile)
@@ -13,12 +30,16 @@
 
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle px-@Model.PaddingX py-@Model.PaddingY" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="@IconHelper.GetIconClass(NamedIcon.Link)"></i> <span class="@textCssClass">View</span>
+            <i class="@IconHelper.GetIconClass(NamedIcon.Link)"></i> <span class="@textCssClass">@buttonText</span>
         </button>
         <ul class="dropdown-menu">
             @if (Model.EventResult.GarminId.HasValue)
             {
                 <li><a class="dropdown-item" href="@EventHelper.GetGarminActivityUrl(Model.EventResult.GarminId.Value)" target="_blank"><i class="@IconHelper.GetIconClass(NamedIcon.Garmin)"></i> View on Garmin</a></li>
+            }
+            @if (Model.EventResult.IntervalsIcuId.HasValue)
+            {
+                <li><a class="dropdown-item" href="@EventHelper.GetIntervalsIcuActivityUrl(Model.EventResult.IntervalsIcuId.Value)" target="_blank"><i class="@IconHelper.GetIconClass(NamedIcon.IntervalsIcu)"></i> View on Intervals.icu</a></li>
             }
             @if (!string.IsNullOrEmpty(Model.EventResult.OfficialResultsUrl))
             {

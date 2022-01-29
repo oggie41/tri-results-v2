@@ -11,6 +11,8 @@ namespace TriResultsV2.Models
         public long Id { get; set; }
 
         public long? GarminId { get; set; }
+        
+        public long? IntervalsIcuId { get; set; }
 
         public SportType Sport { get; set; }
 
@@ -41,6 +43,14 @@ namespace TriResultsV2.Models
         public List<EventFigure> EventFigures { get; set; } = new List<EventFigure>();
 
         public string OfficialResultsUrl { get; set; }
+        
+        public bool AdvancedAnalysisAvailable {
+            get
+            {
+                bool advancedAnalysisAvailable = GarminId.HasValue || IntervalsIcuId.HasValue;
+                return advancedAnalysisAvailable;
+            }
+        }
 
         public void AddEventFigure(string figureText, NamedIcon figureIcon = NamedIcon.Info)
         {

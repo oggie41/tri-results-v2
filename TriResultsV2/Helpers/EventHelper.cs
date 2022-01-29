@@ -405,5 +405,11 @@ namespace TriResultsV2.Helpers
             string garminActivityUrl = $"https://connect.garmin.com/modern/activity/{garminActivityId}";
             return garminActivityUrl;
         }
+
+        public static string GetIntervalsIcuActivityUrl(long intervalsIcuActivityId)
+        {
+            string intervalsIcuActivityUrl = $"https://intervals.icu/activities/i{intervalsIcuActivityId}";
+            return intervalsIcuActivityUrl;
+        }
     }
 }
