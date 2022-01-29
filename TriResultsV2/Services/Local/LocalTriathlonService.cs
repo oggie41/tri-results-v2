@@ -37,6 +37,7 @@ namespace TriResultsV2.Services.Local
                 Discipline3Time = new TimeSpan(0, 21, 8),
                 TotalTime = new TimeSpan(1, 14, 44),
                 Discipline2AvgBikeSpeedMph = 20.2,
+                Discipline2AvgBikePower = 209,
                 Discipline3AvgRunPaceMinMi = new TimeSpan(0, 6, 53),
                 TotalParticipants = 115,
                 Discipline1Position = 28,

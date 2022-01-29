@@ -283,7 +283,15 @@
                                     @discipline1PaceSpeed
                                 </td>
                                 <td>-</td>
-                                <td>@BikeHelper.GetFormattedAvgSpeed(result.Discipline2AvgBikeSpeedMph)</td>
+                                <td>
+                                    <div>@BikeHelper.GetFormattedAvgSpeed(result.Discipline2AvgBikeSpeedMph)</div>
+                                    @if (result.Discipline2AvgBikePower.HasValue)
+                                    {
+                                        <div>
+                                            @Html.Raw(BikeHelper.GetFormattedAvgPowerHtml(result.Discipline2AvgBikePower.Value))
+                                        </div>
+                                    }
+                                </td>
                                 <td>-</td>
                                 <td>@RunHelper.GetFormattedAvgPace(result.Discipline3AvgRunPaceMinMi)</td>
                                 <td>-</td>

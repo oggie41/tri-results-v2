@@ -18,5 +18,18 @@ namespace TriResultsV2.Helpers
 
             return avgSpeedFormatted;
         }
+
+        public static string GetFormattedAvgPowerHtml(double avgPowerInWatts, bool displayAsCaption = true)
+        {
+            string captionCss = string.Empty;
+
+            if (displayAsCaption)
+            {
+                captionCss = "figure-caption";
+            }
+
+            string avgPowerFormatted = $"<div class=\"d-inline-block {captionCss}\" title=\"Average Power\" data-bs-toggle=\"tooltip\"><i class=\"{IconHelper.GetIconClass(NamedIcon.Power)}\"></i> {Math.Round(avgPowerInWatts, 0)}w</div>";
+            return avgPowerFormatted;
+        }
     }
 }

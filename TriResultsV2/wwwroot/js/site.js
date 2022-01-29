@@ -22,6 +22,13 @@ var Tri = (function () {
             $(".tri-loading-overlay").show();
         },
 
+        InitialiseTooltips: function () {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        },
+
         CourseChanged: function (obj, parentId) {
             var course = obj.value;
             var elementType = $("#" + parentId).get(0).tagName;

@@ -24,6 +24,7 @@ namespace TriResultsV2.Helpers
         MenuClose,
         Percent,
         PersonalBest,
+        Power,
         Rain,
         Result,
         Run,
@@ -88,6 +89,7 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.MenuClose: return $"{faClass} fa-times-circle";
                 case NamedIcon.Percent: return $"{faClass} fa-percent";
                 case NamedIcon.PersonalBest: return $"{faClass} fa-medal";
+                case NamedIcon.Power: return $"{faClass} fa-bolt";
                 case NamedIcon.Rain: return $"{faClass} fa-cloud-rain";
                 case NamedIcon.Result: return $"{faClass} fa-clipboard-list";
                 case NamedIcon.Run: return $"{faClass} fa-running";

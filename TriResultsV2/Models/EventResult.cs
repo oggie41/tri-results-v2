@@ -34,6 +34,8 @@ namespace TriResultsV2.Models
         
         public double? AvgBikeSpeedMph { get; set; }
 
+        public double? AvgBikePower { get; set; }
+
         public int? TotalParticipants { get; set; }
 
         public int? OverallPosition { get; set; }

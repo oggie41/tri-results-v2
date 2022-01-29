@@ -183,6 +183,15 @@
                                     {
                                         @avgPaceSpeed
                                     }
+                                    @if (result.Sport == SportType.Bike)
+                                    {
+                                        if (result.AvgBikePower.HasValue)
+                                        {
+                                            <div>
+                                                @Html.Raw(BikeHelper.GetFormattedAvgPowerHtml(result.AvgBikePower.Value))
+                                            </div>
+                                        }
+                                    }
                                 </td>
                                 @if (!Model.PersonalRecordsTable)
                                 {
