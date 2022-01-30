@@ -28,7 +28,7 @@ namespace TriResultsV2.Helpers
                 captionCss = "figure-caption";
             }
 
-            string avgPowerFormatted = $"<div class=\"d-inline-block {captionCss}\" title=\"Average Power\" data-bs-toggle=\"tooltip\"><i class=\"{IconHelper.GetIconClass(NamedIcon.Power)} d-none d-sm-inline-block\"></i> {Math.Round(avgPowerInWatts, 0)}w</div>";
+            string avgPowerFormatted = $"<div class=\"d-inline-block text-nowrap {captionCss}\" title=\"Average Power\" data-bs-toggle=\"tooltip\"><i class=\"{IconHelper.GetIconClass(NamedIcon.Power)}\"></i> {Math.Round(avgPowerInWatts, 0)}w</div>";
             return avgPowerFormatted;
         }
     }
