@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TriResultsV2.Models;
 
 namespace TriResultsV2.Helpers
 {
@@ -31,6 +32,19 @@ namespace TriResultsV2.Helpers
             string cssDetails = $"CSS: {ts100mPace.Minutes}:{ts100mPace.Seconds}/100m (tempo trainer: {Math.Round(secsPer25m, 1):F1} sec/25m)";
 
             return cssDetails;
+        }
+
+        public static void SetSwimPersonalBest(List<EventResult> eventResults, double distance)
+        {
+            if (eventResults.Any())
+            {
+                var personalBestResult = eventResults.Where(e => e.Distance == distance && e.ExcludeFromPersonalBestCalculation == false).OrderBy(e => e.TotalTime).FirstOrDefault();
+
+                if (personalBestResult != null)
+                {
+                    personalBestResult.PersonalBest = true;
+                }
+            }
         }
     }
 }

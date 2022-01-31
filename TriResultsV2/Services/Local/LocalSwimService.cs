@@ -14,8 +14,10 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
+            EventResult result;
+
             // CSS Test on 12/12/2018.
-            var result = new EventResult
+            result = new EventResult
             {
                 Id = 3221940710,
                 GarminId = 3221940710,
@@ -24,8 +26,7 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2018, 12, 12),
                 Course = Course.Westfield,
-                TotalTime = new TimeSpan(0, 3, 18),
-                PersonalBest = true
+                TotalTime = new TimeSpan(0, 3, 18)
             };
             eventResults.Add(result);
 
@@ -38,8 +39,7 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Metres,
                 EventDate = new DateTime(2018, 12, 12),
                 Course = Course.Westfield,
-                TotalTime = new TimeSpan(0, 6, 52),
-                PersonalBest = true
+                TotalTime = new TimeSpan(0, 6, 52)
             };
             eventResults.Add(result);
 
@@ -150,6 +150,9 @@ namespace TriResultsV2.Services.Local
                 TotalTime = new TimeSpan(0, 7, 21)
             };
             eventResults.Add(result);
+
+            SwimHelper.SetSwimPersonalBest(eventResults, 200);
+            SwimHelper.SetSwimPersonalBest(eventResults, 400);
 
             return Task.FromResult(eventResults.AsEnumerable());
         }

@@ -43,6 +43,8 @@ namespace TriResultsV2.Models
         public int? OverallPosition { get; set; }
 
         public bool PersonalBest { get; set; } = false;
+        
+        public bool ExcludeFromPersonalBestCalculation { get; set; } = false;
 
         public List<EventFigure> EventFigures { get; set; } = new List<EventFigure>();
 

@@ -8,8 +8,6 @@ namespace TriResultsV2.Models
 {
     public class MultisportEventResult : EventResult
     {
-        public bool Expanded { get; set; } = false;
-
         public double Discipline1Distance { get; set; }
         
         public DistanceUnit Discipline1DistanceUnit { get; set; }

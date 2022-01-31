@@ -14,7 +14,9 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var result = new EventResult
+            EventResult result;
+
+            result = new EventResult
             {
                 Id = 7508938026,
                 GarminId = 7508938026,
@@ -39,8 +41,7 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2021, 4, 23),
                 Course = Course.York5K,
                 TotalTime = new TimeSpan(0, 18, 56),
-                AvgRunPaceMinMi = new TimeSpan(0, 5, 58),
-                PersonalBest = true
+                AvgRunPaceMinMi = new TimeSpan(0, 5, 58)
             };
             eventResults.Add(result);
 
@@ -226,6 +227,8 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
+            EventHelper.SetPersonalBest(eventResults);
+
             return Task.FromResult(eventResults.AsEnumerable());
         }
 
@@ -233,7 +236,9 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var result = new EventResult
+            EventResult result;
+
+            result = new EventResult
             {
                 Id = 7916749962,
                 GarminId = 7916749962,
@@ -259,8 +264,7 @@ namespace TriResultsV2.Services.Local
                 Course = Course.Lincoln10K,
                 TotalTime = new TimeSpan(0, 40, 43),
                 AvgRunPaceMinMi = new TimeSpan(0, 6, 36),
-                OfficialResultsUrl = "https://www.chiptiming.co.uk/events/asda-foundation-lincoln-10k-2021/",
-                PersonalBest = true
+                OfficialResultsUrl = "https://www.chiptiming.co.uk/events/asda-foundation-lincoln-10k-2021/"
             };
             eventResults.Add(result);
 
@@ -475,6 +479,8 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
+            EventHelper.SetPersonalBest(eventResults);
+
             return Task.FromResult(eventResults.AsEnumerable());
         }
 
@@ -482,7 +488,9 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var result = new EventResult
+            EventResult result;
+
+            result = new EventResult
             {
                 Id = 4196775224,
                 GarminId = 4196775224,
@@ -506,8 +514,7 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2018, 1, 14),
                 Course = Course.BrassMonkeyHalfMarathon,
                 TotalTime = new TimeSpan(1, 35, 45),
-                AvgRunPaceMinMi = new TimeSpan(0, 7, 18),
-                PersonalBest = true
+                AvgRunPaceMinMi = new TimeSpan(0, 7, 18)
             };
             eventResults.Add(result);
 
@@ -554,6 +561,8 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
+            EventHelper.SetPersonalBest(eventResults);
+
             return Task.FromResult(eventResults.AsEnumerable());
         }
 
@@ -561,7 +570,9 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var result = new EventResult
+            EventResult result;
+
+            result = new EventResult
             {
                 Id = 7028862720,
                 GarminId = 7028862720,

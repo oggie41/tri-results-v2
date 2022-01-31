@@ -56,7 +56,7 @@ namespace TriResultsV2.Helpers
 
         [Display(Name = "Leeds Abbey Dash 10K")]
         LeedsAbbeyDash10K,
-        
+
         [Display(Name = "Leeds Half Marathon")]
         LeedsHalfMarathon,
 
@@ -77,10 +77,10 @@ namespace TriResultsV2.Helpers
 
         [Display(Name = "Parkrun (Clifton Park)")]
         ParkrunCliftonPark,
-        
+
         [Display(Name = "Parkrun (Endcliffe)")]
         ParkrunEndcliffe,
-        
+
         [Display(Name = "Parkrun (Rother Valley)")]
         ParkrunRotherValley,
 
@@ -113,22 +113,22 @@ namespace TriResultsV2.Helpers
 
         [Display(Name = "Sherwood Pines Trail 10K")]
         SherwoodPinesTrail10K,
-        
+
         [Display(Name = "Trust10 (Clumber)")]
         Trust10Clumber,
-        
+
         [Display(Name = "Trust10 (Longshaw)")]
         Trust10Longshaw,
-        
+
         [Display(Name = "Westfield")]
         Westfield,
 
         [Display(Name = "Worksop Half Marathon")]
         WorksopHalfMarathon,
-        
+
         [Display(Name = "York 5K Series")]
         York5K,
-        
+
         [Display(Name = "York 10K")]
         York10K,
 
@@ -165,10 +165,10 @@ namespace TriResultsV2.Helpers
 
         [Display(Name = "Cloudy")]
         Cloudy,
-        
+
         [Display(Name = "Sunny/Cloudy")]
         SunnyCloudy,
-        
+
         [Display(Name = "Rainy")]
         Rainy
     }
@@ -254,7 +254,7 @@ namespace TriResultsV2.Helpers
             {
                 improvementSign = "-";
                 improvementCssClass = "text-success";
-                improvementInSecondsAsPositive = improvementInSeconds * - 1;
+                improvementInSecondsAsPositive = improvementInSeconds * -1;
             }
             else if (improvementInSeconds > 0)
             {
@@ -303,7 +303,7 @@ namespace TriResultsV2.Helpers
 
             if (totalParticipants.HasValue && position.HasValue)
             {
-                double performance = 101 - (((double)position.Value / (double)totalParticipants.Value) * 100);
+                double performance = 101 - (((double) position.Value / (double) totalParticipants.Value) * 100);
                 performanceStr = $"{Math.Round(performance, 0)}%";
             }
 
@@ -410,6 +410,19 @@ namespace TriResultsV2.Helpers
         {
             string intervalsIcuActivityUrl = $"https://intervals.icu/activities/i{intervalsIcuActivityId}";
             return intervalsIcuActivityUrl;
+        }
+
+        public static void SetPersonalBest(List<EventResult> eventResults)
+        {
+            if (eventResults.Any())
+            {
+                var personalBestResult = eventResults.Where(e => e.ExcludeFromPersonalBestCalculation == false).OrderBy(e => e.TotalTime).FirstOrDefault();
+
+                if (personalBestResult != null)
+                {
+                    personalBestResult.PersonalBest = true;
+                }
+            }
         }
     }
 }

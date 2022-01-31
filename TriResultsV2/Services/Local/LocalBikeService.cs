@@ -14,7 +14,9 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var result = new EventResult
+            EventResult result;
+
+            result = new EventResult
             {
                 Id = 2952900617,
                 GarminId = 2952900617,
@@ -81,8 +83,7 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2018, 5, 8),
                 Course = Course.Cuckney10MileTT,
                 TotalTime = new TimeSpan(0, 27, 0),
-                AvgBikeSpeedMph = 22.2,
-                PersonalBest = true
+                AvgBikeSpeedMph = 22.2
             };
             eventResults.Add(result);
 
@@ -202,6 +203,8 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
+            EventHelper.SetPersonalBest(eventResults);
+
             return Task.FromResult(eventResults.AsEnumerable());
         }
 
@@ -209,7 +212,9 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<EventResult>();
 
-            var result = new EventResult
+            EventResult result;
+
+            result = new EventResult
             {
                 Id = 3448107371,
                 GarminId = 3448107371,
