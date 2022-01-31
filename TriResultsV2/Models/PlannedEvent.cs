@@ -12,6 +12,8 @@ namespace TriResultsV2.Models
 
         public SportType Sport { get; set; }
 
+        public Course? Course { get; set; }
+
         public double? Distance { get; set; }
 
         public DistanceUnit? DistanceUnit { get; set; }

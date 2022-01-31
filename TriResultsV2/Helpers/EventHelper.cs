@@ -151,6 +151,12 @@ namespace TriResultsV2.Helpers
         MultiStage
     }
 
+    public enum EventStatus
+    {
+        Planned,
+        Complete
+    }
+
     public enum DistanceUnit
     {
         Metres,
@@ -339,42 +345,57 @@ namespace TriResultsV2.Helpers
             return weatherNotes;
         }
 
+        public static string GetEventName(PlannedEvent plannedEvent)
+        {
+            return GetEventName(EventStatus.Planned, plannedEvent.Sport, plannedEvent.EventDate, plannedEvent.Course);
+        }
+
         public static string GetEventName(EventResult result)
         {
-            string eventName = $"{result.Sport} on {result.EventDate:dd/MM/yy}";
+            return GetEventName(EventStatus.Complete, result.Sport, result.EventDate, result.Course);
+        }
 
-            if (result.Course.HasValue)
+        public static string GetEventName(EventStatus status, SportType sport, DateTime eventDate, Course? course)
+        {
+            string eventName = $"{sport} on {eventDate:dd/MM/yy}";
+
+            if (course.HasValue)
             {
-                eventName = $"{result.Course.Value.ToEnumDisplayName()} {result.EventDate:yyyy}";
+                eventName = $"{course.Value.ToEnumDisplayName()} {eventDate:yyyy}";
 
                 // If this is a race series display the month and year.
-                if (result.Course.Value == Course.Leeds5K
-                    || result.Course.Value == Course.LoxleyLash5K
-                    || result.Course.Value == Course.Trust10Clumber
-                    || result.Course.Value == Course.Trust10Longshaw
-                    || result.Course.Value == Course.York5K)
+                if (course.Value == Course.Leeds5K
+                    || course.Value == Course.LoxleyLash5K
+                    || course.Value == Course.Trust10Clumber
+                    || course.Value == Course.Trust10Longshaw
+                    || course.Value == Course.York5K)
                 {
-                    eventName = $"{result.Course.Value.ToEnumDisplayName()} {result.EventDate:MMM} {result.EventDate:yyyy}";
+                    eventName = $"{course.Value.ToEnumDisplayName()} {eventDate:MMM} {eventDate:yyyy}";
                 }
 
                 // Parkrun doesn't need the month or year.
-                if (result.Course.ToEnumDisplayName().StartsWith("Parkrun"))
+                if (course.ToEnumDisplayName().StartsWith("Parkrun"))
                 {
-                    eventName = result.Course.Value.ToEnumDisplayName();
+                    eventName = course.Value.ToEnumDisplayName();
                 }
 
                 // Additional sport-specific formatting.
-                if (result.Sport == SportType.Triathlon || result.Sport == SportType.Duathlon)
+                if (sport == SportType.Triathlon || sport == SportType.Duathlon)
                 {
-                    eventName = result.Course.Value.ToEnumDisplayName();
+                    eventName = course.Value.ToEnumDisplayName();
+
+                    if (status == EventStatus.Planned)
+                    {
+                        eventName = $"{course.Value.ToEnumDisplayName()} {eventDate:yyyy}";
+                    }
                 }
-                else if (result.Sport == SportType.Bike)
+                else if (sport == SportType.Bike)
                 {
-                    eventName = result.Course.Value.ToEnumDisplayName();
+                    eventName = course.Value.ToEnumDisplayName();
                 }
-                else if (result.Sport == SportType.Swim)
+                else if (sport == SportType.Swim)
                 {
-                    eventName = $"{result.Course.Value.ToEnumDisplayName()} CSS Test";
+                    eventName = $"{course.Value.ToEnumDisplayName()} CSS Test";
                 }
             }
 

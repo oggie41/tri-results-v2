@@ -14,13 +14,15 @@ namespace TriResultsV2.Services.Local
         {
             var plannedEvents = new List<PlannedEvent>();
 
-            var plannedEvent = new PlannedEvent
+            PlannedEvent plannedEvent;
+
+            plannedEvent = new PlannedEvent
             {
                 EventDate = new DateTime(2022, 7, 13),
                 Sport = SportType.Run,
+                Course = Course.Doncaster5K,
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
-                EventName = "Doncaster 5K 2022",
                 EventUrl = "https://www.doncasterathleticclub.com/doncaster-5k/",
                 Entered = true
             };
@@ -30,6 +32,7 @@ namespace TriResultsV2.Services.Local
             {
                 EventDate = new DateTime(2022, 6, 26),
                 Sport = SportType.Run,
+                Course = Course.RoundSheffieldRun,
                 Distance = 20,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventName = "Round Sheffield Run 2022 (w/ Scott)",
@@ -42,7 +45,7 @@ namespace TriResultsV2.Services.Local
             {
                 EventDate = new DateTime(2022, 4, 23),
                 Sport = SportType.Duathlon,
-                EventName = "Clumber Sprint Duathlon 2022",
+                Course = Course.ClumberSprintDuathlon,
                 EventUrl = "https://resultsbase.net/event/5943",
                 Entered = true
             };
@@ -64,9 +67,9 @@ namespace TriResultsV2.Services.Local
             {
                 EventDate = new DateTime(2021, 12, 5),
                 Sport = SportType.Run,
+                Course = Course.PercyPud10K,
                 Distance = 10,
                 DistanceUnit = DistanceUnit.Kilometres,
-                EventName = "Percy Pud 10K 2021",
                 EventUrl = "https://www.steelcitystriders.co.uk/percy-pud-10k/",
                 Entered = true
             };

@@ -52,6 +52,14 @@
 
             @foreach (var plannedEvent in Model)
             {
+                string eventName = plannedEvent.EventName;
+
+                if (string.IsNullOrEmpty(eventName))
+                {
+                    // No event name specified so generate the name.
+                    eventName = EventHelper.GetEventName(plannedEvent);
+                }
+
                 string rowCssClass = string.Empty;
 
                 // Alternate row striping is done manually (not using table-striped) as need to re-apply after filtering.
@@ -65,11 +73,11 @@
                     <td>
                         @if (!string.IsNullOrEmpty(plannedEvent.EventUrl))
                         {
-                            <a href="@plannedEvent.EventUrl" target="_blank">@plannedEvent.EventName</a>
+                            <a href="@plannedEvent.EventUrl" target="_blank">@Html.Raw(eventName)</a>
                         }
                         else
                         {
-                            @plannedEvent.EventName
+                            @Html.Raw(eventName)
                         }
                     </td>
                     <td>
