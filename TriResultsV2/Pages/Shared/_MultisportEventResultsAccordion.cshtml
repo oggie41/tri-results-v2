@@ -284,11 +284,11 @@
                                 </td>
                                 <td>-</td>
                                 <td>
-                                    <div>@BikeHelper.GetFormattedAvgSpeed(result.Discipline2AvgBikeSpeedMph)</div>
-                                    @if (result.Discipline2AvgBikePower.HasValue)
+                                    <div>@BikeHelper.GetFormattedAvgSpeed(result.AvgBikeSpeedMph)</div>
+                                    @if (result.AvgBikePower.HasValue)
                                     {
                                         <div>
-                                            @Html.Raw(BikeHelper.GetFormattedAvgPowerHtml(result.Discipline2AvgBikePower.Value))
+                                            @Html.Raw(BikeHelper.GetFormattedAvgPowerHtml(result.AvgBikePower.Value, result.NormalizedBikePower))
                                         </div>
                                     }
                                 </td>

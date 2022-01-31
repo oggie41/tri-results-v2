@@ -188,7 +188,7 @@
                                         if (result.AvgBikePower.HasValue)
                                         {
                                             <div>
-                                                @Html.Raw(BikeHelper.GetFormattedAvgPowerHtml(result.AvgBikePower.Value))
+                                                @Html.Raw(BikeHelper.GetFormattedAvgPowerHtml(result.AvgBikePower.Value, result.NormalizedBikePower))
                                             </div>
                                         }
                                     }

@@ -40,10 +40,6 @@ namespace TriResultsV2.Models
 
         public TimeSpan? Discipline1AvgRunPaceMinMi { get; set; }
 
-        public double? Discipline2AvgBikeSpeedMph { get; set; }
-        
-        public double? Discipline2AvgBikePower { get; set; }
-
         public TimeSpan? Discipline3AvgRunPaceMinMi { get; set; }
 
         public int? Discipline1Position { get; set; }
