@@ -206,6 +206,11 @@ ul.navbar-nav a:hover {
   min-height: 180px;
 }
 
+@media (max-width: 575px) {
+  .tri-result-table {
+    min-height: 140px;
+  }
+}
 .tri-logo {
   width: 180px;
   height: auto;
