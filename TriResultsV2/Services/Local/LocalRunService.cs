@@ -83,7 +83,8 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2019, 7, 13),
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 19, 5),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 6)
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 6),
+                OfficialResultsUrl = "https://connect.garmin.com/modern/activity/3839734035"
             };
             eventResults.Add(result);
 
@@ -180,8 +181,9 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2016, 12, 31),
                 Course = Course.ParkrunRotherValley,
-                TotalTime = new TimeSpan(0, 19, 49),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 20)
+                TotalTime = new TimeSpan(0, 19, 50),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 20),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/162/"
             };
             eventResults.Add(result);
 
@@ -194,8 +196,9 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2015, 10, 31),
                 Course = Course.ParkrunRotherValley,
-                TotalTime = new TimeSpan(0, 20, 14),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 27)
+                TotalTime = new TimeSpan(0, 20, 15),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 27),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/109/"
             };
             eventResults.Add(result);
 
@@ -208,8 +211,189 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventDate = new DateTime(2014, 6, 21),
                 Course = Course.ParkrunRotherValley,
-                TotalTime = new TimeSpan(0, 20, 49),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 37)
+                TotalTime = new TimeSpan(0, 20, 50),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 37),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/53/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 487276132,
+                GarminId = 487276132,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2014, 4, 26),
+                Course = Course.ParkrunEndcliffe,
+                TotalTime = new TimeSpan(0, 21, 36),
+                AvgRunPaceMinMi = new TimeSpan(0, 7, 7),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/endcliffe/results/192/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 461135948,
+                GarminId = 461135948,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2014, 3, 15),
+                Course = Course.ParkrunRotherValley,
+                TotalTime = new TimeSpan(0, 21, 34),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 54),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/43/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 427952943,
+                GarminId = 427952943,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2014, 1, 11),
+                Course = Course.ParkrunEndcliffe,
+                TotalTime = new TimeSpan(0, 22, 17),
+                AvgRunPaceMinMi = new TimeSpan(0, 7, 17),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/endcliffe/results/177/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 424258631,
+                GarminId = 424258631,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2014, 1, 4),
+                Course = Course.ParkrunRotherValley,
+                TotalTime = new TimeSpan(0, 21, 27),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 49),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/33/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 413047357,
+                GarminId = 413047357,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 12, 7),
+                Course = Course.ParkrunRotherValley,
+                TotalTime = new TimeSpan(0, 21, 38),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 52),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/29/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 398615551,
+                GarminId = 398615551,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 11, 2),
+                Course = Course.ParkrunCliftonPark,
+                TotalTime = new TimeSpan(0, 22, 57),
+                AvgRunPaceMinMi = new TimeSpan(0, 7, 20),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rotherham/results/28/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 392367040,
+                GarminId = 392367040,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 10, 19),
+                Course = Course.ParkrunRotherValley,
+                TotalTime = new TimeSpan(0, 21, 31),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 50),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/22/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 367892830,
+                GarminId = 367892830,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 8, 31),
+                Course = Course.ParkrunEndcliffe,
+                TotalTime = new TimeSpan(0, 21, 30),
+                AvgRunPaceMinMi = new TimeSpan(0, 7, 0),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/endcliffe/results/158/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 360202574,
+                GarminId = 360202574,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 8, 17),
+                Course = Course.ParkrunRotherValley,
+                TotalTime = new TimeSpan(0, 21, 46),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 53),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/14/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 345278655,
+                GarminId = 345278655,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 7, 30),
+                Course = Course.ParkrunCliftonPark,
+                TotalTime = new TimeSpan(0, 21, 55),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 58),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rotherham/results/14/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 341713018,
+                GarminId = 341713018,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 7, 13),
+                Course = Course.ParkrunRotherValley,
+                TotalTime = new TimeSpan(0, 21, 43),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 58),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/9/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
+                Id = 334686579,
+                GarminId = 334686579,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2013, 6, 29),
+                Course = Course.ParkrunCliftonPark,
+                TotalTime = new TimeSpan(0, 22, 44),
+                AvgRunPaceMinMi = new TimeSpan(0, 7, 1),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rotherham/results/11/"
             };
             eventResults.Add(result);
 
@@ -223,7 +407,8 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2013, 6, 22),
                 Course = Course.ParkrunRotherValley,
                 TotalTime = new TimeSpan(0, 21, 57),
-                AvgRunPaceMinMi = new TimeSpan(0, 7, 1)
+                AvgRunPaceMinMi = new TimeSpan(0, 7, 1),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/6/"
             };
             eventResults.Add(result);
 
