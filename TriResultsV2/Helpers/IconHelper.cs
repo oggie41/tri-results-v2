@@ -42,31 +42,36 @@ namespace TriResultsV2.Helpers
         DuoTone,
         Light,
         Regular,
-        Solid
+        Solid,
+        Thin
     }
 
     public static class IconHelper
     {
         public static string GetIconClass(NamedIcon icon, IconOption option = IconOption.Regular)
         {
-            string faClass = "far";
+            string faClass = "fa-regular";
 
             switch (option)
             {
                 case IconOption.DuoTone:
-                    faClass = "fad";
+                    faClass = "fa-duotone";
                     break;
 
                 case IconOption.Light:
-                    faClass = "fal";
+                    faClass = "fa-light";
                     break;
 
                 case IconOption.Regular:
-                    faClass = "far";
+                    faClass = "fa-regular";
                     break;
 
                 case IconOption.Solid:
-                    faClass = "fas";
+                    faClass = "fa-solid";
+                    break;
+
+                case IconOption.Thin:
+                    faClass = "fa-thin";
                     break;
             }
 
@@ -77,13 +82,13 @@ namespace TriResultsV2.Helpers
                 case NamedIcon.Cloud: return $"{faClass} fa-cloud";
                 case NamedIcon.CloudSun: return $"{faClass} fa-cloud-sun";
                 case NamedIcon.Diary: return $"{faClass} fa-calendar-alt";
-                case NamedIcon.Duathlon: return $"{faClass} fa-random";
+                case NamedIcon.Duathlon: return $"{faClass} fa-diagram-nested";
                 case NamedIcon.Edit: return $"{faClass} fa-edit";
                 case NamedIcon.Garmin: return $"{faClass} fa-triangle";
                 case NamedIcon.Gear: return $"{faClass} fa-cog";
                 case NamedIcon.Improvement: return $"{faClass} fa-chart-line";
                 case NamedIcon.Info: return $"{faClass} fa-info-circle";
-                case NamedIcon.IntervalsIcu: return $"{faClass} fa-waveform-path";
+                case NamedIcon.IntervalsIcu: return $"{faClass} fa-wave-pulse";
                 case NamedIcon.Link: return $"{faClass} fa-link";
                 case NamedIcon.Menu: return $"{faClass} fa-bars";
                 case NamedIcon.MenuClose: return $"{faClass} fa-times-circle";
