@@ -4,18 +4,29 @@
 
     if (ViewData["BannerCssClass"] != null)
     {
-        bannerCssClass = (string)ViewData["BannerCssClass"];
+        bannerCssClass = (string) ViewData["BannerCssClass"];
+    }
+
+    bool displayNotes = false;
+    string displayNotesStr = Context.Request.Query["displayNotes"];
+
+    if (!string.IsNullOrEmpty(displayNotesStr))
+    {
+        if (displayNotesStr.Equals("true", StringComparison.OrdinalIgnoreCase))
+        {
+            displayNotes = true;
+        }
     }
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>My Results - @ViewData["Title"]</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/tri-results.min.css" asp-append-version="true" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/tri-results.min.css" asp-append-version="true"/>
 
     @* Google "Quicksand" font. *@
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,69 +34,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     @*<script src="https://kit.fontawesome.com/da48e6d6b6.js" crossorigin="anonymous"></script>*@
-    <link rel="stylesheet" href="~/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="~/font-awesome/css/all.css"/>
 </head>
 <body>
-    <partial name="_Loading" />
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark box-shadow py-2">
-            <div class="container-xl">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">
-                    <img src="/images/general/tri-results-logo-800.png" alt="Tri Results" class="tri-logo" />
-                </a>
-                <button class="d-print-none navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="tri-navbar-icon tri-navbar-menu-icon @IconHelper.GetIconClass(NamedIcon.Menu)"></span><span class="tri-navbar-icon tri-navbar-close-icon @IconHelper.GetIconClass(NamedIcon.MenuClose)"></span> <span class="tri-navbar-toggler-text">Menu</span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Index" title="Triathlon Results"><i class="@IconHelper.GetIconClass(NamedIcon.Triathlon)"></i> Triathlon</a>
-                        </li>
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Duathlon" title="Duathlon Results"><i class="@IconHelper.GetIconClass(NamedIcon.Duathlon)"></i> Duathlon</a>
-                        </li>
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Swim" title="Swim Results"><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim</a>
-                        </li>
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Bike" title="Bike Results"><i class="@IconHelper.GetIconClass(NamedIcon.Bike)"></i> Bike</a>
-                        </li>
-                        <li class="nav-item me-1">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Run" title="Run Results"><i class="@IconHelper.GetIconClass(NamedIcon.Run)"></i> Run</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/EventDiary" title="Event Diary"><i class="@IconHelper.GetIconClass(NamedIcon.Diary)"></i> Diary</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="tri-banner-img @bannerCssClass">
-        </div>
-    </header>
-    <div class="container-xl">
-        <main role="main" class="pt-2 pb-3">
-            <h1>@ViewData["Title"]</h1>
-            <div class="col">
-                @RenderBody()
-            </div>
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
+<partial name="_Loading"/>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark box-shadow py-2">
         <div class="container-xl">
-            &copy; @DateTime.Now.Year - David Ogle
+            <a class="navbar-brand" asp-area="" asp-page="/Index">
+                <img src="/images/general/tri-results-logo-800.png" alt="Tri Results" class="tri-logo"/>
+            </a>
+            <button class="d-print-none navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="tri-navbar-icon tri-navbar-menu-icon @IconHelper.GetIconClass(NamedIcon.Menu)"></span><span class="tri-navbar-icon tri-navbar-close-icon @IconHelper.GetIconClass(NamedIcon.MenuClose)"></span> <span class="tri-navbar-toggler-text">Menu</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-1">
+                        @if (displayNotes)
+                        {
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index" asp-route-displayNotes="@displayNotesStr" title="Triathlon Results"><i class="@IconHelper.GetIconClass(NamedIcon.Triathlon)"></i> Triathlon</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index" title="Triathlon Results"><i class="@IconHelper.GetIconClass(NamedIcon.Triathlon)"></i> Triathlon</a>
+                        }
+                    </li>
+                    <li class="nav-item me-1">
+                        @if (displayNotes)
+                        {
+                            <a class="nav-link text-light" asp-area="" asp-page="/Duathlon" asp-route-displayNotes="@displayNotesStr" title="Duathlon Results"><i class="@IconHelper.GetIconClass(NamedIcon.Duathlon)"></i> Duathlon</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link text-light" asp-area="" asp-page="/Duathlon" title="Duathlon Results"><i class="@IconHelper.GetIconClass(NamedIcon.Duathlon)"></i> Duathlon</a>
+                        }
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Swim" title="Swim Results"><i class="@IconHelper.GetIconClass(NamedIcon.Swim)"></i> Swim</a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Bike" title="Bike Results"><i class="@IconHelper.GetIconClass(NamedIcon.Bike)"></i> Bike</a>
+                    </li>
+                    <li class="nav-item me-1">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Run" title="Run Results"><i class="@IconHelper.GetIconClass(NamedIcon.Run)"></i> Run</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-page="/EventDiary" title="Event Diary"><i class="@IconHelper.GetIconClass(NamedIcon.Diary)"></i> Diary</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </footer>
+    </nav>
+    <div class="tri-banner-img @bannerCssClass">
+    </div>
+</header>
+<div class="container-xl">
+    <main role="main" class="pt-2 pb-3">
+        <h1>@ViewData["Title"]</h1>
+        <div class="col">
+            @RenderBody()
+        </div>
+    </main>
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    
-    <script type="text/javascript">
-        Tri.InitialiseTooltips();
-    </script>
+<footer class="border-top footer text-muted">
+    <div class="container-xl">
+        &copy; @DateTime.Now.Year - David Ogle
+    </div>
+</footer>
 
-    @await RenderSectionAsync("Scripts", required: false)
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script type="text/javascript">
+    Tri.InitialiseTooltips();
+</script>
+
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
