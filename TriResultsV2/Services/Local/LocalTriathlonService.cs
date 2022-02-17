@@ -86,6 +86,7 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.Cloudy,
                 TemperatureDegreesCelsius = 18,
                 WindMph = 9,
+                OfficialResultsUrl = "https://uktriathlon.co.uk/application/files/1016/2798/0512/sprint_male.pdf",
                 EventNotes = "First time doing this race. Pleased with the swim considering I've only swam twice in the last year! Kept it relaxed, breathing felt good. We had to swap lanes every 4 laps, so not ideal for a quick time.<br/>" +
                              "Bike course was really tight and technical (6 laps of the uni-campus). Wasn't the kind of course I'm used to so found it challenging, but good fun :)<br/>" +
                              "Run was 4 laps round the cycle track. Felt OK, but think capable of going a bit quicker. Enjoyed the race, would do it again."
@@ -241,6 +242,7 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.Cloudy,
                 TemperatureDegreesCelsius = 14,
                 WindMph = 13,
+                OfficialResultsUrl = "https://www.matlockac.org.uk/images/Jansfolder/Matlock-Tri-2018-results.pdf",
                 EventNotes = "Nice chilled atmosphere, as always. Paced the swim more conservatively than previous races as wanted to concentrate on keeping the breathing relaxed. The swim split was slightly slower than last year, but felt much more controlled.<br/>" +
                              "Tough bike and run legs - did as well as I could on the day. Caught by some traffic riding back into Matlock, so that slowed the ride by around 20 secs.<br/>" +
                              "The lack of brick runs this year showed in the first couple of miles of the run though.<br/>" +
@@ -277,6 +279,7 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.Sunny,
                 TemperatureDegreesCelsius = 18,
                 WindMph = 6,
+                OfficialResultsUrl = "https://www.matlockac.org.uk/images/results/2017/Matlock-Tri-2017-results.pdf",
                 EventNotes = "Great value for money race (only a tenner) - relaxed atmosphere with no-one taking it too serious.<br/>" +
                              "Relatively pleased with swim time, although breathing got too quick after about 200m - need to work on this for race efforts.<br/>" +
                              "The bike and run legs are both really tough going with the climbing involved. I actually used the correct bike route this year, so that was a victory in itself!<br/>" +
@@ -317,6 +320,7 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.Sunny,
                 TemperatureDegreesCelsius = 20,
                 WindMph = 14,
+                OfficialResultsUrl = "https://www.stuweb.co.uk/race/1xw/",
                 EventNotes = "Loved the race - great vibe and atmosphere, really well organised. First Olympic distance triathlon completed :)<br/>" +
                              "Open water swim went well, felt comfortable.<br/>" +
                              "Felt good on the bike - paced it much better than previous races; didn't wreck the legs too much.<br/>" +
@@ -436,6 +440,7 @@ namespace TriResultsV2.Services.Local
                 Weather = WeatherType.Cloudy,
                 TemperatureDegreesCelsius = 14,
                 WindMph = 8,
+                OfficialResultsUrl = "https://resultsbase.net/event/3447/results?round=6868",
                 EventNotes = "Really enjoyed this one. First open water swim completed; felt comfortable on the swim.<br/>" +
                              "Bike went well. Run OK, but can do quicker - more brick runs needed."
             };
