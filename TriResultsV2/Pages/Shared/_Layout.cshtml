@@ -1,4 +1,5 @@
 ﻿@using TriResultsV2.Helpers
+@using System.Diagnostics
 @{
     string bannerCssClass = "tri-banner-img-tri";
 
@@ -81,6 +82,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/EventDiary" title="Event Diary"><i class="@IconHelper.GetIconClass(NamedIcon.Diary)"></i> Diary</a>
                     </li>
+                    @if (Debugger.IsAttached)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/TrackBuilderMockup" title="Track Builder Mock-up"><i class="fa-regular fa-pen-ruler"></i> Track Builder</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
