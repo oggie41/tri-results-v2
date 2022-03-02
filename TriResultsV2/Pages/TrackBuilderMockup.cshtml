@@ -47,7 +47,7 @@
                     <div id="divTrackBuilderStep1" class="my-2 mx-2">
                         <div class="alert alert-primary p-2">
                             <div>
-                                <i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> Track Builder splits up your track into a series of sections & connectors.
+                                <i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> Track Builder splits your track into a series of sections & connectors.
                                 This allows track sections to be re-used, avoiding display issues in RGT caused by inconsistent gradients.
                             </div>
                             <div class="mt-1">Ideal for out and back routes, or any other route where riders will switch back on the same road.</div>
@@ -69,7 +69,7 @@
                         <div class="mb-3">
                             <h5 class="mb-1">Track Connectors</h5>
                             <div class="mb-2">
-                                Active track connector: <i id="icoActiveTrackConnector" class="text-success fs-5 fa-solid fa-circle-3"></i> (of 3)
+                                Active connector: <i id="icoActiveTrackConnector" class="text-success fs-5 fa-solid fa-circle-3"></i> (of 3)
                             </div>
                             <div>
                                 <button id="btnTrackConnectorFirst" type="button" class="btn btn-primary">
@@ -92,7 +92,7 @@
                         <div class="mb-3">
                             <h5 class="mb-1 d-inline-block">Track Progression</h5>
                             <div class="ms-1 d-inline-block">
-                                <a href="#TrackProgression" title="This lists the route through the track. Add a traversal to move from one track connector to another." 
+                                <a href="#TrackProgression" title="This lists the route through the track. Add a traversal to move from one connector to another." 
                                    data-bs-toggle="tooltip"><i class="fa-regular fa-circle-question"></i> What's this list?</a>
                             </div>
                             <div>
@@ -148,7 +148,7 @@
                                         <td>
                                             <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
                                         </td>
-                                        <td><i class="fa-solid fa-square-c text-primary fs-5"></i> (loop)</td>
+                                        <td><i class="fa-solid fa-square-c text-primary fs-5"></i></td>
                                         <td>
                                             0.6 mi
                                         </td>
@@ -209,11 +209,11 @@
                                         </div>
                                     </div>
                                     <div id="divAddTraversalInvalid" style="display: none;">
-                                        <div class="text-danger mb-2">
-                                            <i class="fa-regular fa-triangle-exclamation"></i> You can only add a traversal when the active track connector is the last in the ride progression.
+                                        <div class="text-danger mb-1">
+                                            <i class="fa-regular fa-triangle-exclamation"></i> Active connector must be the last in the track progression.
                                         </div>
                                         <div>
-                                            <button id="btnNavigateToLastTrackConnector" type="button" class="btn btn-primary">
+                                            <button id="btnNavigateToLastTrackConnector" type="button" class="btn btn-primary mb-1">
                                                 <i class="fa-regular fa-location-arrow"></i> Navigate to <i id="ico-navigate-track-connector" class="fa-regular fa-circle-3"></i>
                                             </button>
                                         </div>
@@ -231,7 +231,7 @@
                                            data-bs-toggle="tooltip"><i class="fa-regular fa-circle-question"></i> Why apply an offset?</a>
                                     </div>
                                     <div>
-                                        <input id="slOffset" type="range" min="-4" max="4" step="1" value="0" class="w-50">
+                                        <input id="slOffset" type="range" min="-5" max="5" step="1" value="0" class="w-50">
                                     </div>
                                     <div id="lblOffsetValue">Offset = 0m</div>
                                     <div class="figure-caption"><i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> <span id="lblOffsetDescription">Shared single road in both directions</span></div>

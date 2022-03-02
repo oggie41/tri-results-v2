@@ -143,12 +143,12 @@ var Tri = (function () {
                             }
 
                             if (offsetValue > 0) {
-                                offsetDescription = "Opposite direction as adjacent road (w/ overlap)";
+                                offsetDescription = "Overlapping adjacent road in opposite direction";
 
                                 if (offsetValue == 3) {
-                                    offsetDescription = "Opposite direction as adjacent road (no spacing)";
+                                    offsetDescription = "Adjacent road in opposite direction";
                                 } else if (offsetValue > 3) {
-                                    offsetDescription = "Opposite direction as adjacent road (w/ spacing)";
+                                    offsetDescription = "Adjacent road with spacing in opposite direction";
                                 }
                             }
 
@@ -189,7 +189,7 @@ var Tri = (function () {
 
                 $("#btnTrackConnectorDelete").click(function (e) {
                     $("#divDialogHeader").text("Delete Track Connector?");
-                    $("#divDialogBody").html("Are you sure you want to delete track connector " + activeTrackConnector + "?<br/><br/>Note: This track connector is in use so the track progression list will be re-generated.");
+                    $("#divDialogBody").html("Are you sure you want to delete connector " + activeTrackConnector + "?<br/><br/>Note: This connector is in use so the track progression list will be re-generated.");
                     $("#dlgConfirm").modal("show");
                 });
 
