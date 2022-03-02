@@ -156,7 +156,7 @@
                                             <div>
                                                 <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
                                             </div>
-                                            <div>
+                                            <div class="text-nowrap">
                                                 <a id="lnkDeleteStep1" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Delete</a>
                                             </div>
                                         </td>
@@ -172,7 +172,7 @@
                                             <div>
                                                 <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
                                             </div>
-                                            <div>
+                                            <div class="text-nowrap">
                                                 <a id="lnkDeleteStep2" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Delete</a>
                                             </div>
                                         </td>
@@ -188,7 +188,7 @@
                                 </table>
                             </div>
                             <div class="mt-0">
-                                <fieldset class="border p-2">
+                                <div class="border rounded-3 px-2 py-1">
                                     <div class="fs-6 fw-bold mb-1">Add Traversal</div>
                                     <div id="divAddTraversalValid">
                                         <div id="divAddTraversalValidStep1">
@@ -218,24 +218,24 @@
                                             </button>
                                         </div>
                                     </div>
-                                </fieldset>
+                                </div>
                             </div>
                         </div>
                         <div>
                             <h5 class="mb-1">Build Track</h5>
                             <div class="mb-2">
-                                <fieldset class="border p-2">
+                                <div class="border rounded-3 px-2 py-1">
                                     <div class="fs-6 fw-bold d-inline-block mb-1">Track Offset</div>
                                     <div class="ms-1 d-inline-block">
                                         <a href="#Offset" title="Apply an offset to add separation between the track in opposite directions."
                                            data-bs-toggle="tooltip"><i class="fa-regular fa-circle-question"></i> Why apply an offset?</a>
                                     </div>
                                     <div>
-                                        <input type="range" min="-4" max="4" step="1" value="0" id="slOffset">
+                                        <input id="slOffset" type="range" min="-4" max="4" step="1" value="0" class="w-50">
                                     </div>
                                     <div id="lblOffsetValue">Offset = 0m</div>
                                     <div class="figure-caption"><i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> <span id="lblOffsetDescription">Shared single road in both directions</span></div>
-                                </fieldset>
+                                </div>
                             </div>
                             <div>
                                 <button id="btnBuildTrack" type="button" class="btn btn-primary" title="Converts the track progression back to a standard GPXmagic track." data-bs-toggle="tooltip"><i class="fa-regular fa-road"></i> Build track</button>

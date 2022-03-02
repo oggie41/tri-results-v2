@@ -143,12 +143,12 @@ var Tri = (function () {
                             }
 
                             if (offsetValue > 0) {
-                                offsetDescription = "Opposite direction as adjacent road (with overlap)";
+                                offsetDescription = "Opposite direction as adjacent road (w/ overlap)";
 
                                 if (offsetValue == 3) {
                                     offsetDescription = "Opposite direction as adjacent road (no spacing)";
                                 } else if (offsetValue > 3) {
-                                    offsetDescription = "Opposite direction as adjacent road (with spacing)";
+                                    offsetDescription = "Opposite direction as adjacent road (w/ spacing)";
                                 }
                             }
 
