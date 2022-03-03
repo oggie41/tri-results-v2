@@ -45,7 +45,7 @@
             <div id="divToolTrackBuilder" class="accordion-collapse collapse show">
                 <div class="accordion-body">
                     <div id="divTrackBuilderStep1" class="my-2 mx-2">
-                        <div class="alert alert-primary p-2">
+                        <div class="alert alert-primary p-2 mb-2">
                             <div>
                                 <i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> Track Builder splits your track into a series of sections & connectors.
                                 This allows track sections to be re-used, avoiding display issues in RGT caused by inconsistent gradients.
@@ -54,15 +54,15 @@
                             <div class="mt-1"><a href="https://www.youtube.com/watch?v=KSuR8PcAZYc" target="_blank" title="View the Track Builder tutorial on YouTube" data-bs-toggle="tooltip"><i class="fa-brands fa-youtube text-danger"></i> Learn more...</a></div>
                         </div>
                         <div>
-                            <div class="form-check">
+                            @*<div class="form-check">
                                 <input class="form-check-input" type="radio" name="radSectionType" id="radAutoDetect" checked>
                                 <label class="form-check-label" for="radAutoDetect">Auto-detect sections (recommended)</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="radSectionType" id="radManuallyAdd">
                                 <label class="form-check-label" for="radManuallyAdd">Manually create sections (advanced)</label>
-                            </div>
-                            <button id="btnConvertToSections" type="button" class="btn btn-primary mt-2"><i class="fa-regular fa-code-branch"></i> Convert to sections</button>
+                            </div>*@
+                            <button id="btnConvertToSections" type="button" class="btn btn-primary"><i class="fa-regular fa-code-branch"></i> Convert to sections</button>
                         </div>
                     </div>
                     <div id="divTrackBuilderStep2" class="my-2 mx-2" style="display: none;">
@@ -87,6 +87,10 @@
                                 <button id="btnTrackConnectorLast" type="button" class="btn btn-primary">
                                     <i class="fa-regular fa-forward-fast"></i>
                                 </button>
+                            </div>
+                            <div class="mt-1">
+                                <a href="#TrackConnectors" title="Cancel Track Builder mode, open the Map tab, drag the opposing trackpoints together, then retry converting to sections." 
+                                   data-bs-toggle="tooltip"><i class="fa-regular fa-circle-question"></i> No connector where you need one?</a>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -182,7 +186,7 @@
                                     <tr>
                                         <td colspan="3" class="text-end pe-2">Total track distance: </td>
                                         <td><span id="lblDistance6">6.0 mi</span><span id="lblDistance10" style="display: none;">10.0 mi</span></td>
-                                        <td><a id="lnkClearTrackProgressionList" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Clear</a></td>
+                                        <td><a id="lnkClearTrackProgressionList" href="#TrackProgression" title="Delete all traversals" data-bs-toggle="tooltip"><i class="fa-regular fa-trash-can"></i> Clear</a></td>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -210,7 +214,7 @@
                                     </div>
                                     <div id="divAddTraversalInvalid" style="display: none;">
                                         <div class="text-danger mb-1">
-                                            <i class="fa-regular fa-triangle-exclamation"></i> Active connector must be the last in the track progression.
+                                            <i class="fa-regular fa-triangle-exclamation"></i> Active connector must be last in track progression.
                                         </div>
                                         <div>
                                             <button id="btnNavigateToLastTrackConnector" type="button" class="btn btn-primary mb-1">
@@ -239,6 +243,7 @@
                             </div>
                             <div>
                                 <button id="btnBuildTrack" type="button" class="btn btn-primary" title="Converts the track progression back to a standard GPXmagic track." data-bs-toggle="tooltip"><i class="fa-regular fa-road"></i> Build track</button>
+                                <button id="btnCancel" type="button" class="btn btn-secondary">Cancel</button>
                             </div>
                         </div>
                     </div>

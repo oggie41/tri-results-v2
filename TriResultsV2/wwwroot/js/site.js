@@ -221,6 +221,11 @@ var Tri = (function () {
                     $("#ico-navigate-track-connector").addClass("fa-circle-2");
                     changeActiveTrackConnector();
                 });
+
+                $("#btnCancel").click(function (e) {
+                    $("#divTrackBuilderStep2").hide();
+                    $("#divTrackBuilderStep1").show();
+                });
             });
         }
     };
