@@ -223,6 +223,8 @@ var Tri = (function () {
                 });
 
                 $("#btnCancel").click(function (e) {
+                    activeTrackConnector = 3;
+                    changeActiveTrackConnector();
                     $("#divTrackBuilderStep2").hide();
                     $("#divTrackBuilderStep1").show();
                 });
