@@ -8,9 +8,9 @@
 
 @section Scripts
 {
-    <script type="text/javascript">
-        Tri.InitialiseTrackBuilder();
-    </script>
+<script type="text/javascript">
+    Tri.InitialiseTrackBuilder();
+</script>
 }
 
 @*Modal*@
@@ -34,6 +34,40 @@
 @*End Modal*@
 
 <div id="divTrackbuilderMockup" class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 my-2">
+    <div class="accordion mb-3">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#divToolAnalyseScenery">
+                    <i class="@IconHelper.GetIconClass(NamedIcon.Gear)" title="Open tool settings" data-bs-toggle="tooltip"></i>
+                    <div class="ms-3">Analyse Scenery</div>
+                </button>
+            </h2>
+            <div id="divToolAnalyseScenery" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    <div class="my-2 mx-2">
+                        <div class="mb-2">
+                            <label for="txtLatLong" class="form-label">Latitude / Longitude:</label>
+                            <input type="text" class="form-control" id="txtLatLong" value="53.33852815010663, -1.3397493758175967">
+                        </div>
+                        <div class="mb-0">
+                            <input id="slAnalysisRange" type="range" min="100" max="500" step="100" value="200" class="w-50">
+                        </div>
+                        <div id="lblAnalysisRangeValue" class="mb-2">
+                            Analysis Range = 200m
+                        </div>
+                        <div class="mb-2">
+                            <button id="btnAnalyseScenery" type="button" class="btn btn-primary"><i class="fa-solid fa-house-tree"></i> Analyse Scenery</button>
+                        </div>
+                        <div>
+                            <label for="txtLandUse" class="form-label">Land Use:</label>
+                            <input type="text" class="form-control" id="txtLandUse">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="accordion">
         <div class="accordion-item">
             <h2 class="accordion-header">
@@ -51,17 +85,19 @@
                                 This allows track sections to be re-used, avoiding display issues in RGT caused by inconsistent gradients.
                             </div>
                             <div class="mt-1">Ideal for out and back routes, or any other route where riders will switch back on the same road.</div>
-                            <div class="mt-1"><a href="https://www.youtube.com/watch?v=KSuR8PcAZYc" target="_blank" title="View the Track Builder tutorial on YouTube" data-bs-toggle="tooltip"><i class="fa-brands fa-youtube text-danger"></i> Learn more...</a></div>
+                            <div class="mt-1">
+                                <a href="https://www.youtube.com/watch?v=KSuR8PcAZYc" target="_blank" title="View the Track Builder tutorial on YouTube" data-bs-toggle="tooltip"><i class="fa-brands fa-youtube text-danger"></i> Learn more...</a>
+                            </div>
                         </div>
                         <div>
                             @*<div class="form-check">
                                 <input class="form-check-input" type="radio" name="radSectionType" id="radAutoDetect" checked>
                                 <label class="form-check-label" for="radAutoDetect">Auto-detect sections (recommended)</label>
-                            </div>
-                            <div class="form-check">
+                                </div>
+                                <div class="form-check">
                                 <input class="form-check-input" type="radio" name="radSectionType" id="radManuallyAdd">
                                 <label class="form-check-label" for="radManuallyAdd">Manually create sections (advanced)</label>
-                            </div>*@
+                                </div>*@
                             <button id="btnConvertToSections" type="button" class="btn btn-primary"><i class="fa-regular fa-code-branch"></i> Convert to sections</button>
                         </div>
                     </div>
@@ -89,105 +125,121 @@
                                 </button>
                             </div>
                             <div class="mt-1">
-                                <a href="#TrackConnectors" title="Cancel Track Builder mode, open the Map tab, drag the opposing trackpoints together, then retry converting to sections." 
-                                   data-bs-toggle="tooltip"><i class="fa-regular fa-circle-question"></i> No connector where you need one?</a>
+                                <a href="#TrackConnectors" title="Cancel Track Builder mode, open the Map tab, drag the opposing trackpoints together, then retry converting to sections."
+                                   data-bs-toggle="tooltip">
+                                    <i class="fa-regular fa-circle-question"></i> No connector where you need one?
+                                </a>
                             </div>
                         </div>
                         <div class="mb-3">
                             <h5 class="mb-1 d-inline-block">Track Progression</h5>
                             <div class="ms-1 d-inline-block">
-                                <a href="#TrackProgression" title="This lists the route through the track. Add a traversal to move from one connector to another." 
-                                   data-bs-toggle="tooltip"><i class="fa-regular fa-circle-question"></i> What's this list?</a>
+                                <a href="#TrackProgression" title="This lists the route through the track. Add a traversal to move from one connector to another."
+                                   data-bs-toggle="tooltip">
+                                    <i class="fa-regular fa-circle-question"></i> What's this list?
+                                </a>
                             </div>
                             <div>
                                 <table class="table table-sm table-hover table-bordered align-top mb-2">
                                     <thead class="table-primary align-top">
-                                    <tr>
-                                        <th scope="col" class="w-20">From</th>
-                                        <th scope="col" class="w-20">To</th>
-                                        <th scope="col" class="w-20">Section</th>
-                                        <th scope="col" class="w-20">Distance</th>
-                                        <th scope="col" class="w-20"></th>
-                                    </tr>
+                                        <tr>
+                                            <th scope="col" class="w-20">From</th>
+                                            <th scope="col" class="w-20">To</th>
+                                            <th scope="col" class="w-20">Section</th>
+                                            <th scope="col" class="w-20">Distance</th>
+                                            <th scope="col" class="w-20"></th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>
-                                            <i class="track-connector-icon fa-solid fa-circle-1 text-danger fs-5"></i>
-                                        </td>
-                                        <td>
-                                            <i class="track-connector-icon fa-solid fa-circle-2 text-danger fs-5"></i>
-                                        </td>
-                                        <td>
-                                            <i class="fa-solid fa-square-a text-primary fs-5"></i>
-                                        </td>
-                                        <td>
-                                            1.4 mi
-                                        </td>
-                                        <td>
-                                            <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class="track-connector-icon fa-solid fa-circle-2 text-danger fs-5"></i>
-                                        </td>
-                                        <td>
-                                            <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
-                                        </td>
-                                        <td>
-                                            <i class="fa-solid fa-square-b text-primary fs-5"></i>
-                                        </td>
-                                        <td>
-                                            4.0 mi
-                                        </td>
-                                        <td>
-                                            <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
-                                        </td>
-                                        <td>
-                                            <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
-                                        </td>
-                                        <td><i class="fa-solid fa-square-c text-primary fs-5"></i></td>
-                                        <td>
-                                            0.6 mi
-                                        </td>
-                                        <td>
-                                            <div>
+                                        <tr>
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-1 text-danger fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-2 text-danger fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-square-a text-primary fs-5"></i>
+                                            </td>
+                                            <td>
+                                                1.4 mi
+                                            </td>
+                                            <td>
                                                 <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
-                                            </div>
-                                            <div class="text-nowrap">
-                                                <a id="lnkDeleteStep1" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Delete</a>
-                                            </div>
-                                        </td>
-                                    </tr>   
-                                    <tr id="trFrom3To2" style="display: none;">
-                                        <td><i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i></td>
-                                        <td><i class="track-connector-icon fa-solid fa-circle-2 text-danger fs-5"></i></td>
-                                        <td><i class="fa-solid fa-square-b text-primary fs-5"></i></td>
-                                        <td>
-                                            4.0 mi
-                                        </td>
-                                        <td>
-                                            <div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-2 text-danger fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-square-b text-primary fs-5"></i>
+                                            </td>
+                                            <td>
+                                                4.0 mi
+                                            </td>
+                                            <td>
                                                 <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
-                                            </div>
-                                            <div class="text-nowrap">
-                                                <a id="lnkDeleteStep2" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Delete</a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-square-c text-primary fs-5"></i>
+                                            </td>
+                                            <td>
+                                                0.6 mi
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
+                                                </div>
+                                                <div class="text-nowrap">
+                                                    <a id="lnkDeleteStep1" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr id="trFrom3To2" style="display: none;">
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-3 text-success fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="track-connector-icon fa-solid fa-circle-2 text-danger fs-5"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fa-solid fa-square-b text-primary fs-5"></i>
+                                            </td>
+                                            <td>
+                                                4.0 mi
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="#TrackProgression"><i class="fa-regular fa-diagram-nested"></i> Show</a>
+                                                </div>
+                                                <div class="text-nowrap">
+                                                    <a id="lnkDeleteStep2" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                     <tfoot>
-                                    <tr>
-                                        <td colspan="3" class="text-end pe-2">Total track distance: </td>
-                                        <td><span id="lblDistance6">6.0 mi</span><span id="lblDistance10" style="display: none;">10.0 mi</span></td>
-                                        <td><a id="lnkClearTrackProgressionList" href="#TrackProgression" title="Delete all traversals" data-bs-toggle="tooltip"><i class="fa-regular fa-trash-can"></i> Clear</a></td>
-                                    </tr>
+                                        <tr>
+                                            <td colspan="3" class="text-end pe-2">Total track distance: </td>
+                                            <td>
+                                                <span id="lblDistance6">6.0 mi</span><span id="lblDistance10" style="display: none;">10.0 mi</span>
+                                            </td>
+                                            <td>
+                                                <a id="lnkClearTrackProgressionList" href="#TrackProgression"><i class="fa-regular fa-trash-can"></i> Clear</a>
+                                            </td>
+                                        </tr>
                                     </tfoot>
                                 </table>
                             </div>
@@ -232,13 +284,17 @@
                                     <div class="fs-6 fw-bold d-inline-block mb-1">Track Offset</div>
                                     <div class="ms-1 d-inline-block">
                                         <a href="#Offset" title="Apply an offset to add separation between the track in opposite directions."
-                                           data-bs-toggle="tooltip"><i class="fa-regular fa-circle-question"></i> Why apply an offset?</a>
+                                           data-bs-toggle="tooltip">
+                                            <i class="fa-regular fa-circle-question"></i> Why apply an offset?
+                                        </a>
                                     </div>
                                     <div>
                                         <input id="slOffset" type="range" min="-5" max="5" step="1" value="0" class="w-50">
                                     </div>
                                     <div id="lblOffsetValue">Offset = 0m</div>
-                                    <div class="figure-caption"><i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> <span id="lblOffsetDescription">Shared single road in both directions</span></div>
+                                    <div class="figure-caption">
+                                        <i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> <span id="lblOffsetDescription">Shared single road in both directions</span>
+                                    </div>
                                 </div>
                             </div>
                             <div>

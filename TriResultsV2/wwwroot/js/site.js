@@ -122,6 +122,19 @@ var Tri = (function () {
 
         InitialiseTrackBuilder: function () {
             $(function () {
+                var slAnalysisRange = document.getElementById("slAnalysisRange");
+
+                if (slAnalysisRange !== null && slAnalysisRange !== undefined) {
+                    var lblAnalysisRangeValue = document.getElementById("lblAnalysisRangeValue");
+
+                    if (lblAnalysisRangeValue !== null && lblAnalysisRangeValue !== undefined) {
+                        slAnalysisRange.oninput = function () {
+                            var analysisRangeValue = this.value;
+                            lblAnalysisRangeValue.innerHTML = "Analysis Range = " + analysisRangeValue + "m";
+                        }
+                    }
+                }
+
                 var slOffset = document.getElementById("slOffset");
 
                 if (slOffset !== null && slOffset !== undefined) {
@@ -227,6 +240,47 @@ var Tri = (function () {
                     changeActiveTrackConnector();
                     $("#divTrackBuilderStep2").hide();
                     $("#divTrackBuilderStep1").show();
+                });
+
+
+                $("#btnAnalyseScenery").click(function (e) {
+                    $("body").css("cursor", "wait");
+                    $("#txtLandUse").val("Contacting Overpass server...");
+
+                    var analysisRange = $("#slAnalysisRange").val();
+                    var latLong = $("#txtLatLong").val();
+
+                    var overpassData = "[out:json];relation(around:" + analysisRange + "," + latLong + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+
+                    $.ajax({
+                        url: "https://overpass.kumi.systems/api/interpreter?data=" + overpassData,
+                        type: "GET",
+                        dataType: "json",
+                        async: true,
+                        success: function (data) {
+                            if (data) {
+                                if (data.elements) {
+                                    if (data.elements.length > 0) {
+                                        if (data.elements[0].tags) {
+                                            var landUse = data.elements[0].tags.landuse;
+
+                                            if (landUse) {
+                                                $("#txtLandUse").val(landUse);
+                                            }
+                                        }
+                                    } else {
+                                        $("#txtLandUse").val("No land use data found.");
+                                    }
+                                }
+                            }
+                        },
+                        error: function (data) {
+                            $("#txtLandUse").val("Overpass error: " + data.status + " (" + data.statusText + ")");
+                        },
+                        complete: function (data) {
+                            $("body").css("cursor", "auto");
+                        }
+                    });
                 });
             });
         }
