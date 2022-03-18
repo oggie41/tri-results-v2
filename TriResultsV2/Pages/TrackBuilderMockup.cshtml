@@ -46,21 +46,50 @@
                 <div class="accordion-body">
                     <div class="my-2 mx-2">
                         <div class="mb-2">
-                            <label for="txtLatLong" class="form-label">Latitude / Longitude:</label>
-                            <input type="text" class="form-control" id="txtLatLong" value="53.33852815010663, -1.3397493758175967">
+                            <div>
+                                <label class="form-label">Map query filtering:</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radMapQueryFiltering" id="radRadius" checked>
+                                <label class="form-check-label" for="radRadius">Radius</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="radMapQueryFiltering" id="radBoundingBox">
+                                <label class="form-check-label" for="radBoundingBox">Bounding Box</label>
+                            </div>
                         </div>
-                        <div class="mb-0">
-                            <input id="slAnalysisRange" type="range" min="100" max="500" step="100" value="200" class="w-50">
+                        <div class="mb-2">
+                            <div class="figure-caption"><i class="@IconHelper.GetIconClass(NamedIcon.Info)"></i> Note: Bounding box <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#Relative_to_other_elements_.28around.29" target="_blank">performs faster</a>.</div>
                         </div>
-                        <div id="lblAnalysisRangeValue" class="mb-2">
-                            Analysis Range = 200m
+                        <div id="divRadiusFiltering">
+                            <div class="mb-2">
+                                <label for="txtLatLong" class="form-label">Latitude / Longitude:</label>
+                                <input type="text" class="form-control" id="txtLatLong" value="53.33852815010663, -1.3397493758175967">
+                            </div>
+                            <div class="mb-0">
+                                <input id="slRadiusInMetres" type="range" min="100" max="5000" step="100" value="200" class="w-50">
+                            </div>
+                            <div id="lblRadiusInMetres" class="mb-2">
+                                Radius (in metres) = 200m
+                            </div>
+                        </div>
+                        <div id="divBoundingBoxFiltering" style="display: none;">
+                            <div class="mb-2">
+                                <div for="txtBoundingBox">Bounding Box:</div>
+                                <div class="figure-caption mb-1">South (lat), West (lon), North (lat), East (lon)</div>
+                                <input type="text" class="form-control" id="txtBoundingBox" value="53.325139791074506,-1.3677300631542992,53.350249270901486,-1.296258382277526">
+                            </div>
                         </div>
                         <div class="mb-2">
                             <button id="btnAnalyseScenery" type="button" class="btn btn-primary"><i class="fa-solid fa-house-tree"></i> Analyse Scenery</button>
                         </div>
+                        <div class="mb-2">
+                            <label for="txtLandUse" class="form-label">All land use in area (grouped by tags):</label>
+                            <textarea class="form-control" id="txtLandUseAll" rows="4" readonly></textarea>
+                        </div>
                         <div>
-                            <label for="txtLandUse" class="form-label">Land Use:</label>
-                            <input type="text" class="form-control" id="txtLandUse">
+                            <label for="txtLandUse" class="form-label">Predominant land use:</label>
+                            <input type="text" class="form-control" id="txtLandUse" readonly>
                         </div>
                     </div>
                 </div>

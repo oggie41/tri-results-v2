@@ -122,15 +122,15 @@ var Tri = (function () {
 
         InitialiseTrackBuilder: function () {
             $(function () {
-                var slAnalysisRange = document.getElementById("slAnalysisRange");
+                var slRadiusInMetres = document.getElementById("slRadiusInMetres");
 
-                if (slAnalysisRange !== null && slAnalysisRange !== undefined) {
-                    var lblAnalysisRangeValue = document.getElementById("lblAnalysisRangeValue");
+                if (slRadiusInMetres !== null && slRadiusInMetres !== undefined) {
+                    var lblRadiusInMetres = document.getElementById("lblRadiusInMetres");
 
-                    if (lblAnalysisRangeValue !== null && lblAnalysisRangeValue !== undefined) {
-                        slAnalysisRange.oninput = function () {
-                            var analysisRangeValue = this.value;
-                            lblAnalysisRangeValue.innerHTML = "Analysis Range = " + analysisRangeValue + "m";
+                    if (lblRadiusInMetres !== null && lblRadiusInMetres !== undefined) {
+                        slRadiusInMetres.oninput = function () {
+                            var radiusInMetres = this.value;
+                            lblRadiusInMetres.innerHTML = "Radius (in metres) = " + radiusInMetres + "m";
                         }
                     }
                 }
@@ -242,15 +242,38 @@ var Tri = (function () {
                     $("#divTrackBuilderStep1").show();
                 });
 
+                $("input[name='radMapQueryFiltering']").change(function () {
+                    var radMapQueryFiltering = $("input[name='radMapQueryFiltering']:checked").attr("id");
+
+                    if (radMapQueryFiltering === "radRadius") {
+                        $("#divRadiusFiltering").show();
+                        $("#divBoundingBoxFiltering").hide();
+                    }
+                    else if (radMapQueryFiltering === "radBoundingBox") {
+                        $("#divRadiusFiltering").hide();
+                        $("#divBoundingBoxFiltering").show();
+                    }
+                });
 
                 $("#btnAnalyseScenery").click(function (e) {
                     $("body").css("cursor", "wait");
                     $("#txtLandUse").val("Contacting Overpass server...");
 
-                    var analysisRange = $("#slAnalysisRange").val();
+                    var radiusInMetres = $("#slRadiusInMetres").val();
                     var latLong = $("#txtLatLong").val();
+                    var bbox = $("#txtBoundingBox").val();
 
-                    var overpassData = "[out:json];relation(around:" + analysisRange + "," + latLong + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+                    // Which map query filtering method has been selected?
+                    var radMapQueryFiltering = $("input[name='radMapQueryFiltering']:checked").attr("id");
+
+                    var overpassData = "";
+
+                    if (radMapQueryFiltering === "radRadius"){
+                        overpassData = "[out:json];relation(around:" + radiusInMetres + "," + latLong + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+                    }
+                    else if (radMapQueryFiltering === "radBoundingBox") {
+                        overpassData = "[out:json];relation(" + bbox + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+                    }
 
                     $.ajax({
                         url: "https://overpass.kumi.systems/api/interpreter?data=" + overpassData,
@@ -261,11 +284,44 @@ var Tri = (function () {
                             if (data) {
                                 if (data.elements) {
                                     if (data.elements.length > 0) {
-                                        if (data.elements[0].tags) {
-                                            var landUse = data.elements[0].tags.landuse;
+                                        // Group the land use records.
+                                        var landUseGrouped = {};
 
-                                            if (landUse) {
-                                                $("#txtLandUse").val(landUse);
+                                        $(data.elements).each(function() {
+                                            landUseGrouped[this.tags.landuse] = 1 + (landUseGrouped[this.tags.landuse] || 0);
+                                        });
+
+                                        // Convert the grouped land use object to an array.
+                                        var arrLandUseGrouped = [];
+                                        Object.keys(landUseGrouped).forEach(function (key) {
+                                            arrLandUseGrouped.push({
+                                                landuse: key,
+                                                count: landUseGrouped[key]
+                                            });
+                                        });
+
+                                        arrLandUseGrouped.sort((a, b) => a.landuse.toLowerCase() > b.landuse.toLowerCase() ? 1 : -1);
+                                        arrLandUseGrouped.sort((a, b) => a.count < b.count ? 1 : -1);
+
+                                        var landUseAll = "";
+
+                                        $(arrLandUseGrouped).each(function() {
+                                            landUseAll += this.landuse + " (" + this.count + ")" + "\r\n";
+                                        });
+
+                                        if (landUseAll) {
+                                            var pos = landUseAll.lastIndexOf("\r\n");
+                                            landUseAll = landUseAll.substring(0, pos);
+
+                                            $("#txtLandUseAll").val(landUseAll);
+
+                                            if (arrLandUseGrouped.length > 0) {
+                                                // Retrieve the predominant land use (top in the ordered array).
+                                                var landUse = arrLandUseGrouped[0].landuse;
+
+                                                if (landUse) {
+                                                    $("#txtLandUse").val(landUse);
+                                                }
                                             }
                                         }
                                     } else {
