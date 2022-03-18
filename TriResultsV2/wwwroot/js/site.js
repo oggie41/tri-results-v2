@@ -257,7 +257,8 @@ var Tri = (function () {
 
                 $("#btnAnalyseScenery").click(function (e) {
                     $("body").css("cursor", "wait");
-                    $("#txtLandUse").val("Contacting Overpass server...");
+                    $("#txtLandUseAll").val("Contacting Overpass server...");
+                    $("#txtLandUse").val("");
 
                     var radiusInMetres = $("#slRadiusInMetres").val();
                     var latLong = $("#txtLatLong").val();
@@ -281,6 +282,8 @@ var Tri = (function () {
                         dataType: "json",
                         async: true,
                         success: function (data) {
+                            $("#txtLandUseAll").val("");
+
                             if (data) {
                                 if (data.elements) {
                                     if (data.elements.length > 0) {
@@ -331,7 +334,8 @@ var Tri = (function () {
                             }
                         },
                         error: function (data) {
-                            $("#txtLandUse").val("Overpass error: " + data.status + " (" + data.statusText + ")");
+                            $("#txtLandUseAll").val("Overpass error: " + data.status + " (" + data.statusText + ")");
+                            $("#txtLandUse").val("");
                         },
                         complete: function (data) {
                             $("body").css("cursor", "auto");
