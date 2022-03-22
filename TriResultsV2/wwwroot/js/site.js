@@ -259,6 +259,8 @@ var Tri = (function () {
                     $("body").css("cursor", "wait");
                     $("#txtLandUseAll").val("Contacting Overpass server...");
                     $("#txtLandUse").val("");
+                    $("#txtNaturalAll").val("Contacting Overpass server...");
+                    $("#txtNamedFeatures").val("Contacting Overpass server...");
 
                     var radiusInMetres = $("#slRadiusInMetres").val();
                     var latLong = $("#txtLatLong").val();
@@ -267,17 +269,24 @@ var Tri = (function () {
                     // Which map query filtering method has been selected?
                     var radMapQueryFiltering = $("input[name='radMapQueryFiltering']:checked").attr("id");
 
-                    var overpassData = "";
+                    var overpassLanduseData = "";
+                    var overpassNaturalData = "";
+                    var overpassNamedFeaturesData = "";
 
                     if (radMapQueryFiltering === "radRadius"){
-                        overpassData = "[out:json];relation(around:" + radiusInMetres + "," + latLong + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+                        overpassLanduseData = "[out:json];relation(around:" + radiusInMetres + "," + latLong + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+                        overpassNaturalData = "[out:json];relation(around:" + radiusInMetres + "," + latLong + ")[natural];convert relation \"natural\"=t[\"natural\"]; out tags;";
+                        overpassNamedFeaturesData = "[out:json];relation(around:" + radiusInMetres + "," + latLong + ")[natural][name];convert relation \"natural\"=t[\"natural\"],\"name\"=t[\"name\"]; out tags;";
                     }
                     else if (radMapQueryFiltering === "radBoundingBox") {
-                        overpassData = "[out:json];relation(" + bbox + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+                        overpassLanduseData = "[out:json];relation(" + bbox + ")[landuse];convert relation \"landuse\"=t[\"landuse\"]; out tags;";
+                        overpassNaturalData = "[out:json];relation(" + bbox + ")[natural];convert relation \"natural\"=t[\"natural\"]; out tags;";
+                        overpassNamedFeaturesData = "[out:json];relation(" + bbox + ")[natural][name];convert relation \"natural\"=t[\"natural\"],\"name\"=t[\"name\"]; out tags;";
                     }
 
+                    // Retrieve the landuse data.
                     $.ajax({
-                        url: "https://overpass.kumi.systems/api/interpreter?data=" + overpassData,
+                        url: "https://overpass.kumi.systems/api/interpreter?data=" + overpassLanduseData,
                         type: "GET",
                         dataType: "json",
                         async: true,
@@ -336,6 +345,101 @@ var Tri = (function () {
                         error: function (data) {
                             $("#txtLandUseAll").val("Overpass error: " + data.status + " (" + data.statusText + ")");
                             $("#txtLandUse").val("");
+                        },
+                        complete: function (data) {
+                            $("body").css("cursor", "auto");
+                        }
+                    });
+
+                    // Retrieve the natural data.
+                    $.ajax({
+                        url: "https://overpass.kumi.systems/api/interpreter?data=" + overpassNaturalData,
+                        type: "GET",
+                        dataType: "json",
+                        async: true,
+                        success: function (data) {
+                            $("#txtNaturalAll").val("");
+
+                            if (data) {
+                                if (data.elements) {
+                                    if (data.elements.length > 0) {
+                                        // Group the natural records.
+                                        var naturalGrouped = {};
+
+                                        $(data.elements).each(function () {
+                                            naturalGrouped[this.tags.natural] = 1 + (naturalGrouped[this.tags.natural] || 0);
+                                        });
+
+                                        // Convert the grouped natural object to an array.
+                                        var arrNaturalGrouped = [];
+                                        Object.keys(naturalGrouped).forEach(function (key) {
+                                            arrNaturalGrouped.push({
+                                                natural: key,
+                                                count: naturalGrouped[key]
+                                            });
+                                        });
+
+                                        arrNaturalGrouped.sort((a, b) => a.natural.toLowerCase() > b.natural.toLowerCase() ? 1 : -1);
+                                        arrNaturalGrouped.sort((a, b) => a.count < b.count ? 1 : -1);
+
+                                        var naturalAll = "";
+
+                                        $(arrNaturalGrouped).each(function () {
+                                            naturalAll += this.natural + " (" + this.count + ")" + "\r\n";
+                                        });
+
+                                        if (naturalAll) {
+                                            var pos = naturalAll.lastIndexOf("\r\n");
+                                            naturalAll = naturalAll.substring(0, pos);
+
+                                            $("#txtNaturalAll").val(naturalAll);
+                                        }
+                                    } else {
+                                        $("#txtNaturalAll").val("No natural data found.");
+                                    }
+                                }
+                            }
+                        },
+                        error: function (data) {
+                            $("#txtNaturalAll").val("Overpass error: " + data.status + " (" + data.statusText + ")");
+                        },
+                        complete: function (data) {
+                            $("body").css("cursor", "auto");
+                        }
+                    });
+
+                    // Retrieve the named natural data.
+                    $.ajax({
+                        url: "https://overpass.kumi.systems/api/interpreter?data=" + overpassNamedFeaturesData,
+                        type: "GET",
+                        dataType: "json",
+                        async: true,
+                        success: function (data) {
+                            $("#txtNamedFeatures").val("");
+
+                            if (data) {
+                                if (data.elements) {
+                                    if (data.elements.length > 0) {
+                                        var namedFeatures = "";
+
+                                        $(data.elements).each(function () {
+                                            namedFeatures += this.tags.natural + " (" + this.tags.name + ")" + "\r\n";
+                                        });
+
+                                        if (namedFeatures) {
+                                            var pos = namedFeatures.lastIndexOf("\r\n");
+                                            namedFeatures = namedFeatures.substring(0, pos);
+
+                                            $("#txtNamedFeatures").val(namedFeatures);
+                                        }
+                                    } else {
+                                        $("#txtNamedFeatures").val("No named natural data found.");
+                                    }
+                                }
+                            }
+                        },
+                        error: function (data) {
+                            $("#txtNamedFeatures").val("Overpass error: " + data.status + " (" + data.statusText + ")");
                         },
                         complete: function (data) {
                             $("body").css("cursor", "auto");
