@@ -132,6 +132,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "York 10K")]
         York10K,
 
+        [Display(Name = "York Big Flat Runway 10K")]
+        YorkBigFlatRunway10K,
+
         [Display(Name = "York Sprint Triathlon")]
         YorkSprintTriathlon
     }

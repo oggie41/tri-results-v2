@@ -51,6 +51,18 @@ namespace TriResultsV2.Services.Local
             };
             plannedEvents.Add(plannedEvent);
 
+            plannedEvent = new PlannedEvent
+            {
+                EventDate = new DateTime(2022, 4, 10),
+                Sport = SportType.Run,
+                Course = Course.YorkBigFlatRunway10K,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventUrl = "https://evensplits.events/big-flat-race",
+                Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
             //plannedEvent = new PlannedEvent
             //{
             //    EventDate = new DateTime(2022, 3, 6),
