@@ -425,6 +425,21 @@ namespace TriResultsV2.Services.Local
 
             result = new EventResult
             {
+                Id = 8611991204,
+                GarminId = 8611991204,
+                Sport = SportType.Run,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2022, 4, 10),
+                Course = Course.YorkBigFlatRunway10K,
+                TotalTime = new TimeSpan(0, 39, 44),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 20),
+                OfficialResultsUrl = "https://racebest.com/results/6s8a7"
+            };
+            eventResults.Add(result);
+            
+            result = new EventResult
+            {
                 Id = 7916749962,
                 GarminId = 7916749962,
                 Sport = SportType.Run,
