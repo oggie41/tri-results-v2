@@ -18,6 +18,28 @@ namespace TriResultsV2.Services.Local
 
             plannedEvent = new PlannedEvent
             {
+                EventDate = new DateTime(2022, 9, 3),
+                Sport = SportType.Bike,
+                EventName = "The Peaks Tour Sportive",
+                Distance = 75,
+                DistanceUnit = DistanceUnit.Miles,
+                EventUrl = "https://www.ukcyclingevents.co.uk/products/the-peaks-tour-sportive",
+                Entered = false
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
+                EventDate = new DateTime(2022, 8, 7),
+                Sport = SportType.Triathlon,
+                Course = Course.BassetlawSprintTriathlon,
+                EventUrl = "https://www.bassetlawtriclub.co.uk/triathlon",
+                Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
                 EventDate = new DateTime(2022, 7, 13),
                 Sport = SportType.Run,
                 Course = Course.Doncaster5K,
@@ -37,6 +59,18 @@ namespace TriResultsV2.Services.Local
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventName = "Round Sheffield Run 2022 (w/ Scott)",
                 EventUrl = "https://www.roundsheffieldrun.com/",
+                Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
+                EventDate = new DateTime(2022, 5, 4),
+                Sport = SportType.Run,
+                Course = Course.LoxleyLash5K,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventUrl = "https://www.sheffieldrunningclub.org.uk/racing/our-hosted-races/loxley-lash/",
                 Entered = true
             };
             plannedEvents.Add(plannedEvent);
