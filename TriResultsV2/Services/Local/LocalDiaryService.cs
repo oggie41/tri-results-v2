@@ -30,11 +30,31 @@ namespace TriResultsV2.Services.Local
 
             plannedEvent = new PlannedEvent
             {
+                EventDate = new DateTime(2022, 8, 24),
+                Sport = SportType.Duathlon,
+                Course = Course.ScunthorpeSummerDuathlonBurringham,
+                EventUrl = "https://www.facebook.com/groups/1858449397787749/",
+                Entered = false
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
                 EventDate = new DateTime(2022, 8, 7),
                 Sport = SportType.Triathlon,
                 Course = Course.BassetlawSprintTriathlon,
                 EventUrl = "https://www.bassetlawtriclub.co.uk/triathlon",
                 Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
+                EventDate = new DateTime(2022, 7, 27),
+                Sport = SportType.Duathlon,
+                Course = Course.ScunthorpeSummerDuathlonBurringham,
+                EventUrl = "https://www.facebook.com/groups/1858449397787749/",
+                Entered = false
             };
             plannedEvents.Add(plannedEvent);
 

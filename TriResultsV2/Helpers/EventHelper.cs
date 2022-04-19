@@ -96,6 +96,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Round Sheffield Run")]
         RoundSheffieldRun,
 
+        [Display(Name = "Scunthorpe Summer Duathlon (Burringham)")]
+        ScunthorpeSummerDuathlonBurringham,
+
         [Display(Name = "Sheffield 10K")]
         Sheffield10K,
 
@@ -390,6 +393,12 @@ namespace TriResultsV2.Helpers
                     if (status == EventStatus.Planned)
                     {
                         eventName = $"{course.Value.ToEnumDisplayName()} {eventDate:yyyy}";
+
+                        // Scunthorpe Summer Duathlon doesn't need the month or year.
+                        if (course.ToString()!.StartsWith("ScunthorpeSummerDuathlon"))
+                        {
+                            eventName = course.Value.ToEnumDisplayName();
+                        }
                     }
                 }
                 else if (sport == SportType.Bike)
