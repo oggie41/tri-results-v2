@@ -14,7 +14,53 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<MultisportEventResult>();
 
-            var result = new MultisportEventResult
+            MultisportEventResult result;
+
+            result = new MultisportEventResult
+            {
+                Id = 8690444839,
+                GarminId = 8690444839,
+                IntervalsIcuId = 5242304,
+                Sport = SportType.Duathlon,
+                EventDate = new DateTime(2022, 4, 24),
+                Course = Course.ClumberSprintDuathlon,
+                Discipline1Distance = 5,
+                Discipline1DistanceUnit = DistanceUnit.Kilometres,
+                Discipline2Distance = 20,
+                Discipline2DistanceUnit = DistanceUnit.Kilometres,
+                Discipline3Distance = 2.5,
+                Discipline3DistanceUnit = DistanceUnit.Kilometres,
+                Discipline1Time = new TimeSpan(0, 19, 48),
+                T1Time = new TimeSpan(0, 1, 12),
+                Discipline2Time = new TimeSpan(0, 36, 16),
+                T2Time = new TimeSpan(0, 1, 8),
+                Discipline3Time = new TimeSpan(0, 10, 51),
+                TotalTime = new TimeSpan(1, 9, 17),
+                Discipline1AvgRunPaceMinMi = new TimeSpan(0, 6, 30),
+                AvgBikeSpeedMph = 19.5,
+                AvgBikePower = 188,
+                NormalizedBikePower = 204,
+                Discipline3AvgRunPaceMinMi = new TimeSpan(0, 6, 55),
+                TotalParticipants = 305,
+                Discipline1Position = 76,
+                T1Position = 81,
+                Discipline2Position = 101,
+                T2Position = 81,
+                Discipline3Position = 81,
+                OverallPosition = 93,
+                Weather = WeatherType.SunnyCloudy,
+                TemperatureDegreesCelsius = 10,
+                WindMph = 16,
+                OfficialResultsUrl = "https://resultsbase.net/event/5943/results?round=15230",
+                EventNotes = "First duathlon for quite a while, enjoyed it. Pleased to improve my time again.<br/>" +
+                 "Felt good on the first run, pleased to run under 20 min. " +
+                 "Enjoyed the bike leg, did OK considering the lack of outside rides this year. Setting off on the bike after T1 needs a bit of practice though!<br/>" +
+                 "Second run was tough going (as ever) but worked hard. Need more brick runs to improve running off the bike.",
+                CompareWithEventId = 3487254095
+            };
+            eventResults.Add(result);
+
+            result = new MultisportEventResult
             {
                 Id = 3487254095,
                 GarminId = 3487254095,

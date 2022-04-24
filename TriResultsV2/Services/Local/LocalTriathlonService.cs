@@ -14,7 +14,9 @@ namespace TriResultsV2.Services.Local
         {
             var eventResults = new List<MultisportEventResult>();
 
-            var result = new MultisportEventResult
+            MultisportEventResult result;
+
+            result = new MultisportEventResult
             {
                 Id = 7430411827,
                 GarminId = 7430411827,
