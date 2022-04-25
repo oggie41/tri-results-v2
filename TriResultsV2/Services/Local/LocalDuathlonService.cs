@@ -53,11 +53,12 @@ namespace TriResultsV2.Services.Local
                 WindMph = 16,
                 OfficialResultsUrl = "https://resultsbase.net/event/5943/results?round=15230",
                 EventNotes = "First duathlon for quite a while, enjoyed it. Pleased to improve my time again.<br/>" +
-                 "Felt good on the first run, pleased to run under 20 min. " +
+                 "Felt good on the first run, pleased to run under 20 mins. " +
                  "Enjoyed the bike leg, did OK considering the lack of outside rides this year. Setting off on the bike after T1 needs a bit of practice though!<br/>" +
-                 "Second run was tough going (as ever) but worked hard. Need more brick runs to improve running off the bike.",
+                 "Second run was tough going (as ever) but worked hard. The second run distance was a bit further than last time, so slower time, but quicker pace. Could do with more brick runs to improve running off the bike.",
                 CompareWithEventId = 3487254095
             };
+            result.AddEventFigure("GB 2023 European Sprint Duathlon Qualifier - strong field.");
             eventResults.Add(result);
 
             result = new MultisportEventResult
@@ -139,7 +140,7 @@ namespace TriResultsV2.Services.Local
                              "The bike leg went well; feeling stronger on the bike after all the winter turbo.<br/>" +
                              "The second run was tough going! More bike -> run brick workouts needed. Definitely want to give this a go again next year."
             };
-            result.AddEventFigure("ITU World Championship Qualifier - strong field.");
+            result.AddEventFigure("GB World Championship Qualifier - strong field.");
             eventResults.Add(result);
 
             result = new MultisportEventResult
