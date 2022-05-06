@@ -72,6 +72,18 @@ namespace TriResultsV2.Services.Local
 
             plannedEvent = new PlannedEvent
             {
+                EventDate = new DateTime(2022, 7, 6),
+                Sport = SportType.Run,
+                Course = Course.LoxleyLash5K,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventUrl = "https://www.sheffieldrunningclub.org.uk/racing/our-hosted-races/loxley-lash/",
+                Entered = false
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
                 EventDate = new DateTime(2022, 6, 26),
                 Sport = SportType.Run,
                 Course = Course.RoundSheffieldRun,

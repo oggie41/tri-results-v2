@@ -18,6 +18,21 @@ namespace TriResultsV2.Services.Local
 
             result = new EventResult
             {
+                Id = 8760939069,
+                GarminId = 8760939069,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2022, 5, 4),
+                Course = Course.LoxleyLash5K,
+                TotalTime = new TimeSpan(0, 19, 12),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 2),
+                OfficialResultsUrl = "https://www.sheffieldrunningclub.org.uk/racing/our-hosted-races/loxley-lash/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
                 Id = 7508938026,
                 GarminId = 7508938026,
                 Sport = SportType.Run,
@@ -69,7 +84,8 @@ namespace TriResultsV2.Services.Local
                 EventDate = new DateTime(2019, 8, 30),
                 Course = Course.LoxleyLash5K,
                 TotalTime = new TimeSpan(0, 19, 31),
-                AvgRunPaceMinMi = new TimeSpan(0, 6, 6)
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 6),
+                OfficialResultsUrl = "https://www.sheffieldrunningclub.org.uk/wp-content/uploads/2020/01/Loxley-Lash-race3-2019.pdf"
             };
             eventResults.Add(result);
 
