@@ -18,6 +18,21 @@ namespace TriResultsV2.Services.Local
 
             result = new EventResult
             {
+                Id = 8819360165,
+                GarminId = 8819360165,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2022, 5, 14),
+                Course = Course.ParkrunRotherValley,
+                TotalTime = new TimeSpan(0, 19, 9),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 7),
+                OfficialResultsUrl = "https://www.parkrun.org.uk/rothervalley/results/343/"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
                 Id = 8760939069,
                 GarminId = 8760939069,
                 Sport = SportType.Run,
