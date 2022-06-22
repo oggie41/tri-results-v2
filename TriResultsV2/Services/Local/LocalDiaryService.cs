@@ -99,7 +99,6 @@ namespace TriResultsV2.Services.Local
                 Course = Course.RoundSheffieldRun,
                 Distance = 20,
                 DistanceUnit = DistanceUnit.Kilometres,
-                EventName = "Round Sheffield Run 2022 (w/ Scott)",
                 EventUrl = "https://www.roundsheffieldrun.com/",
                 Entered = true
             };
