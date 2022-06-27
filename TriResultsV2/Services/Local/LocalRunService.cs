@@ -820,6 +820,23 @@ namespace TriResultsV2.Services.Local
             };
             eventResults.Add(result);
 
+            result = new EventResult
+            {
+                Id = 9088692131,
+                GarminId = 9088692131,
+                Sport = SportType.Run,
+                EventType = EventType.MultiStage,
+                Distance = 20,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2022, 6, 26),
+                Course = Course.RoundSheffieldRun,
+                TotalTime = new TimeSpan(1, 23, 46),
+                TotalParticipants = 2884,
+                OverallPosition = 128,
+                OfficialResultsUrl = "https://www.sportident.co.uk/results/Kandoo/2022/RSR-Summer/"
+            };
+            eventResults.Add(result);
+
             return Task.FromResult(eventResults.AsEnumerable());
         }
     }
