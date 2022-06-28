@@ -129,6 +129,9 @@ namespace TriResultsV2.Helpers
         [Display(Name = "Worksop Half Marathon")]
         WorksopHalfMarathon,
 
+        [Display(Name = "Vale of York Half Marathon")]
+        ValeOfYorkHalfMarathon,
+
         [Display(Name = "York 5K Series")]
         York5K,
 

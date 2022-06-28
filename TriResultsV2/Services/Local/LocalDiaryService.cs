@@ -18,25 +18,47 @@ namespace TriResultsV2.Services.Local
 
             plannedEvent = new PlannedEvent
             {
-                EventDate = new DateTime(2022, 9, 3),
-                Sport = SportType.Bike,
-                EventName = "The Peaks Tour Sportive",
-                Distance = 75,
-                DistanceUnit = DistanceUnit.Miles,
-                EventUrl = "https://www.ukcyclingevents.co.uk/products/the-peaks-tour-sportive",
-                Entered = false
+                EventDate = new DateTime(2023, 8, 6),
+                Sport = SportType.Triathlon,
+                Course = Course.BassetlawSprintTriathlon,
+                EventUrl = "https://www.bassetlawtriclub.co.uk/triathlon",
+                Entered = true
             };
             plannedEvents.Add(plannedEvent);
 
             plannedEvent = new PlannedEvent
             {
-                EventDate = new DateTime(2022, 8, 29),
-                Sport = SportType.Triathlon,
-                Course = Course.MatlockSprintTriathlon,
-                EventUrl = "https://www.matlockac.org.uk/index.php/matlock-triathlon",
+                EventDate = new DateTime(2022, 9, 11),
+                Sport = SportType.Run,
+                Course = Course.ValeOfYorkHalfMarathon,
+                Distance = 13.1,
+                DistanceUnit = DistanceUnit.Miles,
+                EventUrl = "https://racebest.com/races/ttr57",
                 Entered = false
             };
             plannedEvents.Add(plannedEvent);
+
+            //plannedEvent = new PlannedEvent
+            //{
+            //    EventDate = new DateTime(2022, 9, 3),
+            //    Sport = SportType.Bike,
+            //    EventName = "The Peaks Tour Sportive 2022",
+            //    Distance = 75,
+            //    DistanceUnit = DistanceUnit.Miles,
+            //    EventUrl = "https://www.ukcyclingevents.co.uk/products/the-peaks-tour-sportive",
+            //    Entered = false
+            //};
+            //plannedEvents.Add(plannedEvent);
+
+            //plannedEvent = new PlannedEvent
+            //{
+            //    EventDate = new DateTime(2022, 8, 29),
+            //    Sport = SportType.Triathlon,
+            //    Course = Course.MatlockSprintTriathlon,
+            //    EventUrl = "https://www.matlockac.org.uk/index.php/matlock-triathlon",
+            //    Entered = false
+            //};
+            //plannedEvents.Add(plannedEvent);
 
             //plannedEvent = new PlannedEvent
             //{
@@ -48,25 +70,27 @@ namespace TriResultsV2.Services.Local
             //};
             //plannedEvents.Add(plannedEvent);
 
-            plannedEvent = new PlannedEvent
-            {
-                EventDate = new DateTime(2022, 8, 7),
-                Sport = SportType.Triathlon,
-                Course = Course.BassetlawSprintTriathlon,
-                EventUrl = "https://www.bassetlawtriclub.co.uk/triathlon",
-                Entered = true
-            };
-            plannedEvents.Add(plannedEvent);
+            //plannedEvent = new PlannedEvent
+            //{
+            //    EventDate = new DateTime(2022, 8, 7),
+            //    Sport = SportType.Bike,
+            //    EventName = "East Riding 100 Sportive 2022",
+            //    Distance = 112,
+            //    DistanceUnit = DistanceUnit.Miles,
+            //    EventUrl = "https://sportivehq.com/east-riding-100-2022/",
+            //    Entered = false
+            //};
+            //plannedEvents.Add(plannedEvent);
 
-            plannedEvent = new PlannedEvent
-            {
-                EventDate = new DateTime(2022, 7, 27),
-                Sport = SportType.Duathlon,
-                Course = Course.ScunthorpeSummerDuathlonBurringham,
-                EventUrl = "https://www.facebook.com/groups/1858449397787749/",
-                Entered = false
-            };
-            plannedEvents.Add(plannedEvent);
+            //plannedEvent = new PlannedEvent
+            //{
+            //    EventDate = new DateTime(2022, 7, 27),
+            //    Sport = SportType.Duathlon,
+            //    Course = Course.ScunthorpeSummerDuathlonBurringham,
+            //    EventUrl = "https://www.facebook.com/groups/1858449397787749/",
+            //    Entered = false
+            //};
+            //plannedEvents.Add(plannedEvent);
 
             plannedEvent = new PlannedEvent
             {
