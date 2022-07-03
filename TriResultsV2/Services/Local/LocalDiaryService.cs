@@ -112,7 +112,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 5,
                 DistanceUnit = DistanceUnit.Kilometres,
                 EventUrl = "https://www.sheffieldrunningclub.org.uk/racing/our-hosted-races/loxley-lash/",
-                Entered = false
+                Entered = true
             };
             plannedEvents.Add(plannedEvent);
 
