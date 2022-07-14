@@ -18,6 +18,21 @@ namespace TriResultsV2.Services.Local
 
             result = new EventResult
             {
+                Id = 9198073536,
+                GarminId = 9198073536,
+                Sport = SportType.Run,
+                Distance = 5,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventDate = new DateTime(2022, 7, 13),
+                Course = Course.Doncaster5K,
+                TotalTime = new TimeSpan(0, 18, 51),
+                AvgRunPaceMinMi = new TimeSpan(0, 6, 5),
+                OfficialResultsUrl = "https://www.sportstimingsolutions.co.uk/rd.php?id=436"
+            };
+            eventResults.Add(result);
+
+            result = new EventResult
+            {
                 Id = 9153611391,
                 GarminId = 9153611391,
                 Sport = SportType.Run,
