@@ -107,7 +107,8 @@
 
                     if (result.Sport == SportType.Run)
                     {
-                        avgPaceSpeed = RunHelper.GetFormattedAvgPace(result.AvgRunPaceMinMi);
+                        // Calculate run pace based on the distance, rather than using GPS pace.
+                        avgPaceSpeed = RunHelper.GetRunPaceMinMi(result.Distance, result.DistanceUnit, result.TotalTime);
                     }
                     else if (result.Sport == SportType.Bike)
                     {
