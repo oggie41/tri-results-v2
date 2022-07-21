@@ -34,7 +34,7 @@ namespace TriResultsV2.Services.Local
                 Distance = 13.1,
                 DistanceUnit = DistanceUnit.Miles,
                 EventUrl = "https://racebest.com/races/ttr57",
-                Entered = false
+                Entered = true
             };
             plannedEvents.Add(plannedEvent);
 
