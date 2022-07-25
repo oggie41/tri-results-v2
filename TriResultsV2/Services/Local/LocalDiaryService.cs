@@ -28,6 +28,18 @@ namespace TriResultsV2.Services.Local
 
             plannedEvent = new PlannedEvent
             {
+                EventDate = new DateTime(2022, 10, 30),
+                Sport = SportType.Run,
+                Course = Course.Lincoln10K,
+                Distance = 10,
+                DistanceUnit = DistanceUnit.Kilometres,
+                EventUrl = "https://www.runforall.com/events/10k/city-of-lincoln-10k/",
+                Entered = true
+            };
+            plannedEvents.Add(plannedEvent);
+
+            plannedEvent = new PlannedEvent
+            {
                 EventDate = new DateTime(2022, 9, 11),
                 Sport = SportType.Run,
                 Course = Course.ValeOfYorkHalfMarathon,
